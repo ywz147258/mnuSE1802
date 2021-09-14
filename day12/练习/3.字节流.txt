@@ -1,3 +1,9 @@
 1.用字节流拷贝txt文件
 
 2.用bufferedInputStream和bufferedOutputStream 完成图片的复制
+
+3.复制文件夹
+步骤
+	1.用File类相关方法获取D盘下的某个文件夹下的所有文件（文档、图片、视频）
+	2.把这个文件夹连同文件一起复制到E盘下
+	

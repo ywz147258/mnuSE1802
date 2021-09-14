@@ -1,0 +1,32 @@
+1.字符流
+	writer
+		bufferedWriter
+	reader
+		bufferedReader
+
+字节流和字符流都建议用buffered，因为速度快
+
+
+2.字节流
+	outputStream
+		FileOutputStream   		从硬盘获取文档
+		BufferedOutPutStream	从缓存获取文档
+		ByteArrayOutputStream	
+			从缓存里读取文档后批量的存在一个地方，之前用BufferedOutPutStream，
+			都是读一行，用一行，没法储存。
+	inputStream
+		FileInputStream
+		BufferedInputStream
+		ByteArrayInputStream
+			配合ByteArrayOutputStream使用
+			用于读取
+
+FileOutputStream fos= new FileOutputStream(new File("F:\\闽南师范大学\\day12\\练习\\水浒传.txt"));
+BufferedOutputStream bos= new BufferedOutputStream(fos);
+缓存的字节流来自于硬盘，所以要先把文档放到硬盘里，再放到缓存里
+
+操作思路：
+	1.从文档里读取信息（不管是字节还是字符），存到硬盘里
+	2.再从硬盘里读取数据存到缓存里
+	3.再把缓存里的数据存到 ByteArrayOutputStream（前提是信息得是字节流）
+	4.如果要操作ByteArrayOutputStream，就用ByteArrayInputStream
