@@ -3,4 +3,17 @@
 	可以即时的上传代码和下载
 	我上传，你们下载
 
-2.首先安装git
+2.git使用流程
+	下载git安装包，安装git
+		https://www.git-scm.com/download/win
+	新建一个文件夹用于存放我们的代码和ppt等内容
+	在文件夹右键
+		点击git bash here
+	如果是首次下载代码
+		git clone https://github.com/ywz147258/mnuSE1802.git 
+		等待下载
+	如果是已经下载过
+		直接在新建的文件夹下，注意：会有一个 叫 .git 的隐藏文件夹
+			右键 点击 git bash here，黑框会再次出现
+				输入 git pull
+				此时代码就会更新到最新的
