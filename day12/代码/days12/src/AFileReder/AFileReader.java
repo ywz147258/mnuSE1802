@@ -26,7 +26,5 @@ public class AFileReader {
 //        }
         fr2.flush();
         fr2.close();
-
-
     }
 }
