@@ -1,0 +1,24 @@
+1.两种用法
+
+	//一个字一个字的读
+	//这种方式更倾向于原文章的结构不改变
+	FileReader fr1= new FileReader(new File("F:\\闽南师范大学\\day12\\练习\\三国演义.txt"));
+	int num =0;
+	while((num=fr1.read())!=-1){
+		
+	}
+	fr1.close;
+	
+	//按照char数组的长度，一段一段的读
+	//缺点是不足1024，会强行的往文字加null，补齐1024
+	//这种用法更倾向于读取数据并处理
+	FileReader fr1= new FileReader(new File("F:\\闽南师范大学\\day12\\练习\\三国演义.txt"));
+	char[] ch= new char[1024];
+	while((fr1.read(ch))!=-1){
+		
+	}
+	fr1.close;
+	
+	
+
+	
