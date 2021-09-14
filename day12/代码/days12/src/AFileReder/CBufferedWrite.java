@@ -34,7 +34,7 @@ public class CBufferedWrite {
             bw.newLine();
         }
         bw.flush();
-        bw.close();;
+        bw.close();
         fw.close();
         br.close();
         fr.close();

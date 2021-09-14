@@ -17,7 +17,7 @@ public class AFileReader {
         while((num=fr1.read())!=-1){
             fr2.write((char)num);
         }
-        //第二种会加null进去
+//        //第二种会加null进去
 //        char[] chars=new char[1024];
 //        while((fr1.read(chars))!=-1){
 //            System.out.println(chars);
