@@ -1,0 +1,20 @@
+1.分布式数据库操作需要用到序列化
+
+jdbc
+mybatis
+hibernate
+
+
+2.transient 
+	防止 某个字段被序列化
+	
+3.writeObject readerObject 
+	即使加了transient也能被序列化
+	类似于 get和set
+		get和set是用于平时操作对象的属性
+			比如说脱敏
+		
+		writeObject和readerObject 用于序列化时对属性的操作
+4.writeExternal readerExternal
+	这两个和 writeObject readerObject 
+		要实现Externalizable

@@ -1,9 +1,8 @@
-package BSerializable;
+package ASerializable;
 
 import java.io.*;
-import java.util.Objects;
 
-public class Main {
+public class PersonMain {
     public static void main(String[] args) throws Exception{
         byte[] bts= objectCopyToByteArray();
         readObjectByteArray(bts);
@@ -20,8 +19,6 @@ public class Main {
         oos.writeObject(person);
         oos.close();
 
-
-
         //2.从文档里读取信息，并转成对象
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(("F:\\闽南师范大学\\day12\\练习\\person.txt")));
         Person person1 = (Person) ois.readObject();
@@ -29,7 +26,7 @@ public class Main {
     }
 
     /**
-     * 存储对象到字节流
+     * 存储对象到字节流，序列化
      */
     public static byte[] objectCopyToByteArray() throws Exception{
         Person person= new Person("游文智","男");

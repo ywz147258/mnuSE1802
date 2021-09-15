@@ -1,0 +1,24 @@
+1.字符流
+writer
+	FileWriter
+	BufferedWriter
+reader
+	FileReader
+	BufferedReader
+
+2.字节流
+OutputStream
+	FileOutoutStream		
+	BufferedOutoutStream  缓存 一行一行的写
+	ByteArrayOutputStream  全部写进去
+	ObjectOutputStream	对象转字节
+	
+
+InputStream
+	FileInputStream
+	BufferedFileInputStream 
+	ByteArrayInputStream	
+	ObjectInputStream	
+	
+
+先从硬盘读，读完放内存	
