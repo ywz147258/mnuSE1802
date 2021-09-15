@@ -27,6 +27,27 @@
 3.数据库的操作语法
 DDL(不需要掌握，只需要熟悉)
 	定义数据库的结构，包括表的结构
+	我们建表建库通常不用代码，用的是可视化工具（navicate）
+	如果没有可视化工具的情况下，我们只能用dos界面来进行数据的操作
+	创建数据库
+		create database mnu2 default charset utf8mb4;
+	查看所有表,所有库
+		show databases;
+		use mnu2;
+		showtables;
+	删除数据库
+		drop database 数据库名字；
+	
+	创建表
+		create table project(
+			id int PRIMARY key  AUTO_INCREMENT,
+			name varchar(255) not null COMMENT '名字',
+		)  COMMENT='学生表';
+		
+	
+
+	有些时候是没有可视化工具可以使用的，所以还得知道一些ddl的用法。
+
 	
 DML(我们重点要掌握)
 	增删改查
@@ -35,7 +56,11 @@ DCL(知道就行，连熟悉都不用)
 	类似linux的权限操作
 
 
-
+4.建表冷知识
+	为什么有的字段明明是中文，却用int
+		存字符串占用空间大，还是存int占用空间大，很明显是 字符串空间大
+		设计表的原则之一，就是尽量用小的空间存最大的数据，这时候数据字典（枚举）的使用就特别的重要
+	不论什么表，第一个字段一定是id,类型int，设为主键，并且自动增长
 
 
 

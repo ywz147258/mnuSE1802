@@ -2,3 +2,12 @@
 	mysql启动
 	打开navicate
 	用navicate链接mysql，并创建一个 uf8mb4的数据库
+	
+2.用DDL创建一个数据库，并创建表，字段和表要求要有注释
+
+数据库格式为 UTF8MB4
+库名叫		market
+表名叫		goods
+	id		整型 自增长 主键 
+	name	字符
+	price	整型
