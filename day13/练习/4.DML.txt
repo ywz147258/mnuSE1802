@@ -1,0 +1,17 @@
+1.建四张表
+stduent 学生表
+	sno			学生编号
+	sname		学生姓名
+	
+score 成绩表
+	score		分数
+	sno			学生编号
+	cno			科目编号
+
+course 科目表
+	cno			科目编号
+	cname		科目名称
+
+teacher 教师表
+	tno			教师编号
+	cno			科目名称
