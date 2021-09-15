@@ -1,0 +1,18 @@
+1.插入
+	insert into 表名(字段) values(值)
+	插入单条
+		insert into student(name,class_id,del,sex) values('小明',1,0,1)
+	插入多条
+		insert into student(name,class_id,del,sex) values('大明',1,0,1),('小王',1,0,1)
+	把一张的数据插入到另一张表	
+		insert into student_property(name,sex) select name,sex from student;
+		
+2.删除
+	delete from student where ....
+	尽量不要物理删除，把表里的del字段改成1(逻辑删除)
+	
+3.改
+	update table set column= where
+	update person set name = 'annys' where name ='anny'
+
+	update student set del=1 where name ='ywz'	
