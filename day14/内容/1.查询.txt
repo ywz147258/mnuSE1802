@@ -1,0 +1,52 @@
+1.select * from 表名
+	select * from student where del=0
+	select name,id from student where del=0
+2.取别名
+	select name as '名字' from student s where s.del=0
+	何时对表取别名
+		当多表查询的时候
+	不加as也可以取别名，用空格代替as
+
+3.where用法
+	1.比较运算符
+		select * from student where name = '亚索';
+		select * from grade where score>60;
+		select * from grade where score>=60;
+	2.where 关键字
+		1.bettween and   在某个范围内
+			#查询分数为60 到 80分的学生
+			select * from grade where score BETWEEN 60 and 80;
+		2.in 在 限定的集合中搜索
+			# in 参数的个数是有上限的，上线应该是不到2000
+			select * from grade where score in (60,70,80,90,50);
+	3.like 模糊搜索
+		% 是通配符
+		
+		#查询讲师里姓游 
+		select * from teacher where name like '游%';
+		#查询名字叫司马
+		select * from teacher where name like '%司马';
+		#查询名字包含 文
+		select * from teacher where name like '%文智%';
+		
+		全文索引一般配合like使用
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
