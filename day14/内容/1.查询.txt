@@ -105,6 +105,9 @@
 			student_id
 		ORDER BY avg( score ) desc
 		
+	聚合是一种思维，先分组再统计的思维。
+	不论是mysql、SQL server、orcale，都是用group by，es虽然不是用group by，但是es也是有聚合这种操作的。
+		
 8.case when
 	#显示学生的成绩，低于60分显示不急，高于60低于80 及格，高于80优秀。
 	SELECT
@@ -125,6 +128,8 @@
 	
 	#查询 3到5条
 	select * from grade limit 2,5	
+	
+	limit一定是写在最后面
 		
 		
 		
