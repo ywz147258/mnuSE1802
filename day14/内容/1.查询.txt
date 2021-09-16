@@ -41,7 +41,7 @@
 	#分数从低到高
 	select * from grade order by score asc;	
 
-5.统计函数
+5.统计(聚合)函数
 	#统计有多少个学生
 	select count(id) as '学生人数' from student;
 
@@ -63,11 +63,68 @@
 	
 	
 7.聚合
-	用聚合代替去重
+	分组后在进行统计函数的使用，不是对全表进行统计，而是对分组的数据进行统计。
+	比如说：
+		我要统计每个分数各有几个学生
+		select score,count(id) as '人数' from grade GROUP BY score
+		我要统计每个学生的平均分
+		select student_id,avg(score) from grade GROUP BY student_id
+		统计每个学生的总分
+		select student_id,sum(score) from grade group by student_id
+		输出学生的平均分，总分，最高分，最低分
+		#输出学生的平均分，总分，最高分，最低分
+		SELECT
+			student_id,
+			avg( score ) '平均分',
+			sum( score ) '总分',
+			max( score ) '最高分',
+			min( score ) '最低分',
+			count( score ) '科目数'
+		FROM
+			grade 
+		GROUP BY
+			student_id;
+		
+		
+		having：
+			having就是where，having是对分组后的数据进行筛选，where是分组前
+			#查询平均分大于60分的学生
+			select student_id,avg(score) from grade  GROUP BY student_id having avg(score) > 60
+		
+		#输出学生的平均分，总分，最高分，最低分，然后按照平均分进行排序，由高到低
+		SELECT
+			student_id,
+			avg( score ) '平均分',
+			sum( score ) '总分',
+			max( score ) '最高分',
+			min( score ) '最低分',
+			count( score ) '科目数'
+		FROM
+			grade 
+		GROUP BY
+			student_id
+		ORDER BY avg( score ) desc
+		
+8.case when
+	#显示学生的成绩，低于60分显示不急，高于60低于80 及格，高于80优秀。
+	SELECT
+	student_id,
+	score,
+	CASE
+		
+		WHEN score < 60 THEN '不及格' WHEN score >= 60 
+		AND score <= 80 THEN
+		'及格' ELSE '优秀' 
+	END AS '结果' 
+	FROM
+	grade
 	
-	去重跟聚合的区别
-		
-		
+9.limit
+	#查询前三条
+	select * from grade limit 3
+	
+	#查询 3到5条
+	select * from grade limit 2,5	
 		
 		
 		
