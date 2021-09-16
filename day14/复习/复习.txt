@@ -1,0 +1,51 @@
+1.ddl
+	删除库
+		drop database 数据库
+	建库
+		create database mnu2 default charset utf8mb4; 
+	建表
+		create table name(
+				
+		)
+	删表
+		drop table name;
+	
+	修改表结构
+		alter table name .....
+	
+2.dml
+	insert into tableName() values()
+	update table set column= where
+	delete from 
+		逻辑删除 	
+		物理删除 真的删了
+
+3.约束
+	为了表的完整性。
+		所谓完整性他并非很全面，很强大。而是能满足业务的逻辑需求。
+	主键
+	外键
+	自增长
+	非空
+	默认值
+	唯一约束
+	索引
+
+
+
+4.建表冷知识
+	每张表有一个字段是必须的 id int auto_increment primary key
+	还要再来一个 del ，用于逻辑删除
+	还要再来一个 create_time  这条数据填的时间
+		如果条件允许，还要再加一个 create_per(创建人id)
+		如果条件继续允许的话，还要再加一个 create_per_name(创建人id)
+	还要再来一个 delete_time  删除时间 
+		如果条件允许，还要再加一个 delete_per(删除人)
+	还要再来一个 update_time(这个非必须,如果有用到es，是要加update_time) 
+		如果条件允许，还要再加一个 delete_per(修改人)
+	为什么要这么详细呢？为了保证可以追溯。
+		
+		
+	
+	
+	
