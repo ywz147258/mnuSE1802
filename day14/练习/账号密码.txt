@@ -1,2 +1,2 @@
 userName=ywz
-passWord=123
+passWord=123456
