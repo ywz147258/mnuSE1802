@@ -11,7 +11,7 @@
  Target Server Version : 50617
  File Encoding         : 65001
 
- Date: 16/09/2021 08:57:26
+ Date: 16/09/2021 10:36:28
 */
 
 SET NAMES utf8mb4;
@@ -38,10 +38,10 @@ INSERT INTO `course` VALUES (0, 1, '英语', 0, '2021-09-16 08:44:19', NULL);
 INSERT INTO `course` VALUES (2, 2, '补刀', 0, '2021-09-16 08:44:19', NULL);
 
 -- ----------------------------
--- Table structure for score
+-- Table structure for grade
 -- ----------------------------
-DROP TABLE IF EXISTS `score`;
-CREATE TABLE `score`  (
+DROP TABLE IF EXISTS `grade`;
+CREATE TABLE `grade`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `student_id` int(11) NULL DEFAULT NULL COMMENT '学号 student表id',
   `course_id` int(11) NULL DEFAULT NULL COMMENT '科目id course 表 id',
@@ -50,14 +50,16 @@ CREATE TABLE `score`  (
   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `delete_time` datetime(0) NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of score
+-- Records of grade
 -- ----------------------------
-INSERT INTO `score` VALUES (1, 1, 1, '60', 0, '2021-09-16 08:42:50', NULL);
-INSERT INTO `score` VALUES (2, 1, 2, '80', 0, '2021-09-16 08:43:24', NULL);
-INSERT INTO `score` VALUES (3, 2, 1, '50', 0, '2021-09-16 08:43:49', NULL);
+INSERT INTO `grade` VALUES (1, 1, 1, '60', 0, '2021-09-16 08:42:50', NULL);
+INSERT INTO `grade` VALUES (2, 1, 2, '80', 0, '2021-09-16 08:43:24', NULL);
+INSERT INTO `grade` VALUES (3, 2, 1, '50', 0, '2021-09-16 08:43:49', NULL);
+INSERT INTO `grade` VALUES (4, 2, 2, '50', 0, '2021-09-16 10:11:01', NULL);
+INSERT INTO `grade` VALUES (5, 3, 1, '50', 0, '2021-09-16 10:14:29', NULL);
 
 -- ----------------------------
 -- Table structure for student

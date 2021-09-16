@@ -28,8 +28,45 @@
 		select * from teacher where name like '%司马';
 		#查询名字包含 文
 		select * from teacher where name like '%文智%';
+	4.空值
+		is null,is not null
+		select * from teacher where delete_time is not null
+	5.or,and,not
+		#查询被删除的学生，并且名字叫永恩
+		select * from student where del = 1 and  name ='永恩'
+4.升序 降序
+	asc desc
+	#分数从高到低
+	select * from grade order by score desc;
+	#分数从低到高
+	select * from grade order by score asc;	
+
+5.统计函数
+	#统计有多少个学生
+	select count(id) as '学生人数' from student;
+
+	#统计学生的平均分
+	select avg(score) from grade;
+
+	#查询分数最高
+	select max(score) from grade;
+
+	#查询分数最低
+	select min(score) from grade;
+
+	#统计总分
+	select sum(score) from grade;
+	
+6.去重
+	#分数去重
+	select distinct score from grade 
+	
+	
+7.聚合
+	用聚合代替去重
+	
+	去重跟聚合的区别
 		
-		全文索引一般配合like使用
 		
 		
 		
