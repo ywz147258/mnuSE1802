@@ -146,16 +146,19 @@
 	union all 
 		合并的时候不去重
 		
-11.exists（熟悉）
+11.exists
 	exists表示()内子查询语句返回结果不为空说明where条件成立就会执行主sql语句， 如果为空就表示where条件不成立，
 	sql语句就不会执行。not exists和exists相反， 子查询语句结果为空，则表示where条件成立，执行sql语句。否则不执行
 	
-	select * from teacher where exists(select id from teacher where name ='游文智1');
-		查不到数据，因为没有游文智1
-	select * from teacher where exists(select id from teacher where name ='游文智');
-		查得到数据，因为有游文智
+	# 查询 科目表里是刘德华老师的科目
+	select * from course c where exists (select 1 from teacher t where c.teacher_id=t.id and t.name in ('游文智','大司马'))
+	select * from course c where c.teacher_id in(select id from teacher where name in ('游文智','大司马'))
 	
-12.with（熟悉），mysql低版本没有
+	为什么推荐用exists不用in
+		因为子查询里如果没有结果，exists的父查询不会执行。如果是in的话，不管子查询有没有值，父查询都会执行。
+	
+	
+12.with(熟悉)
 	sqlserver 一般配合 with 做分页，因为sqlserver的分页特别麻烦。
 	WITH table1 AS ( SELECT * FROM grade WHERE score > 60 UNION SELECT * FROM grade WHERE score < 50 ) 
 	SELECT
