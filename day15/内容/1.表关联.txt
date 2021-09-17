@@ -37,5 +37,44 @@ select s.name,g.course_id,g.score from student s left join grade g on s.id=g.stu
 select s.name,g.course_id,g.score,g.student_id from student s right join grade g on s.id=g.student_id;
 
 -- 显示考过试的学生，显示课程（不管成绩表的课程编号是否能找对应的课程名称）
-select s.name,g.course_id,g.score,c.name as '课程' from student s inner join grade g on s.id=g.student_id
+-- 只显示分数大于60分
+select s.name,g.course_id,g.score,c.name as '课程' from student s inner join grade g on s.id=g.student_id 
+left join course c on g.course_id=c.id where g.score>60;
+
+-- 这种查询方式是错误的，会多出错误数据
+select s.name,g.course_id,g.score from student s left join grade g on s.id=g.student_id 
+and g.score>60
 left join course c on g.course_id=c.id;
+
+-- 这种方式是对的
+select s.name,g.course_id,g.score from student s left join grade g on s.id=g.student_id 
+left join course c on g.course_id=c.id where g.score>60;
+
+
+新案例：
+-- 输出 成绩表的 分数，要求显示 学生名字，和学生成绩
+select s.name,g.score from student s,grade g where s.id=g.student_id;
+
+-- 用inner join的方式进行查询
+select s.name,g.score from student s inner join grade g on s.id=g.student_id;
+
+-- inner join 的 on 是跟表链接条件，通常是主键和外键,可以直接跟筛选条件，也可以把筛选条件放where
+-- 筛选成绩大于50的
+select s.name,g.score from student s inner join grade g on s.id=g.student_id and g.score>50; 
+-- 最好是把关联条件写on，筛选条件写在where
+select s.name,g.score from student s inner join grade g on s.id=g.student_id where g.score>50; 
+
+-- 输出学生的姓名、成绩、课程名称
+select s.name,g.score,c.name from student s,grade g,course c where s.id=g.student_id and c.id=g.course_id;
+
+-- 输出学生的姓名、成绩、课程名称,筛选条件 分数大于50分
+select s.name,g.score,c.name from student s 
+inner join grade g  on s.id=g.student_id 
+inner join course c  on c.id=g.course_id
+where g.score>50;
+
+ 
+
+
+
+
