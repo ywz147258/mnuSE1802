@@ -1,0 +1,62 @@
+1.select * from table
+
+2.取别名
+	as
+	空格
+3.where 
+	逻辑运算 and or not
+	比较运算符
+4.union
+	两张表的数据强行合在一块
+	字段必须一样多
+		select 1+1
+		select now()
+	union all
+		不去重
+		
+5.limit
+	分页
+	
+6.case when	
+	case when	表达式
+	then 结果
+	when 表达式
+	then 结果
+	else	结果
+	end as ''
+	
+	if(){}else if(){}else
+	
+7.distinct
+
+8.聚合、统计函数
+count	统计条数
+max		
+min 
+avg		平均
+sum		求和
+
+9.group by
+	从结果上来看，跟去重一样，但是区别在于distinct直接把重复的内容抹去，groupby只是分组，内容仍然在内存里。
+	分组。
+	配合聚合函数使用
+		select count(1) from student //求整张表的条数
+		select count(1) from  grade group by student_id //求的是学生数量
+	分组思维不仅是用于 mysql，sqlserver，oracle，也是用于 es（非关系型数据库），es就不是用group by。
+	
+10.exisit
+	配合子查询使用
+		select * from grade where student_id in(select id from student)
+		select * from grade g where exisit(select 1 from student s where a.student_id =s.id)
+
+11.with(熟悉)
+with table as(select * from student)
+select  * from table
+
+12.升序 降序
+asc
+desc
+select * from student order by asc
+select * from student group by id order by id desc limit 3
+
+
