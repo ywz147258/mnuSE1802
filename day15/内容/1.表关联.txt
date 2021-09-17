@@ -10,3 +10,7 @@
 	-- 显示成绩表里的学生姓名和科目名称，输出 成绩表id，学生姓名，科目名称，成绩
 	select g.id,s.name as '学生姓名',c.name as '科目名称',g.score from grade g,student s,course c 
 	where g.student_id=s.id and g.course_id = c.id;
+	-- 显示成绩表里的学生姓名和科目名称，输出 成绩表id，学生姓名，科目名称，成绩，教师姓名
+	select g.id,s.name as '学生姓名',c.name as '科目名称',t.name as '教师姓名',g.score
+	from grade g,student s,course c,teacher t 	
+	where g.student_id=s.id and g.course_id = c.id and c.teacher_id=t.id

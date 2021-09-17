@@ -20,3 +20,43 @@ order by avg(g.score) desc
 limit 2,4
 
 2.在第一题的基础上，显示学生姓名和科目名称，可以的话把老师的名字的也显示出来
+SELECT
+	s.NAME AS '学生姓名',
+	c.NAME AS '科目名称',
+	t.name as '教师名称',
+	count( 1 ) AS '次数',
+	avg( g.score ) AS '平均分',
+	max( g.score ),
+	min( g.score ),
+CASE
+	WHEN avg( g.score ) < 60 THEN
+	'不及格' ELSE '及格' 
+	END AS '评价' 
+FROM
+	grade g,
+	student s,
+	course c,
+	teacher t
+WHERE
+	g.student_id = s.id 
+	AND g.course_id = c.id 
+	and c.teacher_id=t.id
+	AND EXISTS ( SELECT 1 FROM student s WHERE g.student_id = s.id AND s.del = 0 ) 
+GROUP BY
+	g.student_id,
+	g.course_id 
+ORDER BY
+	avg( g.score ) DESC 
+LIMIT 2,4
+
+3.筛选出大司马教的学生，输出教师编号，教师姓名，学生编号，学生姓名
+
+4.筛选出不是游文智教的学生，输出教师编号，教师姓名，学生编号，学生姓名
+
+5.筛选出英语考了80分以上的学生，学生编号，学生姓名，学生成绩。有一个前提，你不知道英语的编号
+
+6.得出刘德华老师和游文智老师教的学生里平均分大于100分的学生，输出教师编号，教师姓名，学生编号，学生姓名，学生平均分
+	要求用 exists和in各写一个sql
+
+
+
