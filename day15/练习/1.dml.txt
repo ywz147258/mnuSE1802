@@ -92,5 +92,22 @@ and g.score>80 and s.id=g.student_id
 	where g.course_id=c.id and c.teacher_id=t.id and s.id=g.student_id and t.name in ('刘德华','游文智')
 	group by s.id,c.id having avg(g.score) >100
 
+7.查询001课程比002课程成绩高的所有学生的学号
+SELECT
+	a.student_id,
+	a.course_id AS 'acourseId',
+	b.course_id AS 'bcourseId',
+	a.id,
+	a.score AS 'ascore',
+	b.score AS 'bscore' 
+FROM
+	( SELECT student_id, score, course_id, id FROM grade WHERE course_id = 1 ) a,
+	( SELECT student_id, score, course_id, id FROM grade WHERE course_id = 2 ) b 
+WHERE
+	a.student_id = b.student_id 
+	AND a.score > b.score;
+	
+select * from grade g1,grade g2 where g1.student_id=g2.student_id
+and g1.course_id and g2.course_id=2 and g1.score>g2.score
 
 

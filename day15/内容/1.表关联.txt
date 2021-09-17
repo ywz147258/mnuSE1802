@@ -14,3 +14,28 @@
 	select g.id,s.name as '学生姓名',c.name as '科目名称',t.name as '教师姓名',g.score
 	from grade g,student s,course c,teacher t 	
 	where g.student_id=s.id and g.course_id = c.id and c.teacher_id=t.id
+	
+2.子查询
+	所谓子查询就是在sql里面在写一个sql
+	#可以当成条件
+		select * from student where id in(select student_id from grade)
+	#可以当场表
+		select a.id from (select id from student) a
+	#可以当成字段
+		select (select id from student limit 1) from student;
+	能一个select搞定的业务，就不要用多个
+	
+3.内外关联
+案例：
+-- 查询出所有学生的成绩,只能显示 有参加过考试的学生
+select s.name,g.course_id,g.score from student s,grade g where s.id=g.student_id;
+
+-- 查询出所有学生的成绩，哪怕是有的学生没考过试
+select s.name,g.course_id,g.score from student s left join grade g on s.id=g.student_id;
+
+-- 显示所有有考试的学生编号，哪怕改变号没有对应的学生
+select s.name,g.course_id,g.score,g.student_id from student s right join grade g on s.id=g.student_id;
+
+-- 显示考过试的学生，显示课程（不管成绩表的课程编号是否能找对应的课程名称）
+select s.name,g.course_id,g.score,c.name as '课程' from student s inner join grade g on s.id=g.student_id
+left join course c on g.course_id=c.id;
