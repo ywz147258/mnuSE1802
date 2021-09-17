@@ -73,6 +73,17 @@ inner join grade g  on s.id=g.student_id
 inner join course c  on c.id=g.course_id
 where g.score>50;
 
+4.外关联
+-- 显示所有学生的成绩，哪怕这个学生没有成绩
+-- 如果没有成绩，就显示无
+select s.name,c.name,
+case when 
+g.score is null
+then '无'
+else g.score 
+end as 成绩
+from student s left join grade g on s.id=g.student_id
+left join course c on g.course_id=c.id;
  
 
 
