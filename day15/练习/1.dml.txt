@@ -50,13 +50,47 @@ ORDER BY
 LIMIT 2,4
 
 3.筛选出大司马教的学生，输出教师编号，教师姓名，学生编号，学生姓名
+SELECT
+	t.id '教师编号',
+	t.NAME '教师姓名',
+	s.id '学生编号',
+	s.NAME '学生姓名' 
+FROM
+	student s,
+	grade g,
+	course c,
+	teacher t 
+WHERE
+	s.id = g.student_id 
+	AND g.course_id = c.id 
+	AND c.teacher_id = t.id 
+	AND t.NAME = '大司马';
 
 4.筛选出不是游文智教的学生，输出教师编号，教师姓名，学生编号，学生姓名
+select * from student where id not in
+(SELECT
+	distinct s.id
+FROM
+	student s,
+	grade g,
+	course c,
+	teacher t 
+WHERE
+	s.id = g.student_id 
+	AND g.course_id = c.id 
+	AND c.teacher_id = t.id 
+	AND t.NAME = '游文智')
+
 
 5.筛选出英语考了80分以上的学生，学生编号，学生姓名，学生成绩。有一个前提，你不知道英语的编号
+select s.id,s.name,g.score,c.name from grade g,course c,student s where g.course_id=c.id and c.name='英语'
+and g.score>80 and s.id=g.student_id
 
 6.得出刘德华老师和游文智老师教的学生里平均分大于100分的学生，输出教师编号，教师姓名，学生编号，学生姓名，学生平均分
 	要求用 exists和in各写一个sql
+	select avg(g.score),c.name,t.name,t.id,s.name from grade g,course c,teacher t,student s
+	where g.course_id=c.id and c.teacher_id=t.id and s.id=g.student_id and t.name in ('刘德华','游文智')
+	group by s.id,c.id having avg(g.score) >100
 
 
 
