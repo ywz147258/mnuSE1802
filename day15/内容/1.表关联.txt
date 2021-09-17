@@ -1,0 +1,12 @@
+1.表关联
+	正常情况下，两张表关联，条件都是用外键
+	-- 显示成绩表里的学生姓名
+	select s.name,s.id,g.score,g.course_id from grade g,student s 
+	where g.student_id=s.id
+
+	-- 显示成绩表里的科目名称
+	select g.student_id,g.course_id,c.name,g.score from grade g,course c where g.course_id=c.id;
+
+	-- 显示成绩表里的学生姓名和科目名称，输出 成绩表id，学生姓名，科目名称，成绩
+	select g.id,s.name as '学生姓名',c.name as '科目名称',g.score from grade g,student s,course c 
+	where g.student_id=s.id and g.course_id = c.id;

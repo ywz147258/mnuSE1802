@@ -6,3 +6,17 @@ exists
 group by 
 case when
 limit
+
+select g.student_id,g.course_id,count(1) as '次数',
+avg(g.score) as '平均分',max(g.score),min(g.score),
+case when
+	avg(g.score) <60
+	then '不及格'
+	else '及格'
+	end as '评价'
+from grade g where exists(select 1 from student s where g.student_id=s.id and s.del=0)
+GROUP BY g.student_id,g.course_id 
+order by avg(g.score) desc
+limit 2,4
+
+2.在第一题的基础上，显示学生姓名和科目名称，可以的话把老师的名字的也显示出来
