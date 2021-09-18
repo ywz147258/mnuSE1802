@@ -1,5 +1,5 @@
 ﻿1、查询001课程比002课程成绩高的所有学生的学号；
-
+	
 2、查询平均成绩大于60分的同学的学号和平均成绩；
 	SELECT
 		student_id,
@@ -9,6 +9,50 @@
 	GROUP BY
 		student_id;
 3、查询所有同学的学号、姓名、选课数、总成绩；
+	-- 先统计考过试的学生,得出学生考过的科目数
+	-- 再统计考过试的学生,得出学生的总分
+	-- 再把以上的两个结果进行关联，就能得出 学生选修了几门,总分
+	-- 最后在以student为主表，把没参加过考试的学生也显示出来.
+	-- 以下写法的前提是 一个学生一门课程可以考多次
+	select 
+		s.id as '学号',
+		s.name as '姓名',
+		b.counts as '选课数',
+		c.sums as '总成绩'
+		from
+		student s left join 
+		(
+			select s.id as sid,
+			s.name,
+			count(1) as counts
+			from student s inner join (	
+					SELECT
+						s.id
+					FROM
+						student s
+						inner JOIN grade g ON s.id = g.student_id
+					GROUP BY s.id,g.course_id
+			) a on s.id= a.id
+			group by s.id	
+		) b on s.id=b.sid
+		left join (
+			select sum(score) as sums,student_id as sid from grade group by student_id
+		) c on b.sid=c.sid
+		
+	-- grade 一个学生一门课程只能考一次
+	SELECT
+		s.id as '学号',
+		s.NAME '姓名',
+		case when sum( g.score ) is null
+		then '0'
+		else count( 1 ) end
+		as  '选课数',
+		sum( g.score ) '总成绩'
+	FROM
+		student s
+		LEFT JOIN grade g ON s.id = g.student_id 
+	GROUP BY
+		s.id;
 
 4、查询姓“李”的老师的个数；
 	selec count(1) from teacher where name like ='李%'
