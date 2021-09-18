@@ -1,0 +1,152 @@
+﻿
+1、查询001课程比002课程成绩高的所有学生的学号；
+
+select sc1.sno from score sc1,score sc2 where sc1.sno=sc2.sno and sc1.cno="001" and sc2.cno="002" and sc1.score>sc2.score;
+
+
+2、查询平均成绩大于60分的同学的学号和平均成绩；
+
+select sc.sno,avg(sc.score) from score sc group by sc.sno having avg(sc.score)>80;
+
+3、查询所有同学的学号、姓名、选课数、总成绩；
+
+select sc.sno,st.sname,count(sc.cno),sum(sc.score) from score sc,student st where st.sno=sc.sno group by sc.sno;
+select sc.sno,st.sname,sc.cno,sc.score from score sc,student st where st.sno=sc.sno group by sc.sno;
+
+4、查询姓“李”的老师的个数；
+
+select count(te.tname) from teacher te where tname like "李%";
+
+5、查询没学过“叶平”老师课的同学的学号、姓名；
+
+select sno,sname from student where sno not in (select sc.sno from score sc,course co,teacher te where sc.cno=co.cno and co.tno=te.tno and te.tname="李老师")
+
+6、查询学过“001并且也学过编号002”课程的同学的学号、姓名；
+
+select sc1.sno,st.sname from score sc1,score sc2,student st where sc1.sno=sc2.sno and sc1.cno="001" and sc2.cno="002" and sc1.sno=st.sno;
+
+7、查询学过“叶平”老师所教的所有课的同学的学号、姓名；
+/*1.先把xx老师所教课拿出来*/
+select * from course co,teacher te where co.t=te.t and te.tname='路飞';
+
+/*2.拿出学生所学的课程*/
+select * from student st,sc sc,course co where st.s=sc.s and sc.c=co.c and co.c 
+
+/*3.通过group by s 合并列，并计算出每列的个数,然后判断每列的个数是否为2*/
+select * from student st,sc sc,course co where st.s=sc.s and sc.c=co.c and co.c 
+in (select co.c from course co,teacher te where co.t=te.t and te.tname='路飞')
+group by st.s having count(st.s)=(select count(co.c) from course co,teacher te where co.t=te.t and te.tname='路飞');
+
+
+8、查询课程编号001的成绩比课程编号002课程低的所有同学的学号、姓名；
+select sc1.sno from score sc1,score sc2 where sc1.sno=sc2.sno and sc1.cno="001" and sc2.cno="002" and sc1.score<sc2.score;
+
+
+9、查询所有课程成绩小于80分的同学的学号、姓名；
+
+select sno from score where score>=80;
+select sno,sname from student where sno not in (select sno from score where score>=80)
+
+
+10、查询没有学全所有课的同学的学号、姓名；
+
+select st.sno,st.sname from student st,score sc where st.sno=sc.sno group by sc.sno having count(sc.cno)!=6;
+
+
+11、查询至少有一门课与学号为1001的同学所学相同的同学的学号和姓名;
+select cno from score where sno="0001"
+select st.sno,st.sname from student st,score sc where st.sno=sc.sno and sc.cno in (select cno from score where sno="0001") and st.sno!="0001" group by st.sno
+
+12、查询至少学过学号为1001同学所有课的其他同学学号和姓名;
+
+/*1.拿出xxx同学所学过的课程*/
+select co.c from student st,sc sc,course co where st.s=sc.s and co.c=sc.c and st.Sname='杨过';
+
+/*2拿出所有同学所学过的课程*/
+select * from student st,sc sc,course co where st.s=sc.s and co.c=sc.c and st.Sname!='杨过';
+
+/*3.通过group by st.s 合并列，并计算出每列的个数,然后判断每列的个数是否为xx同学所学的课程数*/
+select * from student st,sc sc,course co where st.s=sc.s and co.c=sc.c and st.Sname!='杨过'
+and co.c in(select co.c from student st,sc sc,course co where st.s=sc.s and co.c=sc.c and st.Sname='杨过')
+group by st.s HAVING 
+count(st.s)>=(select count(co.c) from student st,sc sc,course co where st.s=sc.s and co.c=sc.c and st.Sname='杨过')
+
+13.把sc表中叶平老师教的课程的成绩都改为此课程的平均成绩
+
+/*1查出xx老师所教的课程*/
+select * from course co,teacher te where co.t=te.t and te.tname='路飞';
+
+/*2。先把成绩表的每门课程的平均分都算出来，然后再添加 xx老师所教课的课程的条件*/
+select co.c,avg(sc.score) from sc sc,teacher te,course co where sc.c= co.c and te.t=co.t 
+and co.c 
+in(select co.c from course co,teacher te where co.t=te.t and te.tname='路飞')
+group by co.c
+
+/*单条数据写法，多条数据需要用到存储过程*/
+update sc sc,teacher te,course co set sc.score=(
+   select b1.result from (select avg(sc.score) as result from sc sc,teacher te,course co where sc.c= co.c and te.t=co.t 
+		and co.c 
+		in(select co.c from course co,teacher te where co.t=te.t and te.tname='路飞')
+		group by co.c) b1
+)where sc.c= co.c and te.t=co.t and te.tname='路飞'
+
+14.查询和学号为1002同学学习的课程完全相同的其他同学学号和姓名；
+写法和 7 12 一样
+
+
+15、删除学习“王老师”老师课的SC表记录;
+delete from sc
+using sc,teacher,course
+where teacher.tname='王老师' and teacher.tno=course.ctno and course.cno=sc.pno
+
+17、按平均成绩从高到低显示所有学生的“数据库”、“企业管理”、“英语”三门的课程成绩，按如下形式显示：学生ID,,数据库,企业管理,英语,有效课程数,有效平均分；
+
+select student.sno,t1.score as '数据库',t2.score as '企业管理',t3.score as '英语',count(t.pno),avg(t.score)
+from student
+left join (select sc.sno,sc.pno,course.cname,sc.score
+from sc,course
+where sc.pno=course.cno and course.cname in ('数据库','企业管理','英语'))t
+on student.sno=t.sno
+left join (select student.sno,course.cname,sc.score
+from student,course,sc
+where course.cname='数据库' and course.cno=sc.pno and sc.sno=student.sno)t1
+on student.sno=t1.sno
+left join (select student.sno,course.cname,sc.score
+from student,course,sc
+where course.cname='企业管理' and course.cno=sc.pno and sc.sno=student.sno)t2
+on student.sno=t2.sno
+left join (select student.sno,course.cname,sc.score
+from student,course,sc
+where course.cname='英语' and course.cno=sc.pno and sc.sno=student.sno)t3
+on student.sno=t3.sno
+group by student.sno
+order by avg(t.score) desc;
+
+18、查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分；
+select c as '编号', max(score) as '最高分',min(score) as '最低分' from sc group by c
+
+19、按各科平均成绩从低到高和及格率的百分数从高到低顺序；
+select * from 
+(select c,avg(score) as tt from sc group by sc.c order by tt) b1,
+(select (jg.re/alls.re) as jgl,alls.c from 
+(select count(*) as re,c from sc where sc.score>=60 group by c) jg right join
+(select count(*) as re,c from sc group by c) alls
+on alls.c=jg.c order by jgl)b2 where b1.c=b2.c order by b1.tt asc,b2.jgl desc;
+
+SELECT t.C AS '课程号',max(course.Cname)AS '课程名',ifnull(AVG(score),0) AS '平均成绩'
+,100 * SUM(CASE WHEN ifnull(score,0)>=60 THEN 1 ELSE 0 END)/COUNT(*) AS '及格百分数'
+FROM SC T,Course 
+where t.C=course.C 
+GROUP BY t.C 
+ORDER BY 100 * SUM(CASE WHEN ifnull(score,0)>=60 THEN 1 ELSE 0 END)/COUNT(*) asc 
+
+
+20、查询如下课程平均成绩和及格率的百分数: 企业管理（C#为001）平均分，企业管理及格百分数，马克思平（C#为002）均分，马克思及格百分数，UML（C#为003）平均分，UML及格百分数，数据库平均分（C#为004），数据库及格百分数
+
+SELECT t.c,course.Cname,
+(sELECT AVG(score.score) from score where  score.c=t.c GROUP BY c) as '平均分',
+SUM(CASE WHEN  t.score>=60 THEN 1 ELSE 0 END)/COUNT(t.C)*100 AS '及格百分数'
+from score t,course
+where t.c=course.c and t.c in (1,2,3,4)
+GROUP BY t.c
+
