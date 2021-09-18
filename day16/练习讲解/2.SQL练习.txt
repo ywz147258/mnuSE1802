@@ -1,15 +1,26 @@
-﻿
-1、查询001课程比002课程成绩高的所有学生的学号；
+﻿1、查询001课程比002课程成绩高的所有学生的学号；
 
 2、查询平均成绩大于60分的同学的学号和平均成绩；
-
+	SELECT
+		student_id,
+		avg( score ) AS '平均分' 
+	FROM
+		grade 
+	GROUP BY
+		student_id;
 3、查询所有同学的学号、姓名、选课数、总成绩；
 
 4、查询姓“李”的老师的个数；
+	selec count(1) from teacher where name like ='李%'
 
 5、查询没学过“叶平”老师课的同学的学号、姓名；
+	select  s.name,s.id from grade g,student s where g.course_id not in(
+		select c.id from course c,teacher t where c.teacher_id=t.id and t.name='游文智'
+	) and s.id=g.student_id
+	group by s.id
 
-6、查询学过“001并且也学过编号002”课程的同学的学号、姓名； from score sc1,score sc2,student st where sc1.sno=sc2.sno and sc1.cno="001" and sc2.cno="002" and sc1.sno=st.sno;
+
+6、查询学过“001并且也学过编号002”课程的同学的学号、姓名；
 
 7、查询学过“叶平”老师所教的所有课的同学的学号、姓名；
 
