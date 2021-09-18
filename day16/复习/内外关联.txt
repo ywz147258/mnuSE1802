@@ -1,0 +1,58 @@
+1.内关联
+	select * from student s,grade g where s.id= g.student_id;
+	所有的表关联都是要有关联条件的，如果不加会有数据冗余，会把两张表的条数相乘
+	关联条件是两张表的外键主键相等。
+	为什么要关联？
+		因为不是所有的数据都会存在一张表里，为了数据的快速读取和写入，通常都会分表。
+		如果把A表的数据写死在B，一旦A表的数据被改变，B表的数据是无法及时进行更改的，
+		会导致B的数据是错误。
+		案例：
+			学生表 student
+				id
+				name 
+				sex
+				age
+			student_property
+				id
+				adress
+				studyLevel
+				father
+				mother
+				student_id
+			
+			select b.mother student a,student_property b where a.id=b.student_id
+					
+	要求：显示学生的成绩和名字，筛选出分数大于50分
+		select s.name,g.score from grade g inner join student s on s.id=g.student_id 
+		where g.score>50;
+		
+		inner join 和 自动连表(,)的使用区别
+			1. ,要换成 inner join
+			2. 关联条件要放在 on 而非 where
+			3.筛选条件不能放on 放 where
+			4.inner join一次，就必须有一个on
+			
+	要求：显示学生的成绩和名字和学科名字，筛选出分数大于50分
+		SELECT
+			s.NAME,
+			g.score,
+			c.NAME 
+		FROM
+			grade g
+			INNER JOIN student s ON s.id = g.course_id
+			INNER JOIN course c ON g.course_id = c.id 
+		WHERE
+			g.score > 50;
+			
+	总结：
+		内关联就是 两张表的主键、外键进行匹配后，取交集 的 结果
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		
