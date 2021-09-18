@@ -46,8 +46,58 @@
 			
 	总结：
 		内关联就是 两张表的主键、外键进行匹配后，取交集 的 结果
+
+2.外关联
+	1. left join,right join
+	2.join 完后 一定跟 on
+	3.on 后跟主键和外键进行匹配
+	4.筛选条件放 where
+	
+	解释：
+		以两张表中的一张为主表，主表的信息全部展示。
+		跟inner join不一样，inner join 取的两张表交叉的部分，而left（right）join取的是其中一张表的全部，
+		另一张表作为辅助。
+
+	-- 所有学生的成绩，哪怕这个学生没有考过试，我也要展示，如果没有考过 就显示0分
+	-- 学生姓名，考试科目，分数
+	SELECT
+		s.NAME AS '学生姓名',
+		g.course_id,
+	CASE
+		
+		WHEN g.score IS NULL THEN
+		0 ELSE g.score 
+		END AS '分数' 
+	FROM
+		student s
+		LEFT JOIN grade g ON s.id = g.student_id;
+		
+	-- 显示所有学科的分数，哪怕该学科没有人考过试，学生姓名 显示无，分数无
+	-- 学生姓名，考试科目，分数
+	SELECT
+		c.NAME AS '科目名称',
+	CASE
 			
-			
+			WHEN s.NAME IS NULL THEN
+			'无' ELSE s.NAME 
+		END AS '学生姓名',
+		g.score AS '分数' 
+	FROM
+		course c
+		LEFT JOIN grade g ON c.id = g.course_id
+		LEFT JOIN student s ON s.id = g.student_id;
+		
+	-- 显示所有老师教过的科目，如果有的老师一个科目都没交过，科目显示无
+	-- 老师名字，科目名称
+	SELECT
+		t.NAME,
+		case when 
+		c.NAME is null
+		then '无' ELSE c.NAME
+		end as '学科名称'
+	FROM
+		teacher t
+	LEFT JOIN course c ON t.id = c.teacher_id;
 			
 			
 			

@@ -40,10 +40,42 @@
 	如果有的学生没有成绩，则成绩显示无
 	如果有的科目没有学生，学生姓名显示无
 	要求输出的字段为 学生姓名，学科名称，成绩
+	SELECT
+		s.NAME as '学生姓名',
+		c.NAME as '科目名称',
+		g.score as '成绩'
+	FROM
+		student s
+		LEFT JOIN grade g ON s.id = g.student_id
+		LEFT JOIN course c ON c.id = g.course_id
+	UNION
+	SELECT
+		s.NAME as '学生姓名',
+		c.NAME as '科目名称',
+		g.score as '成绩'
+	FROM
+		student s
+		LEFT JOIN grade g ON s.id = g.student_id
+		right JOIN course c ON c.id = g.course_id	
+	
 	
 5.输出 所有学生和所有科目的成绩，要求显示 分数大于60分，如果有成绩却找不到对应科目，则不显示该数据。
 	显示字段 学生姓名，学科名称，成绩
 
+	select s.name,g.score from student s left join grade g on s.id=g.student_id
+	left join course c on c.id=g.course_id
+	where g.score>60	
+	
+
 6.输出选修过游文智和周杰伦老师课程的学生
 科目平均分必须是大于60分，如果只有成绩没有学生，则学生姓名显示无。
 	显示字段 教师姓名，学生姓名，科目名称，平均分
+	select s.name,c.name,avg(g.score) from course c inner join teacher t on c.teacher_id=t.id
+	left join grade g on g.course_id=c.id
+	left join student s on s.id=g.student_id
+	where t.name in  ("游文智","周杰伦")
+	group by s.id,c.id
+	having avg(g.score)>60
+	
+	
+	
