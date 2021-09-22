@@ -113,18 +113,51 @@ on s.id=t2.student_id
 left join (select * from grade where course_id=6) t3 -- 1 2
 on s.id=t3.student_id;
 
+-- 能不用子查询就不用子查询,因为子查询费资源
+select s.name,g1.score,g2.score,g3.score from student s
+ left join grade g1 on s.id=g1.student_id and g1.course_id=1
+ left join grade g2 on s.id=g2.student_id and g2.course_id=5
+ left join grade g3 on s.id=g3.student_id and g3.course_id=6;
+
+
 -- 4.单纯用第三步 是算不出平均分的，所以平均分另算
 select student_id,avg(score) from grade where course_id in(1,5,6) GROUP BY student_id;
 
 -- 5.再把第三步和第四步所得到两个结果进行子查询合并
 
-
 18、查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分；
+select course_id,max(score),min(score) from grade GROUP BY course_id
 
 19、按各科平均成绩从低到高和及格率的百分数从高到低顺序；
+-- 19、按各科平均成绩从低到高和及格率的百分数从高到低顺序；
 
-20、查询如下课程平均成绩和及格率的百分数: 企业管理（C#为001）平均分，企业管理及格百分数，马克思平（C#为002）均分，
-马克思及格百分数，UML（C#为003）平均分，UML及格百分数，数据库平均分（C#为004），数据库及格百分数
+-- 查询平均分
+select course_id,AVG(score),COUNT(1)
+from grade GROUP BY course_id ORDER BY AVG(score) desc
+
+-- 及格人数拿出来
+select course_id,count(1) from grade where score>=60 group by course_id;
+-- 每门课程的所考人数拿出来
+select course_id,count(1) from grade group by course_id;
+-- 子查询合并
+select a.course_id,a.counts,b.counts,a.counts/b.counts from 
+(select course_id,count(1) as counts from grade where score>=60 group by course_id) a,
+(select course_id,count(1)  as counts from grade group by course_id) b where a.course_id=b.course_id
+
+-- 把平均分和及格率再合一次
+select t1.course_id,t1.t1Avg,t2.jgl from 
+(select course_id,AVG(score) as t1Avg,COUNT(1) from grade GROUP BY course_id ORDER BY AVG(score) desc) t1,
+(
+select a.course_id,a.counts as acounts,b.counts as bcounts,a.counts/b.counts as jgl from 
+	(select course_id,count(1) as counts from grade where score>=60 group by course_id) a,
+	(select course_id,count(1) as counts from grade group by course_id) b 
+	where a.course_id=b.course_id
+) t2
+where t1.course_id=t2.course_id
+order by t1.t1Avg asc,t2.jgl desc
+
+20、查询如下课程平均成绩和及格率的百分数: 英语（1）平均分，英语及格百分数，物理（5）平均分，
+物理及格百分数，语文（6）平均分，语文及格百分数，数学平均分（4），数学及格百分数
 
 
 
