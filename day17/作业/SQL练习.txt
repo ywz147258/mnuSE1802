@@ -8,6 +8,12 @@
 4、查询姓“李”的老师的个数；
 
 5、查询没学过“叶平”老师课的同学的学号、姓名；
+ select * from student where id not in(
+  select  s.id from grade g,student s where g.course_id  in(
+	 select c.id from course c,teacher t where c.teacher_id=t.id and t.name='游文智'
+	) and s.id=g.student_id
+	group by s.id
+ )
 
 6、查询学过“001并且也学过编号002”课程的同学的学号、姓名；
 select * from grade g1,grade g2 where g1.student_id=g2.student_id

@@ -1,0 +1,27 @@
+1.
+(1) 年龄  		int 
+(2) 价格		decimal
+(3) 手机号		varchar
+(4) 身份证号	varchar
+(5) 出生日期	date
+(6) 订单时间	datetime
+(7) 籍贯		varchar
+(8) 性别		tinyint
+(9) 图片:通常存储图片的路径  varchar
+		如果存储图片的二进制	blob
+(10) 文章	text
+(11) 状态/角色	varchar
+
+2.想一下哪一些表可以设计成多对多
+	车长表、站点表
+	
+3.设计以下系统的表，选其中一套设计
+	聊天项目
+		用户
+			id
+			name
+			headImg
+	点餐项目
+	小说项目
+
+	

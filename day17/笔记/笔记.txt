@@ -1,0 +1,170 @@
+1.整型
+	tinyint 
+		无符号 2的8次方
+		有符号 ±2的7次方
+	smallint
+		16
+		15
+	mediumint
+		24
+		23
+	int
+		32
+		31
+	bigint	
+		64
+		63
+	通常情况下，我们在建表的时候除非很确定这个字段非常小，才用tinyint
+	如果不确定需求是否更改，那么我们通常用int
+	比如说 性别就可以用tinyint
+	
+2.浮点型
+	float
+	double
+3.定点数类型
+	decimal
+	可以定义小数点只能到几位
+	通常情况下用于金额、面积这类字段
+    decimal(4,2)  9999.99错误，99.99正确
+		第一个参数是 小数+整数 个数之和
+		第二个参数是 小数个数
+	decimal(9,6)  999.999999正确
+	
+4.bit 
+	不是0 就是1
+  这个类型跟mybatis配合的时候容易产生歧义，所以看情况使用。
+
+5.时间
+	date
+		年月日 2021-12-12
+	time	
+		时分秒 16:00:45
+	datetime（这个用的最多）
+		年月日时分秒 
+	year 
+		年 
+	timestamp	
+		1970-1-1 0:0:0 到现在经历的毫秒数
+6.字符
+	blob	
+		用于存图片，视频，音频等大数据。
+		但是不能把流媒体存入到数据库，因为数据库本身是容量限制的，
+		数据库容量越大，查询效率越低。
+	char
+		存字符串
+		char  	
+			固定长度，比如说我们设置了50长度，即使你只存了两个字，数据库仍然会加空格，直到50个字为止。
+		varchar 255
+			可变长度，即使设置了255个字，但是如果只存两个字，系统会自动的把长度缩减到两个字
+	text
+		存文本
+		存有意义的文字，因为这个字段通常需要加全文索引，全文索引的基础是词汇
+	
+	BINARY
+	
+7.枚举
+	ENUM	
+	正常情况不会用数据库的枚举
+
+	
+8.建表思路
+	表与表的关系如下
+	1.1对1
+		商品表和商品属性表
+		商品表(goods)
+			id
+			name
+			price
+		商品属性表(goods_property)
+			id	
+			detail
+			product
+			deadline_time
+			log
+			goods_id
+			
+	2.1对n
+		学生表和成绩
+		教师和科目表
+		
+	3.n对n
+		公交车(bus)
+			id
+			name
+		公交站(bus)
+			id
+			name
+		bus_station_relation(中间表)
+			id 
+			bus_id
+			station_id
+		一辆公交车可以经过多个公交站
+		一个公交站也会有多个公交车经过
+	
+	1对1或者1对多的方式都可以用外键来进行表关联。
+	N对N的方式是没办法引用外键来进行表的关联，要用中间表。
+	
+	树形表（无限细分）
+	
+	商品类型表
+		储存商品的类型
+		食品类
+			海鲜类
+			蔬菜类			
+			肉类
+		衣服类
+			上衣			
+			裤子
+				牛仔裤
+					牛仔短裤						
+					喇叭裤			
+				尼龙裤				
+				纺织裤
+	
+	位置表
+		中国
+			福建
+				福州
+				漳州
+					龙文区					
+					芗城区						
+				厦门
+					集美区						
+					海沧区
+				泉州			
+			江苏
+				连云港
+				南京
+				常州						
+		美国
+			加州
+			德克撒事洲
+		日本
+			东京
+			京都
+			北海道
+			
+	CREATE TABLE `location` (
+	  `id` int(11) NOT NULL AUTO_INCREMENT,
+	  `name` varchar(255) DEFAULT NULL COMMENT '名称',
+	  `parent_id` int(11) DEFAULT NULL COMMENT '父ID',
+	  `level` int(255) DEFAULT NULL COMMENT '等级',
+	  PRIMARY KEY (`id`)
+	) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+	
+				
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
