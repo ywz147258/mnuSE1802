@@ -59,13 +59,65 @@ select * from grade where course_id in(
 GROUP  BY student_id having count(1)=(select count(1) from grade where student_id=1)
 
 13.把sc表中叶平老师教的课程的成绩都改为此课程的平均成绩
+	得用存储过程
 
 14.查询和学号为1002同学学习的课程完全相同的其他同学学号和姓名；
 写法和 7 12 一样
 
 15、删除学习“王老师”老师课的SC表记录;
+	得用存储过程
 
-17、按平均成绩从高到低显示所有学生的“数据库”、“企业管理”、“英语”三门的课程成绩，按如下形式显示：学生ID,,数据库,企业管理,英语,有效课程数,有效平均分；
+
+17、按平均成绩从高到低显示所有学生的“数据库”、“企业管理”、“英语”三门的课程成绩，按如下形式显示：学生ID,数据库,企业管理,英语,有效课程数,有效平均分；
+select 
+t1.sid as '学生id',
+t1.asco  as '英语成绩',
+t1.bsco  as '物理成绩',
+t1.csco  as '语文成绩',
+t2.counts as '有效课程数',
+t2.avgScore as '有效平均分'
+from (
+select s.id as sid,s.name,a.score as asco,b.score as bsco,c.score as csco
+from student s left join (
+select * from grade where course_id=1) a
+on s.id=a.student_id
+left join ( select * from grade where course_id=5) b
+on s.id=b.student_id
+left join(select * from grade where course_id=6) c
+on s.id=c.student_id) t1,
+(select student_id,avg(score) as avgScore,count(1) as counts from grade
+	where course_id in(1,5,6)
+group by student_id) t2
+where t1.sid=t2.student_id
+order by t2.avgScore desc
+
+
+-- 1.分别查询英语 物理 语文 三门课程的成绩
+select * from grade where course_id=1;
+select * from grade where course_id=5;
+select * from grade where course_id=6;
+-- 2.再把第一步合并起来
+select * from (
+select * from grade where course_id=1) t1  -- 1 3 5
+,
+(select * from grade where course_id=5) t2 -- 1
+,
+(select * from grade where course_id=6) t3 -- 1 2
+where t1.student_id = t2.student_id and t1.student_id=t3.student_id
+-- 3.我们要的是所有学生呀，不管学生考没考，是不是都要出现
+select s.name,t1.score as '英语',t2.score as '物理',t3.score as '语文' from student s left join (
+select * from grade where course_id=1) t1 on s.id=t1.student_id  -- 1 3 5
+left join 
+(select * from grade where course_id=5) t2 -- 1
+on s.id=t2.student_id
+left join (select * from grade where course_id=6) t3 -- 1 2
+on s.id=t3.student_id;
+
+-- 4.单纯用第三步 是算不出平均分的，所以平均分另算
+select student_id,avg(score) from grade where course_id in(1,5,6) GROUP BY student_id;
+
+-- 5.再把第三步和第四步所得到两个结果进行子查询合并
+
 
 18、查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分；
 
