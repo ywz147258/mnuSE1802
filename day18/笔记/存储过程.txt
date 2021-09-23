@@ -91,24 +91,42 @@ select @b;
 
 
 4.游标
-create PROCEDURE pro_youbiao()
-BEGIN
-  declare sno char(50);
-	DECLARE sname char(50);
+游标是遍历数据集的一种技术
+-- 遍历grade，分数如果大于60分，就输出及格,否则不及格
+drop PROCEDURE if exists pscore;
+create PROCEDURE pscore()
+begin
+	DECLARE cid int;
+	DECLARE cscore int;
+	declare sid int;
+	-- 定义一个布尔值用来终止 遍历循环
 	declare f BOOLEAN DEFAULT true;
-  DECLARE youbiao cursor for select st.s,st.sname from student st;
+	-- 定一个游标遍历 grade表
+	DECLARE youbiao cursor for select course_id,score,student_id from grade limit 5;
 	/*终止while循环*/
   DECLARE CONTINUE HANDLER for not found set f=false;  
-  open youbiao;
-  while f do
-			fetch youbiao into sno,sname;
-			if sno='s002' then
-       select sno as 'rrrrr';
-			else
-         select sno as 'zzzz';
-      end if;
-  end while;
-  CLOSE youbiao;
-END;	
+	open youbiao;
+	while f do
+		fetch youbiao into cid,cscore,sid;
+		if cscore >=60 then
+			select sid,cid,'及格';
+		else  
+			select sid,cid,'不及格';
+		end if;
+	end while;
+	close youbiao;
+end;
+
+call pscore();
+
 	
 	
+	
+	13.把sc表中叶平老师教的课程的成绩都改为此课程的平均成绩
+
+			
+	
+	15、删除学习“王老师”老师课的SC表记录;
+	
+
+
