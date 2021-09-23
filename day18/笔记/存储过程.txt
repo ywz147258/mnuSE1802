@@ -1,0 +1,52 @@
+1.创建存储过程
+-- 创建前先删除，养成好习惯
+drop PROCEDURE if exists  test;
+create PROCEDURE test()
+begin
+	-- 声明变量 名字i 类型是int 默认值是1
+	DECLARE i int DEFAULT 1;
+	-- 在mysql里，对于变量的赋值 要加set
+	set i=10;
+	select i;
+	-- 循环用法1
+	while i>1 do
+		set i=i-1;
+		select i;
+	end while;
+end;
+
+-- 循环用法2
+drop PROCEDURE if exists  test2;
+create procedure test2()
+begin 
+	DECLARE i int DEFAULT 1;
+	lo:loop
+		set i=i+1;
+		select i;
+		if i>10 then
+			LEAVE lo;
+		end if;
+	end loop lo;
+end;
+call test2();
+
+	LEAVE lo 
+		相当于java的break;
+	ITERATE lo
+		相当于java的continue;
+		
+-- 循环用法3
+drop PROCEDURE if exists  test3;
+create procedure test3()
+begin 
+	DECLARE i int DEFAULT 1;
+	REPEAT
+		set i=i+1;
+		until i>10
+	END REPEAT;
+	select i;
+end;
+call test3();
+
+2.参数
+
