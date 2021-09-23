@@ -1,0 +1,47 @@
+1.内置函数
+	concat 字符串拼接
+		select concat(t.`name`,'教',c.name) as title
+		from teacher t,course c where t.id=c.teacher_id;
+		
+	trim(str) 去除空格
+		通常去空格都是在java里处理
+		
+	strcmp("3","2") 比大小，会自动把字符串转成整数
+		小于返回-1
+		等于返回0
+		大于返回1
+		
+	now() 获取当前时间
+	
+	date_format(date,fmt) 日期格式转换
+		日期格式的转换放在java里处理
+		select DATE_FORMAT(now(),'%H:%i:%S %Y/%m/%d'),now()
+		
+	date_add(date,interval expr type) 日期叠加
+		日期的叠加计算可以放在mysql里
+		select date_add(now(),interval 2 day)
+		
+	datediff(expr,expr2) 日期差
+		select datediff('1990-7-21','2021-9-23')
+
+	if(value,t,f)
+		select if(3>4,1,2) 
+		
+	case [expr] when [value1] then [result1] ... else 
+	[default] end
+		select 
+			case score when
+			60 then '及格'
+			else '不及格'
+			end
+		from grade
+	
+	case when
+		select 
+			case when
+			score>60 then '及格'
+			else '不及格'
+			end
+		from grade
+		
+	
