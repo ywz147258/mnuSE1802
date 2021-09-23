@@ -1,0 +1,61 @@
+1.字段类型
+
+整型
+	int
+		tinyint
+		mediumint
+		smallint
+		bigint
+		int
+浮点型
+	float
+	double
+	decimal(6,2)  9999.99
+ 		存金额、面积
+		
+字符型
+	char(character)
+		固定长度
+	varchar
+		可变长度
+日期
+	time 时分秒
+	date 年月日
+	datetime 年月日时分秒
+	timestamp 时间戳
+	year
+bit	（boolean）
+	0 1
+	del(逻辑)
+blob
+	存流媒体
+	不建议把流媒体存在数据库
+	数据库只存文字
+	
+enum
+	枚举
+	不建议使用
+	
+实在记不住：
+	int、varchar、bigdecimal、datetime
+	就记这四个
+
+2.建表逻辑 
+	1对1
+	1对多
+		外键关联
+	多对多
+		中间表
+		
+	树形表
+		无限分支的数据类型
+		地理位置
+		商品类型
+
+
+		
+		
+		
+
+
+
