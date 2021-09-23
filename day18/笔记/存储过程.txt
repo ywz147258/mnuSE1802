@@ -120,13 +120,40 @@ end;
 call pscore();
 
 	
-	
-	
 	13.把sc表中叶平老师教的课程的成绩都改为此课程的平均成绩
+		drop PROCEDURE if exists resetScore;
+		create PROCEDURE resetScore()
+		begin
+			declare pjf int;
+			declare cid int;
+				-- 定义一个布尔值用来终止 遍历循环
+			declare f BOOLEAN DEFAULT true;
+			-- 得到游文智老师教的课程的平均分
+			declare youbiao cursor for select 
+				avg(score),course_id
+			from grade g,course c,teacher t 
+			where g.course_id=c.id and c.teacher_id=t.id and t.name='游文智'
+			group by course_id;
+			/*终止while循环*/
+		  DECLARE CONTINUE HANDLER for not found set f=false;  
+			open youbiao;
+			while f do 
+				fetch youbiao into pjf,cid;
+				update grade set score =pjf where course_id =cid;
+			end while;
+		end;
 
-			
-	
 	15、删除学习“王老师”老师课的SC表记录;
 	
 
-
+5.总结
+	项目里尽量不要用存储过程。
+	把业务逻辑写在存储过程里，难以维护。
+		因为开发人员经常要找代码，你把一部分的业务逻辑写在了存储过程里，新来的开发不清楚，还傻傻的在java代码里找。
+		一旦改库，比如说把mysql改成oracle，存储过程怎么处理？
+	什么时候会用到 存储过程+游标
+		往新表插入旧数据的时候，这时候一般需要用到存储过程。
+		
+		
+		
+		
