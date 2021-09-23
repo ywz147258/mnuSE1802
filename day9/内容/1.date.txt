@@ -1,0 +1,21 @@
+1.日期相关
+
+//日期
+Date
+	不建议使用，因为大部分的函数都被废弃了
+	new Date()
+	SimpleDateFormat 日期格式 yyyy-MM-dd
+	
+//日历
+Calendar
+	java支持我们用calendar
+	
+//日期
+LocalDate
+
+//时间
+LocalTime
+
+//日期+时间
+LocalDateTime
+	DateTimeFormatter 日期格式

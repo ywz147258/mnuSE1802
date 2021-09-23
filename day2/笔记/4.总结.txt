@@ -1,0 +1,15 @@
+﻿1.控制流程
+	if
+	switch
+	for
+	while
+	dowhile
+	continue 
+	break
+
+2.数组
+	一维数组的定义、赋值
+	冒泡排序
+	多纬数组的定义、赋值
+
+3.函数的定义和使用

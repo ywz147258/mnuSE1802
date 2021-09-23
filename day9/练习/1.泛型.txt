@@ -1,0 +1,18 @@
+1.用泛型接口写多态练习，模仿枪的案例写
+
+inteface car
+	加油 oil
+
+class		
+	audi
+	toyota
+	
+class
+	gasoline92
+	gasoline95
+	
+奥迪加95
+丰田加92	
+	
+	
+	

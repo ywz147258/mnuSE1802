@@ -1,0 +1,54 @@
+1.用途
+	存放开发人员的共识（共同定义）
+2.案例（错误码）
+	做一个登录功能
+		
+	账号不存在  	10001
+	账号密码错误	10002
+	登录失败		10003
+	验证码不正确	10004
+				
+
+3.数据库的字段定义
+	字段
+		定义一张表(人员信息表)
+			性别 int
+				1男
+				2女
+				3未知
+				4保密
+			学历
+				1初中
+				2高中
+				3专科
+				4高职
+				5本科
+				6研究生
+				7博士
+4.定义
+	public enum Food{
+		EGG,PORK;
+	}
+	
+	public enum Food{
+		EGG("鸡蛋"),
+		PORK("猪肉"),
+		STEAK("牛排");
+		private String name;
+
+		Food(String name) {
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
+		}
+	}
+	
+	
+	
+	
+	
+			
+	
+	

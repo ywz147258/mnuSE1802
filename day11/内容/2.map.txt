@@ -1,0 +1,19 @@
+1.hashMap
+	没有顺序
+	
+2.linkHashMap
+	按照插入的顺序排序
+
+3.hashTable	
+	没有排序，不能为空，线程安全
+	
+4.ConcurrentHashMap
+	没有排序，不能为空，线程安全
+5.TreeMap	
+	有排序，但是针对key进行排序
+6.properties
+	读取文件
+7.collections
+	collections.sort，对list进行排序，但是实体类要实现 Comparable 并 重写compareTO
+	collections.reverse 在sort的基础上进行反排序
+	

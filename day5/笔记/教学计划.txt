@@ -1,0 +1,78 @@
+﻿-----------------JAVA基础------------------
+1.枚举
+2.异常处理
+3.Math Date String 常用库（工具类）
+4.泛型
+5.集合 hashMap  list
+6.IO 文件的读取 buffer stream
+7.多线程（面试时很喜欢问多线程）
+8.反射（重要），但是写代码时基本不用，自己写一些注解时@，
+需要自己会写反射。包括我们学到spring的ioc，用的也是反射。
+9.网络 socket通信 udp tcp
+10.设计模式
+11.swing，c/s架构的前段技术 c++，C#，delphi。
+
+-----------------JAVAEE---------------------
+1.H5
+2.CSS3
+3.javascript
+	jquery
+4.bootstrap
+5.VUE
+6.做项目
+	1.app页面
+	2.后台 elementui
+
+7.数据库 mysql	关系型数据库
+		建表、建库
+		增删改查
+8.servlet
+	tomcat
+	jsp
+		过滤、监听器、session、cookies
+		el表达式
+		mvc
+9.git、svn		
+		
+10.用servlet+数据库+vue 做一个小项目（五天）
+
+---------------------框架-------------------
+ssh spring structs hibernate，不讲
+
+1.springmvc
+	maven
+	spring	
+		ioc，aop
+	mybatis
+		数据源，事务
+	springmvc
+2.linux
+	基础命令 
+3.docker （linux里的虚拟机）
+	基础命令
+	部署项目
+	
+4.redis		缓存
+5.activeMQ 队列
+6.elasticSearch 数据库  非关系型数据库
+7.用springmvc做一个小项目（两天）
+8.springboot
+9.用 linux+docker+springboot+vue做一套前后端分离的项目（10天）
+10.springcloud
+11.把之前的springboot优化成微服务（3天）
+12.jenkins 自动化部署工具
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+

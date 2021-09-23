@@ -1,0 +1,39 @@
+1.泛型类
+	定义
+		public class 类名<E>{
+		}
+
+2.泛型方法
+	定义	
+		public static<T> void print(T t)  //注意 如果是一个静态方法是需要加<T>
+		public void print(T t) //如果是一个普通方法就不要加<T>
+		
+3.泛型接口
+
+	inteface gun<T>
+	shoot(T t);
+	
+	class
+		uzi
+		ak47
+		
+	class 
+		NineMiBullet 9毫米子弹
+		SevenMiBullet 7毫米子弹
+	
+	uzi implements gun<NineMiBullet>
+	
+	ak47 implements gun<SevenMiBullet>
+	
+4.通配符
+	为什么要用通配符？
+		因为Collection里的泛型不让放子类，只能放父类，看下面的代码：
+			List<Dog> dogs= new ArrayList<>();
+			dogs.add(new Dog());
+			dogs.add(new Dog());
+			dogs.add(new Dog());
+			public void prints(List<Pet> list);
+			此时传dogs到prints里是无效的，prints(dogs)。
+			如何解决？public void prints2(List<? extends Pet> list)
+			
+	

@@ -1,0 +1,12 @@
+1.字节流
+inputStream
+outputStream
+
+
+2.字符流
+reader
+writer
+	new write(文件路径,是否追加)
+	write	写入
+	flush
+	close  每次 写完后要记得关闭

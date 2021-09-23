@@ -1,0 +1,15 @@
+1.一维数组练习
+结合scanner输入4个商品的价格，然后把价格存到数组里，并平均四个商品的价格然后后打印.
+ Scanner scanner = new Scanner(System.in);
+        BigDecimal[] priceArr = new BigDecimal[4];
+        for(int i=0;i<priceArr.length;i++) {
+            System.out.println("请输入第"+(i+1)+"件商品的价格.");
+            Double price= scanner.nextDouble();
+            priceArr[i]=BigDecimal.valueOf(price);
+        }
+        BigDecimal allPrice=BigDecimal.ZERO;
+        for(BigDecimal price:priceArr){
+            allPrice=allPrice.add(price);
+        }
+        System.out.println("商品平均价格:"+allPrice.divide(BigDecimal.valueOf(4))
+                .setScale(2,BigDecimal.ROUND_DOWN));

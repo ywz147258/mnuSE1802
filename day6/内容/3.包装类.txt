@@ -1,0 +1,25 @@
+1.Integer
+	//常量 
+	Integer.MAX_VALUE
+	Integer.Min_VALUE
+	
+	//方法
+	Integer.parseInt(Strint str) //强转 把字符串转成 数字
+	Integer.compare(int i,int j) //比大小 i<j返回-1，等于返回0，大于返回1
+	
+	//构造函数
+	Integer i = new Integer("4444");
+	
+	Short 和 Long,Float 和 Double 同样
+	
+2.装箱
+	自动装箱 自动的把基础类型转成包装类型
+		Integer i=10; 
+		String a="ywz";
+	自动装箱用的是同一个内存地址，前提是要小于byte的大小范围
+		Integer a = 10;
+        Integer b = 10;
+        System.out.println(a==b);   //true
+        Integer c= new Integer(10);
+        Integer d= new Integer(10);
+        System.out.println(c==d); //false

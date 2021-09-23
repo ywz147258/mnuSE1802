@@ -1,0 +1,13 @@
+1.基本数据类型
+数值型
+	整型
+		byte，short，int，long
+	浮点型
+		float，double
+字符型
+	char
+布尔型	
+	boolean
+	
+2.引用类型
+	类，枚举，注解，接口，数组

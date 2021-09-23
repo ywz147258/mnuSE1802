@@ -1,0 +1,57 @@
+1.异常的类型
+	Exception 异常 可以捕获处理
+	Error	  错误	无法捕获，报错了就只能中断程序，然后修改代码
+	
+	Exception
+		RuntimeException
+			ArithmeticException
+			IllegalArgumentException
+			ArrayIndexOutOfBoundsException
+			NullPointerException
+			ClassNotFoundException
+			NumberFormatException
+		IOException
+			FileNotFoundException
+			EOFException
+			InterruptedException
+	异常的捕获设置顺序
+		子类异常要放在最前面，父类异常放在后面
+			try{
+
+			}catch (NullPointerException ne){
+				System.out.println("空指针异常");
+			} catch (ArrayIndexOutOfBoundsException aie){
+				System.out.println("数组越界异常");
+			}catch (ArithmeticException ae){
+				System.out.println("计算异常");
+			}catch (RuntimeException re){
+				System.out.println("运行时异常");
+			}catch (Exception e){
+				System.out.println("异常");
+			}
+	如果捕获的异常并不在catch里，那么捕获失败，直接抛出
+		对于新手来说，建议所有异常都设置成 Exception
+	
+	不要每段代码都try catch，因为监视异常很耗计算的资源
+	尽可能的监视会出问题的代码
+	printStackTrace
+		打印报错的完整路径
+		
+2.throws
+	人为的抛异常，throws new 异常(参数);
+	
+3.try catch  return finally 执行顺序	
+	如果有异常
+		try catch finally return
+	如果无异常
+		try finally return
+		
+4.自定义异常 
+	可以再抛出异常加入一些业务逻辑
+	public class CashException extends Exception{
+		public CashException(String message) {
+			super(message);
+			System.out.println("做一些单独的业务逻辑处理");
+			System.out.println("该异常进行数据库的存储");
+		}
+	}

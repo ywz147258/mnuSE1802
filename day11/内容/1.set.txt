@@ -1,0 +1,3 @@
+1.TreeSet
+	需要实现compareable接口,重写compareTo方法
+	不需要重写 hasCode 和 equals 方法就能实现不重复

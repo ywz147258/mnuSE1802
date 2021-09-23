@@ -1,0 +1,69 @@
+﻿修饰符
+	public 		公共
+		子类可以用
+		外部类也可以使用
+	private		私有
+		成员变量最少不要直接对外公开
+		子类是不可以使用
+		外部类也不能使用
+		
+	protected 	受保护
+	
+	default
+	
+				同一类	同一个包 	不同包下的子类	    不同包  同一包下的子类
+	private		可以	不可以	  	不可以				不可以	不可以	
+	default		可以	可以	  	不可以				不可以	可以
+	protected	可以	可以	  	不可以				不可以	可以
+	public		可以	可以	  	可以				可以	可以
+	
+	起码要记住
+	private 子类没法用，外部也没法用，只有内部类能用。一般私有成员属性要加 get set
+	public 任何地方都能用，所以对于有保密性要求的变量或者方法，不要public
+	
+	
+	
+包
+	建包时不要用关键字
+	第一层 项目类型 com org gov 
+	第二层 项目所在团体或者公司 mnnu
+	第三层 项目的名字
+	第四层 具体模块
+
+	建包步骤
+		右键->new package
+		建了com.ywz.controller，三个包会合一块，想在ywz建class，就输入com.ywz.UserController
+		
+		
+final
+	属性：不能被修改
+	方法：不能被重写
+	类：不能被继承
+	参数：参数无法被修改
+	final和abstract不能同时修饰一个方法
+	赋值两种方式
+		定义时赋值
+		在构造函数中赋值
+		
+static
+	属性
+		可以用对象调用，也可以用类来调用
+		不论new几个对象，至始至终都是同一个属性，类来调用静态属性，也是一样。
+	方法
+		可以直接用类来调用，一般用于工具类
+	静态代码块
+		在使用类之前会调用一次，而且从头到尾只会执行一次
+		static{
+		}
+	构造函数
+		每次new对象都会调用
+	执行顺序
+		静态代码块>构造代码块
+		
+abstract
+	抽象类 public abtract class ghost
+	抽象方法 public abstract void test()
+		为什么 abstract和final不能公用，abstract一定要被重写，final是不能被重写
+		abstract和private也不能共存
+	抽象方法只能定义在抽象类里
+	抽象类无法直接new来使用，只能通过被继承来使用

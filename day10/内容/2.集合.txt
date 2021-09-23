@@ -1,0 +1,29 @@
+1.arrayList
+	底层实现:数组
+	查找快,添加和删除慢
+	常用方法
+		add
+		get 
+		remove
+		size
+		
+	遍历方法
+		for
+		foreach
+		Iterator
+2.linkList
+	底层实现:链
+	查找慢，添加和删除快
+	常用的方法和arrayList差不多
+	便利方法也不多
+		
+
+3.vector
+	底层跟arrayList一样
+	但是效率比arrayList低，所以一般不用
+4.stack	
+	后入先出
+	
+5.hashSet
+	无序，不重复
+		对于自定义对象，如果想要不重复，需要重写hashCode和equal
