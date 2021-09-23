@@ -49,4 +49,66 @@ end;
 call test3();
 
 2.参数
+	in    输入参数，无法输出
+	out	  输出参数，无法输入
+	inout 即输出，也可输入
+drop procedure  if exists test4;
+create PROCEDURE test4(in a int,out b int)
+begin
+  -- 给b赋值，因为b属于out
+	set b=a+10;
+	-- 给a赋值，不会影响到外部的a，因为a属于in
+	set a=100;
+	-- 无法输出b，因为b是out
+	select b;
+end;
 
+set @b = 10;
+set @a =10;
+call test4(@a,@b);
+select @b;	
+
+3.select into
+	赋值
+	
+	set @score=0;
+	select score into @score from grade a,student s where 
+	a.student_id=s.id and s.name = '亚索' limit 1;
+	select @score;
+	
+	
+	-- 写一个存储过程，输入学生姓名，输出该学生的第一个成绩
+	drop PROCEDURE if exists printScore;
+	create PROCEDURE printScore(in iname varchar(255),out oscore int)
+	begin 
+		select score into oscore from grade a,student s where 
+		a.student_id=s.id and s.name =iname limit 1;
+	end;
+
+	set @score=0;
+	call printScore('亚索',@score);
+	select @score;
+
+
+4.游标
+create PROCEDURE pro_youbiao()
+BEGIN
+  declare sno char(50);
+	DECLARE sname char(50);
+	declare f BOOLEAN DEFAULT true;
+  DECLARE youbiao cursor for select st.s,st.sname from student st;
+	/*终止while循环*/
+  DECLARE CONTINUE HANDLER for not found set f=false;  
+  open youbiao;
+  while f do
+			fetch youbiao into sno,sname;
+			if sno='s002' then
+       select sno as 'rrrrr';
+			else
+         select sno as 'zzzz';
+      end if;
+  end while;
+  CLOSE youbiao;
+END;	
+	
+	
