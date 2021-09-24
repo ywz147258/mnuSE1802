@@ -1,0 +1,70 @@
+1.存储函数
+	跟存储过程的区别
+	1.参数没有 in out
+	2.需要提前设置返回的类型
+	3.有返回值
+
+	drop function if exists test6;
+	CREATE FUNCTION test6(a int,b int)
+		RETURNS int
+	BEGIN
+		return a+b;
+	END;
+
+	select test6(1,4);
+
+2.触发器
+	trigger
+	在删除某一张表的时候，把另一张的相关数据也删了
+	在修改某一张表的时候，把另一张表的数据删了或者改了。
+	
+	create trigger student_delete_before -- (表名_操作类型_之前还是之后)
+	before delete
+	on student 
+	for each row -- 固定写法
+	begin
+	
+	end;
+	
+	
+	删除 修改 添加 都可以用 before和 after
+		添加的时候不能用old 因为没有旧数据
+		删除的时候不能用new 因为没有新数据
+		
+	修改后的数据是 新 new
+	修改前的数据是 旧 old
+
+	新增前的数据是 new
+	新增后的数据是 new
+
+	删除前的数据是 旧 old
+	删除之后数据是 旧 old
+	
+	
+	-- 对某个学生的进行逻辑删除时候，把成绩表里该学生的成绩也逻辑删除。
+	create trigger student_update_after
+	before update 
+	on student for each row
+	begin
+		if new.del=1 then
+			update grade set del =new.del where student_id=old.id;
+		end if;
+	end;
+	
+	-- 对某个学生进行添加的时候，成绩表也添加科目1 100分
+	drop TRIGGER if exists student_insert_before;
+	create trigger student_insert_before
+	after insert 
+	on student for each row
+	begin
+			insert into grade(student_id,course_id,score) values(new.id,1,100);
+	end;
+	
+	-- 对某个学生进行物理删除的时候，把成绩进行物理删除
+	drop TRIGGER if exists student_delete_after;
+	create trigger student_delete_after
+	after delete
+	on student for each row
+	begin
+			delete from grade where student_id=old.id;
+	end;

@@ -1,0 +1,36 @@
+1.索引
+	能对经常查询的字段建索引
+	能知道 fulltext（对text字段，但是如果text字段存的是无意义的文字就不用建） normal unique 
+	聚集索引和非聚集索引的区别
+2.视图
+	是一个sql的快捷方式
+	通常一个项目不会有太多视图
+		建视图的前提是基础表不能有太大的变化
+		视图应对需求的改变比较弱
+	一个项目里视图也就两三张
+	drop view if exists name;
+	create view name as
+	 sql...
+	
+	
+3.存储过程
+	可以理解为是mysql的函数
+	create procedure pname(in a int ,out b int)
+	begin
+		-- 声明变量
+		declare i int default 0;
+		-- 赋值用set
+		set i=10;
+		-- while,loop,repeat
+	end;
+
+4.游标
+	遍历数据集的一个技术。
+	不要求掌握，但是得知道。
+	
+	
+
+
+建表冷知识
+	建 表、库、视图、存储过程、触发器等之前 需要drop if exists
+	
