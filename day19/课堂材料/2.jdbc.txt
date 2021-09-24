@@ -8,7 +8,7 @@
 	
 	再比如说我是Oracle开发商，oracle自己去实现jdbc定义的类，然后写一个jar包给开发人员使用。
 	
-	所以从头到尾，java的开发商是没有写过任何一个数据库连接的类，它只负责提供接口，
+	所以从头到尾，java的开发商是几乎没有写过任何一个数据库连接的类，它只负责提供接口，
 	这个接口的集合就叫jdbc。
 	比如说：
 		连接数据库的接口
@@ -22,3 +22,40 @@
 	
 2.什么是jar
 	jar是一大堆类的集合
+	
+3.通常我们对 数据库产商为java写的jar称为数据库驱动
+
+4.java 链接数据库步骤
+
+		//1、mysql 数据库链接
+        String url = "jdbc:mysql://localhost:3306/school?useUnicode=true&characterEncoding=UTF-8";
+        //数据库账号
+        String user = "root";
+        //数据库的密码
+        String password = "";
+        try {
+            //2、用放射的方式加载数据库驱动
+            Class.forName("com.mysql.jdbc.Driver");
+            //3、链接数据库
+            Connection con= DriverManager.getConnection(url,user,password);
+            //4、创建sql语句执行对象
+            Statement statement =con.createStatement();
+            //5、获取数据集
+            ResultSet rs= statement.executeQuery("select * from student");
+            while(rs.next()){
+                System.out.println(rs.getString("name"));
+                System.out.println(rs.getString("id"));
+            }
+			//关闭以上创建的对象
+            rs.close();
+            statement.close();
+            con.close();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+	
+	
+
