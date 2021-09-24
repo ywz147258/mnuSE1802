@@ -2,7 +2,24 @@
  删除一个学生信息学生叫xx，当把这个学生信息删除时，也要删除对应的成绩表
 
 练习2：
- 往课程表添加一门课程后，会自动的往成绩成绩表添加数据，数据为每个学生的这门功课成绩是60分;
- 
+	往课程表添加一门课程后，会自动的往成绩成绩表添加数据，数据为每个学生的这门功课成绩是60分;
+	
+	drop trigger if EXISTS course_insert_after;
+	create trigger course_insert_after
+	after insert
+	on course for each row
+	begin
+		DECLARE sid int DEFAULT 0;
+		declare f BOOLEAN DEFAULT true;
+		DECLARE youbiao cursor for select id from student where del=0;
+		DECLARE CONTINUE HANDLER for not found set f=false; 
+		open  youbiao ;
+		while f do
+			fetch youbiao into sid;
+			insert into grade(student_id,course_id,score) values(sid,new.id,60);
+		end while;
+		close youbiao;
+	end;
+	
 练习3：
  更改完一个学生的成绩表后，如果该学生的成绩小于60，则删除该学生的学生信息（也就是删除学生信息表该学生的数据）;
