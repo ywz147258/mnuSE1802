@@ -21,8 +21,10 @@ public class Main {
                 System.out.println(rs.getString("name"));
                 System.out.println(rs.getString("id"));
             }
+            // "xxx''/99"
+            String name="郭富城";
             //添加
-            String insertSql="insert into student(name) values('郭富城')";
+            String insertSql="insert into student(name) values('"+name+"')";
             statement.execute(insertSql);
             //删除
             String deleteSql ="delete from student where id in (6,7,8)";
