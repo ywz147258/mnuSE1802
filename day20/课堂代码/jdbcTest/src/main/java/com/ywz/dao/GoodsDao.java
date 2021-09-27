@@ -1,10 +1,12 @@
 package com.ywz.dao;
 
+
+import com.ywz.entity.Goods;
+
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GoodsDao extends BaseDao{
 
@@ -36,4 +38,33 @@ public class GoodsDao extends BaseDao{
     public void updateGoods(String name,BigDecimal price) throws Exception{
         String sql ="update goods set price="+price+" where name="+name;
     }
+
+    public List<Goods> selectGoods(Goods goodsEntity){
+//        String sql ="select * from goods where 1=1 where name=? and price =?";
+        String sql ="select * from goods where 1=1";
+        List<Goods> goodsList= new ArrayList<>();
+        try {
+//            PreparedStatement ps = getCon().prepareStatement(sql);
+            if(goodsEntity.getName()!=null){
+                sql+=" and name ='"+goodsEntity.getName()+"'";
+            }
+            if(goodsEntity.getPrice()!=null){
+                sql+=" and price ="+goodsEntity.getPrice();
+            }
+            System.out.println(sql);
+            Statement statement = getCon().createStatement();
+            ResultSet rs= statement.executeQuery(sql);
+            while(rs.next()){
+                Goods goods = new Goods();
+                goods.setId(rs.getInt("id"));
+                goods.setName(rs.getString("name"));
+                goods.setPrice(rs.getBigDecimal("price"));
+                goodsList.add(goods);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return goodsList;
+    }
+
 }

@@ -1,9 +1,11 @@
 package com.ywz.controller;
 
+import com.ywz.entity.Goods;
 import com.ywz.service.GoodsService;
 import com.ywz.service.impl.GoodsServiceImpl;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
 
 public class GoodsController {
@@ -12,7 +14,22 @@ public class GoodsController {
 
     public static void main(String[] args) {
         GoodsController goodsController = new GoodsController();
-        goodsController.addGoods();
+//        goodsController.addGoods();
+        Goods goods = new Goods();
+//        goods.setName("矿泉水");
+//        goods.setPrice(new BigDecimal(2));
+        goodsController.getGoods(goods);
+
+    }
+
+    /**
+     * 查询商品
+     */
+    public void getGoods(Goods goodsEntity){
+        List<Goods> goodsList=goodsService.getGoods(goodsEntity);
+        for(Goods goods : goodsList){
+            System.out.println(goods);
+        }
     }
 
     /**

@@ -1,9 +1,6 @@
 package com.ywz.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class EmployeeDao extends BaseDao{
     public void insertEmployee(String name,String workerNo){
