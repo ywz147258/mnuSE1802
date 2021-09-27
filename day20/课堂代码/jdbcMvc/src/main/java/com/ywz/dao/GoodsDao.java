@@ -9,7 +9,7 @@ import java.util.List;
 public class GoodsDao extends BaseDao<Goods>{
     @Override
     public void insert(Goods goods) {
-        String sql = "insert into values(name,price) values(?,?)";
+        String sql = "insert into goods(name,price) values(?,?)";
         PreparedStatement ps = null;
         try {
             ps = getCon().prepareStatement(sql);
@@ -24,7 +24,14 @@ public class GoodsDao extends BaseDao<Goods>{
 
     @Override
     public void delete(Goods goods) {
-
+        String sql ="delete from goods where id="+goods.getId();
+        try {
+            PreparedStatement ps =getCon().prepareStatement(sql);
+            ps.execute();
+            ps.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
