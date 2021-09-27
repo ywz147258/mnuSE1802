@@ -34,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="insertDemo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="insertDemo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/insertDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
+            <state relative-caret-position="644">
               <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoodsMain.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GoodsMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/GoodsMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="23" column="60" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="23" selection-end-column="60" />
+            <state relative-caret-position="421">
+              <caret line="47" column="9" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="47" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,7 +115,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-11" />
     <option name="y" value="5" />
     <option name="width" value="1386" />
@@ -274,12 +274,12 @@
       <option name="presentableId" value="Default" />
       <updated>1632453211017</updated>
       <workItem from="1632453220563" duration="10819000" />
-      <workItem from="1632701990493" duration="1547000" />
+      <workItem from="1632701990493" duration="2518000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12366000" />
+    <option name="totallyTimeSpent" value="13337000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -406,16 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GoodsMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="23" column="60" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="23" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/preMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -435,8 +425,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/insertDemo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
+        <state relative-caret-position="644">
           <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GoodsMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="47" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
