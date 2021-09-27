@@ -27,7 +27,7 @@ public class GoodsController {
      * 查询商品
      */
     public void getGoods(Goods goodsEntity){
-        List<Goods> goodsList=goodsService.getGoods(goodsEntity);
+        List<Goods> goodsList=goodsService.get(goodsEntity);
         for(Goods goods : goodsList){
             System.out.println(goods);
         }
@@ -50,7 +50,7 @@ public class GoodsController {
             Goods goods = new Goods();
             goods.setName(name);
             goods.setPrice(price);
-            goodsService.addGoods(goods);
+            goodsService.add(goods);
             long end =System.currentTimeMillis();
             System.out.println("本次执行添加所用毫秒数："+(end-start));
             System.out.println("继续按 1，其他停止");
