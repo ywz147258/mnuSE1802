@@ -11,12 +11,12 @@ public class GoodsServiceImpl implements GoodsService {
     private GoodsDao goodsDao = new GoodsDao();
 
     @Override
-    public void addGoods(String name, BigDecimal price) {
-        goodsDao.insertGoods(name,price);
+    public void add(Goods goods) {
+        goodsDao.insert(goods);
     }
 
     @Override
-    public List<Goods> getGoods(Goods goods) {
-        return goodsDao.selectGoods(goods);
+    public List<Goods> get(Goods goods) {
+        return goodsDao.selects(goods);
     }
 }

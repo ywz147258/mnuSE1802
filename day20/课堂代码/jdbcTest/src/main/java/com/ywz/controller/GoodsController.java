@@ -16,8 +16,9 @@ public class GoodsController {
         GoodsController goodsController = new GoodsController();
 //        goodsController.addGoods();
         Goods goods = new Goods();
-//        goods.setName("矿泉水");
-//        goods.setPrice(new BigDecimal(2));
+        goods.setPrice(new BigDecimal(2));
+        goods.setName("矿泉水");
+
         goodsController.getGoods(goods);
 
     }
@@ -46,7 +47,10 @@ public class GoodsController {
             System.out.println("输入商品的价格");
             BigDecimal price=new BigDecimal(scanner.nextFloat());
             long start= System.currentTimeMillis();
-            goodsService.addGoods(name,price);
+            Goods goods = new Goods();
+            goods.setName(name);
+            goods.setPrice(price);
+            goodsService.addGoods(goods);
             long end =System.currentTimeMillis();
             System.out.println("本次执行添加所用毫秒数："+(end-start));
             System.out.println("继续按 1，其他停止");

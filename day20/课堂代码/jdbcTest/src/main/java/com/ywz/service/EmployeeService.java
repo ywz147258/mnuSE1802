@@ -1,5 +1,7 @@
 package com.ywz.service;
 
-public interface EmployeeService {
-    public void addEmployee(String name,String workerNo);
+import com.ywz.entity.Employee;
+import com.ywz.entity.Goods;
+
+public interface EmployeeService extends BaseService<Employee>{
 }

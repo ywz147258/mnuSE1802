@@ -8,27 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoodsDao extends BaseDao{
-
-    /**
-     * 插入商品表(给数据操作使用)
-     * @param name
-     * @param price
-     */
-    public void insertGoods(String name,BigDecimal price){
-
-        //用放射的方式加载数据库驱动
-        Statement statement;
-        String sql= "insert into goods(name,price) values('"+name+"',"+price+")";
-        try {
-            //创建sql语句执行对象
-            statement =getCon().createStatement();
-            statement.execute(sql);
-            statement.close();
-        }  catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+public class GoodsDao extends BaseDao<Goods>{
 
     /**
      * 修改商品价格
@@ -39,21 +19,49 @@ public class GoodsDao extends BaseDao{
         String sql ="update goods set price="+price+" where name="+name;
     }
 
-    public List<Goods> selectGoods(Goods goodsEntity){
-//        String sql ="select * from goods where 1=1 where name=? and price =?";
+
+    @Override
+    public void insert(Goods goods) {
+        //用放射的方式加载数据库驱动
+        Statement statement;
+        String sql= "insert into goods(name,price) values('"+goods.getName()+"',"+goods.getPrice()+")";
+        try {
+            //创建sql语句执行对象
+            statement =getCon().createStatement();
+            statement.execute(sql);
+            statement.close();
+        }  catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Goods> selects(Goods goodsEntity) {
         String sql ="select * from goods where 1=1";
         List<Goods> goodsList= new ArrayList<>();
         try {
-//            PreparedStatement ps = getCon().prepareStatement(sql);
+            Integer i=0;
+            Integer y=0;
             if(goodsEntity.getName()!=null){
-                sql+=" and name ='"+goodsEntity.getName()+"'";
+                sql+=" and name=?";
+                i++;
+                y++;
             }
             if(goodsEntity.getPrice()!=null){
-                sql+=" and price ="+goodsEntity.getPrice();
+                sql+=" and price=?";
+                i++;
+                y++;
             }
-            System.out.println(sql);
-            Statement statement = getCon().createStatement();
-            ResultSet rs= statement.executeQuery(sql);
+            PreparedStatement ps =getCon().prepareStatement(sql);
+
+            if(goodsEntity.getName()!=null){
+                ps.setString(Math.abs(--i -y),goodsEntity.getName());
+            }
+
+            if(goodsEntity.getPrice()!=null){
+                ps.setBigDecimal(Math.abs(--i -y),goodsEntity.getPrice());
+            }
+            ResultSet rs= ps.executeQuery();
             while(rs.next()){
                 Goods goods = new Goods();
                 goods.setId(rs.getInt("id"));
@@ -66,5 +74,4 @@ public class GoodsDao extends BaseDao{
         }
         return goodsList;
     }
-
 }

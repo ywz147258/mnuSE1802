@@ -27,14 +27,7 @@ public class Goods {
         this.price = price;
     }
 
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
-    }
+
 
     /**
      * id
@@ -49,4 +42,5 @@ public class Goods {
      * 价格
      */
     private BigDecimal price;
+
 }

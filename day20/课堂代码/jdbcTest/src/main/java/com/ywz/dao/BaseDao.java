@@ -1,9 +1,12 @@
 package com.ywz.dao;
 
+import com.ywz.entity.Goods;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 
-public class BaseDao {
+public abstract class BaseDao<T> {
     public Connection getCon() {
         return con;
     }
@@ -24,4 +27,8 @@ public class BaseDao {
             e.printStackTrace();
         }
     }
+
+    public abstract  void insert(T t);
+
+    public abstract List<T> selects(T t);
 }
