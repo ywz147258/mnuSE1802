@@ -1,5 +1,6 @@
 package com.ywz.controller;
 
+import com.ywz.entity.Employee;
 import com.ywz.service.EmployeeService;
 import com.ywz.service.impl.EmployeeServiceImpl;
 
@@ -23,7 +24,10 @@ public class EmployeeController {
             System.out.println("输入员工的编号");
             String workerNo=scanner.next();
             long start= System.currentTimeMillis();
-            employeeService.addEmployee(name,workerNo);
+            Employee employee = new Employee();
+            employee.setName(name);
+            employee.setWorkerNo(workerNo);
+            employeeService.add(employee);
             long end =System.currentTimeMillis();
             System.out.println("本次执行添加所用毫秒数："+(end-start));
             System.out.println("继续按 1，其他停止");
