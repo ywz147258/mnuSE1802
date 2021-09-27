@@ -7,6 +7,12 @@ import java.util.List;
 
 public abstract class BaseServiceImpl<M extends BaseDao<T>,T> implements BaseService<T> {
     private M m;
+
+    public BaseServiceImpl(M m){
+        this.m=m;
+    }
+
+
     @Override
     public void add(T t) {
         m.insert(t);
@@ -19,6 +25,7 @@ public abstract class BaseServiceImpl<M extends BaseDao<T>,T> implements BaseSer
 
     @Override
     public void remove(T t) {
+        //加一些其他逻辑
         m.delete(t);
     }
 

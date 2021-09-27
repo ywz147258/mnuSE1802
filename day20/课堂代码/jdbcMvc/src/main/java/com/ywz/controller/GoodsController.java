@@ -9,12 +9,13 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class GoodsController {
-    private GoodsService goodsService = new GoodServiceImpl();
+    private GoodsService goodsService = new GoodServiceImpl(new GoodsDao());
+
 
     public static void main(String[] args) {
         GoodsController goodsController = new GoodsController();
 //        goodsController.addGoods();
-        goodsController.removeGoods(4119);
+        goodsController.removeGoods(4118);
     }
 
     public void removeGoods(Integer id){

@@ -7,26 +7,7 @@ import com.ywz.service.GoodsService;
 import java.util.List;
 
 public class GoodServiceImpl extends BaseServiceImpl<GoodsDao,Goods> implements GoodsService{
-
-//    private GoodsDao goodsDao =new GoodsDao();
-//
-//    @Override
-//    public void add(Goods goods) {
-//        goodsDao.insert(goods);
-//    }
-//
-//    @Override
-//    public List<Goods> get(Goods goods) {
-//        return  goodsDao.select(goods);
-//    }
-//
-//    @Override
-//    public void remove(Goods goods) {
-//        goodsDao.delete(goods);
-//    }
-//
-//    @Override
-//    public void modify(Goods goods) {
-//
-//    }
+    public GoodServiceImpl(GoodsDao goodsDao) {
+        super(goodsDao);
+    }
 }
