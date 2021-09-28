@@ -1,3 +1,2 @@
 1.利用多线程往数据库插入数据
 	supermarket，同时往 employee和goods插入数据
-	

@@ -11,7 +11,9 @@ public class Main {
         GoodsCallable goodsCallable = new GoodsCallable();
         FutureTask<Long> goodsResult= new FutureTask(goodsCallable);
         Thread threadGoods= new Thread(goodsResult);
-        GoodsCallable employeeCallable = new GoodsCallable();
+
+
+        EmployeeCallable employeeCallable = new EmployeeCallable();
         FutureTask<Long> employeeResult= new FutureTask(employeeCallable);
         Thread threadEmployee= new Thread(employeeResult);
         long start=System.currentTimeMillis();
