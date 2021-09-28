@@ -1,16 +1,19 @@
 package GSysnc;
 
-public class SaleTicketThread extends Thread {
-    public static Integer i=new Integer(50);
-
+/**
+ * 锁代码块
+ */
+public class ASaleTicketThread extends Thread {
+    static Integer i=50;
+    static Object object = new Object();
     @Override
     public void run() {
         boolean isContinue=true;
         while(isContinue){
-            synchronized(i){
+            synchronized(object){
                 if(i>0){
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -21,6 +24,5 @@ public class SaleTicketThread extends Thread {
                 }
             }
         }
-
     }
 }
