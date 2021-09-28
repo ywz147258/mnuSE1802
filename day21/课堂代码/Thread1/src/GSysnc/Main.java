@@ -17,16 +17,16 @@ public class Main {
 //        s2.start();
 //        s3.start();
 
-//        BSaleTicketThreadB s1= new BSaleTicketThreadB();
-//        s1.setName("售票员A");
-//        BSaleTicketThreadB s2= new BSaleTicketThreadB();
-//        s2.setName("售票员B");
-//        BSaleTicketThreadB s3= new BSaleTicketThreadB();
-//        s3.setName("售票员C");
-//
-//        s1.start();
-//        s2.start();
-//        s3.start();
+        BSaleTicketThreadB s1= new BSaleTicketThreadB();
+        s1.setName("售票员A");
+        BSaleTicketThreadB s2= new BSaleTicketThreadB();
+        s2.setName("售票员B");
+        BSaleTicketThreadB s3= new BSaleTicketThreadB();
+        s3.setName("售票员C");
+
+        s1.start();
+        s2.start();
+        s3.start();
 
 //        CSaleTicketRunnable runnable = new CSaleTicketRunnable();
 //        Thread threadA = new Thread(runnable,"售票员A");
