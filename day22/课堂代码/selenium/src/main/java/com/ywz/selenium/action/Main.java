@@ -14,8 +14,6 @@ public class Main {
 //        thread3.start();
 
         ExecutorService es1= Executors.newFixedThreadPool(3);
-
-
         for(int i=0;i<=500;i+=100){
             es1.execute( new ContentRunnable(i,100));
         }
