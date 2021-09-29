@@ -1,5 +1,7 @@
 package HWatiAndNotify;
 
+import java.net.HttpURLConnection;
+
 public class Main {
     public static void main(String[] args) {
         Food food = new Food();

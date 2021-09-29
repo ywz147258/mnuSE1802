@@ -1,0 +1,14 @@
+1.爬虫准备
+	安装谷歌浏览器
+		C:\Program Files (x86)\Google\Chrome\Application
+	
+	得先创建一个maven工程，配置pom
+
+2.利用selenium打开谷歌浏览器，浏览器打开百度
+
+
+
+3.爬虫思路
+	把每本书的链接都抓取，放到数据库
+	
+	
