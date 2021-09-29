@@ -1,4 +1,4 @@
-package com.ywz.selenium;
+package com.ywz.selenium.action;
 
 import com.ywz.selenium.dao.IndexDao;
 import com.ywz.selenium.entity.Index;
@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,15 +17,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class ContentGet{
+public class ContentThread extends Thread {
+    private int start;
+    private int limit;
+    public ContentThread(int start ,int limit){
+        this.start=start;
+        this.limit=limit;
+    }
 
-    public static void main(String[] args) {
+    @Override
+    public void run() {
         IndexDao indexDao = new IndexDao();
-        List<Index> list = indexDao.select(null);
+        List<Index> list = indexDao.selectLimit(start,limit);
         for(Index index :list){
             get(index.getHref(),index.getTitle());
         }
     }
+
+
 
     public static void get(String href,String number){
         File file = new File("C:\\Program Files (x86)\\Google\\Chrome\\Application\\ChromeDriver.exe");
@@ -32,11 +43,13 @@ public class ContentGet{
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
         WebDriver driver = new ChromeDriver(options); //新建一个WebDriver 的对象，但是new 的是FirefoxDriver的驱动
         driver.get(href);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("content")));
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         WebElement content = driver.findElement(By.id("content"));
 

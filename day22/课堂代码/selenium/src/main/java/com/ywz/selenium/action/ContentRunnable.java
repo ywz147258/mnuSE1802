@@ -1,4 +1,4 @@
-package com.ywz.selenium;
+package com.ywz.selenium.action;
 
 import com.ywz.selenium.dao.IndexDao;
 import com.ywz.selenium.entity.Index;
@@ -15,15 +15,24 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class ContentGet{
+public class ContentRunnable implements Runnable {
+    private int start;
+    private int limit;
+    public ContentRunnable(int start ,int limit){
+        this.start=start;
+        this.limit=limit;
+    }
 
-    public static void main(String[] args) {
+    @Override
+    public void run() {
         IndexDao indexDao = new IndexDao();
-        List<Index> list = indexDao.select(null);
+        List<Index> list = indexDao.selectLimit(start,limit);
         for(Index index :list){
             get(index.getHref(),index.getTitle());
         }
     }
+
+
 
     public static void get(String href,String number){
         File file = new File("C:\\Program Files (x86)\\Google\\Chrome\\Application\\ChromeDriver.exe");

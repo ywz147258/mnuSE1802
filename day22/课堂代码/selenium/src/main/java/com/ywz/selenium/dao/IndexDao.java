@@ -53,4 +53,25 @@ public class IndexDao extends BaseDao<Index> {
         }
         return list;
     }
+
+    public List<Index> selectLimit(int start,int limit){
+        String sql ="select * from indexs where book_id=1 limit ?,?";
+        List<Index> list = new ArrayList<>();
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ps.setInt(1,start);
+            ps.setInt(2,limit);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Index result = new Index();
+                result.setBookId(rs.getInt("book_id"));
+                result.setHref(rs.getString("href"));
+                result.setTitle(rs.getString("title"));
+                list.add(result);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }
