@@ -38,9 +38,29 @@
 					https://img0.baidu.com/it/u=1253902831,2679544733&fm=26&fmt=auto
 		11.a标签
 			href 
-			target=
+				锚
+				<a name="mao">顶部</a>
+				 <a href="#mao">置顶</a>
+			target="_blank"
+				新建窗口跳转
+		12.列表
+			ul,ol 有序列表
+				li
+			dl 自定义列表
+				dt 标题
+					dd 列表
+
+2.表格
+	要先清楚 什么是行，什么是列
+	横为列，竖为行
+	tr 行
+	td 列
+	colspan 列合并
+	rowspan 行合并
 	
-2.面向对象
+	
+
+3.面向对象
 	标签本身就是一个对象
 		属性	
 			id class name 
