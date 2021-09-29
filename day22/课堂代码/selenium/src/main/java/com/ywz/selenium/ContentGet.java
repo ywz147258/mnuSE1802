@@ -1,5 +1,7 @@
 package com.ywz.selenium;
 
+import com.ywz.selenium.dao.IndexDao;
+import com.ywz.selenium.entity.Index;
 import org.openqa.selenium.By;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -11,19 +13,24 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class ContentGet {
     public static void main(String[] args) {
-
+        IndexDao indexDao = new IndexDao();
+        List<Index> list = indexDao.select(null);
+        for(Index index :list){
+            get(index.getHref(),index.getTitle());
+        }
     }
 
-    public void get(){
+    public static void get(String href,String number){
         File file = new File("C:\\Program Files (x86)\\Google\\Chrome\\Application\\ChromeDriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NONE);
         WebDriver driver = new ChromeDriver(options); //新建一个WebDriver 的对象，但是new 的是FirefoxDriver的驱动
-        driver.get("https://www.xbiquge.la/76/76984/33535205.html");
+        driver.get(href);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -38,7 +45,7 @@ public class ContentGet {
             file2.mkdirs();
         }
         try {
-            FileWriter fw = new FileWriter(new File(path+"\\1.txt"));
+            FileWriter fw = new FileWriter(new File(path+"\\"+number+".txt"));
             BufferedWriter bw= new BufferedWriter(fw);
             bw.write(content.getText());
             bw.close();

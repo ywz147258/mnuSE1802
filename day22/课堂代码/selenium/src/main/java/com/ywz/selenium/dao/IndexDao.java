@@ -3,7 +3,9 @@ package com.ywz.selenium.dao;
 import com.ywz.selenium.entity.Index;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class IndexDao extends BaseDao<Index> {
@@ -34,6 +36,21 @@ public class IndexDao extends BaseDao<Index> {
 
     @Override
     public List<Index> select(Index index) {
-        return null;
+        String sql ="select * from indexs where book_id=1";
+        List<Index> list = new ArrayList<>();
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Index result = new Index();
+                result.setBookId(rs.getInt("book_id"));
+                result.setHref(rs.getString("href"));
+                result.setTitle(rs.getString("title"));
+                list.add(result);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }
