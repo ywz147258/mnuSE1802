@@ -2,6 +2,7 @@ package com.ywz.controller;
 
 import com.ywz.dao.UserDao;
 import com.ywz.entity.User;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
