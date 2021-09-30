@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 虽然我只对parent设置了样式
+			 但是parent的后代也受了影响
+			 */
+			#parent{
+				/* 字体类的样式会遗传给下一代 */
+				color: red;
+				font-size: 30pt;
+				/* 这个边框就不会遗传 */
+				border: 1px solid greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="parent">
+			divParent
+			<div>
+				divChildren1
+			</div>
+			<div>
+				divChildren2
+			</div>
+		</div>
+	</body>
+</html>

@@ -8,34 +8,33 @@
 
 前端代码：
 	<table>
-			<tr>
-				<td id="tdOne">td1</td>
-			</tr>
-			<tr>
-				<td>
-					<table>
-						<tr>
-							<td class="tdTwo">td2</td>
-						</tr>
-						<tr>
-							<td>
-								td3
-								<dl>
-									dl1
-									<dd id="ddOne">
-										<div>div1</div>
+		<tr>
+			<td id="tdOne">td1</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td class="tdTwo">td2</td>
+					</tr>
+					<tr>
+						<td>
+							td3
+							<dl>
+								dl1
+								<dd id="ddOne">
+									<div>div1</div>
+									<div>
+										div2
 										<div>
-											div2
-											<div>
-												div3
-											</div>
+											div3
 										</div>
-									</dd>
-								</dl>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	
+									</div>
+								</dd>
+							</dl>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
