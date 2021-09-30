@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="http://localhost:8080/user/register" method="post">
+			<div>姓名：<input type="text" ></div>
+			<div>账号:<input type="text" name="userName"/></div>
+			<div>密码:<input type="password" name="passWord"/></div>
+			<div>男<input type="radio" name="sex"/> 女<input type="radio" name="sex"/></div>
+			<div>个人爱好: 游泳<input type="checkbox"/>跑步<input type="checkbox"/>电影<input type="checkbox"/></div>
+			<div>学历：
+				<select>
+					<option>中专</option>
+					<option>高职</option>
+					<option selected="selected">大专</option>
+					<option>本科</option>
+				</select>
+				职位:
+				<select name="job">
+					<optgroup label="市场部">
+						<option value="0">区域专员</option>
+						<option value="1">外阜专员</option>
+					</optgroup>    
+					<optgroup label="技术部">
+						<option value="2">程序员</option>
+						<option value="3">需求分析师</option>
+						<option value="4">系统架构师</option>
+					</optgroup>
+				</select>
+				技术：
+				<select name="nationality" multiple="true" >
+					<option value="0">JAVA</option>
+					<option value="1" selected="true">C#</option>
+					<option value="2">C++</option>
+				</select>
+			</div>
+			<div>个人简历：<input type="file" name="files" /></div>
+			<div>个人介绍：
+				<textarea rows="5" cols="30">--这里输入个人简介--</textarea>
+			</div>
+			<input type="hidden" name="level" value="0" />
+			<input type="submit" value="注册"/>
+			<input type="reset" value="重置" />
+		</form>
+	</body>
+</html>

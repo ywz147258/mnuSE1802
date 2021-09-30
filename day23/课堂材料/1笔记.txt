@@ -1,0 +1,27 @@
+1.html、head、body、p、a、strong、em、ul、ol、li、dl、dd、dt、table、tr、td、br、hr、img
+
+标签也是对象，对象就会有三要素
+	属性、方法、子对象(子标签)
+
+a href target
+img src
+	绝对路径
+	相对路径
+table border 
+td rowspan colspan
+	height width
+body bgColor
+
+
+2.iframe
+	src 
+		嵌入网页
+	早期的用途是在一个页面里面展示多个网页
+	最后都植入广告
+	后面发现改标签使用的时候有被注入病毒的风险
+	
+3.frameset
+
+4.form
+	input 输入框
+
