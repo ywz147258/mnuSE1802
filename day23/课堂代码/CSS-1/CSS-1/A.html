@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			/* 选择器 */
+			
+			/* 标签选择 */
+			tr{
+				height: 50px;
+			}
+			td{
+				width: 60px;
+			}
+			/* id选择器*/
+			#headTd{
+				height: 70px;
+			}
+			/* 类选择器 */
+			.MTD{
+				width: 100px;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<table border="1" 
+		width="300px" height="350px"
+		style="text-align: center;">
+			<tr>
+				<td id="headTd" colspan="5">
+					<input/>
+				</td>
+			</tr>
+			<tr>
+				<!-- ID不能重复 -->
+				<td class="MTD">MC</td>
+				<td class="MTD">MR</td>
+				<td>MS</td>
+				<td>M+</td>
+				<td>M-</td>
+			</tr>
+			<tr id="tr3">
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td rowspan="2">=</td>
+			</tr>
+			<tr>
+				<td colspan="2">0</td>
+				<td>.</td>
+				<td>+</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+1.选择器练习
+用选择器选中以下的标签
+	1. td1
+	2. td2
+	3. div1
+	4. div2
+	5. div3
+
+前端代码：
+	<table>
+			<tr>
+				<td id="tdOne">td1</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td class="tdTwo">td2</td>
+						</tr>
+						<tr>
+							<td>
+								td3
+								<dl>
+									dl1
+									<dd id="ddOne">
+										<div>div1</div>
+										<div>
+											div2
+											<div>
+												div3
+											</div>
+										</div>
+									</dd>
+								</dl>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	

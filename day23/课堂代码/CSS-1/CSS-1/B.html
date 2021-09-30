@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 后代选择器
+				找id为parent的后代
+			 */
+			#parent dd{
+				/* color:red; */
+				border: 1px solid red;
+				width: 100px;
+				margin: 4px;
+			}
+			#parent dd div{
+				color: blue;
+			}
+			
+			/* 交集选择器 
+				要找标签为a并且class叫div的标签
+			*/
+			a.div{
+				color: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<dl id="parent">
+			小明
+			<dd>
+				小日
+				<div>小口</div>
+			</dd>
+			<dd>
+				小月
+			</dd>
+		</dl>
+		
+		<div class="div">divClass</div>
+		<a>divA</div>
+		<a class="div">AClass</div>
+	</body>
+</html>
