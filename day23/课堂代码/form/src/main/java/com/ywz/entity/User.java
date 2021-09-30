@@ -2,6 +2,17 @@ package com.ywz.entity;
 
 public class User {
     private String userName;
+    private String passWord;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    private String sex;
 
     public String getUserName() {
         return userName;
@@ -19,5 +30,5 @@ public class User {
         this.passWord = passWord;
     }
 
-    private String passWord;
+
 }

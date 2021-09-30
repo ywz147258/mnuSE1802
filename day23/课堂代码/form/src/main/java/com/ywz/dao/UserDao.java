@@ -10,11 +10,12 @@ import java.util.List;
 public class UserDao extends BaseDao<User>{
     @Override
     public void insert(User user) {
-        String sql = "insert into users(user_name,pass_word) values(?,?)";
+        String sql = "insert into users(user_name,pass_word,sex) values(?,?,?)";
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
             ps.setString(1,user.getUserName());
             ps.setString(2,user.getPassWord());
+            ps.setString(3,user.getSex());
             ps.execute();
             ps.close();
         } catch (SQLException e) {
