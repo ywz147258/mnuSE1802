@@ -47,13 +47,14 @@
 	高宽：height 、width
 	标签的类型
 		行级标签
-			可以理解为没有高度，只有宽度
+			可以理解为没有高度，只有宽度，可以并列
 				a lable span Strong 
 		行块标签
-			高度和宽度比较大
+			高度和宽度比较大，可以并列
 				img、input
 		块级标签
 			高度和宽度比较大，还要求独占一行
+				div、table
 	display：
 		inline 			把标签变成行级
 		block 			把标签变成块级
@@ -99,7 +100,25 @@
 	visited
 		超链接点击后
 	
-			
+11.盒子模型
+	任何元素对浏览器来说都是一个盒子
+	盒子的组成部分
+		内容
+			content
+		边框
+			border:1px solid red;
+			border-top:10px;
+			border-width: 1px;
+			border-style: dashed;
+			border-color: blue;
+		内边距
+			padding
+			padding-left
+			padding: 0 0 0 0;
+				上右下左
+		外边距
+			margin
+			用法和padding一样
 	
 
 		

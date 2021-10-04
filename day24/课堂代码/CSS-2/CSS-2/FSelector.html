@@ -47,6 +47,21 @@
 			a:visited{
 				color: greenyellow;
 			}
+			
+			#div2{
+				height: 400px;
+				width: 400px;
+				background-image: url(img/1.jpg);
+				background-size: contain;
+				background-repeat: no-repeat; 
+				background-position:center;
+				border: 1px solid red;
+			}
+			
+			#div2:hover{
+				transform: rotateY(180deg); 
+				transition: transform 4s;
+			}
 		</style>
 	</head>
 	<body>
@@ -54,5 +69,9 @@
 			div1
 		</div>
 		<a href="https://www.baidu.com">百度</a>
+		
+		<div id="div2">
+			
+		</div>
 	</body>
 </html>
