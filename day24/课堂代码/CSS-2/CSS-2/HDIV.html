@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				border: 1px solid red;
+				height: 100px;
+				width: 100px;
+			}
+			
+			/**
+			 * 先对于左上角的起始位置
+			 */
+			#div1{
+				position: relative;
+				left:200px;
+				top:50px;
+			}
+			
+			#div2{
+				position: relative;
+				left:200px;
+				top:0px;
+			}
+			#div3{
+				position: absolute;
+				top: 0px;
+			}
+			
+			#div4{
+				position: fixed;
+				right:20px;
+				bottom: 20px;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<div id="div1">
+			div1
+		</div>
+		<div id="div2">
+			div2
+		</div>
+		
+		<div id="div3">
+			div3
+		</div>
+		
+		<div id="div4">
+			
+		</div>
+	</body>
+</html>
