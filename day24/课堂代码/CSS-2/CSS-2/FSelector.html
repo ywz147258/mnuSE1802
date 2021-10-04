@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				height: 400px;
+				width: 400px;
+				border: 1px solid red;
+				background-color: red;
+			}
+			/**
+			 * 鼠标移过去的时候变绿
+			 */
+			#div1:hover{
+				background-color: greenyellow;
+				opacity: 0.5;
+				transition: opacity 2s;
+			}
+			
+			/**
+			 * 鼠标移过去的时候变蓝
+			 */
+			#div1:active{
+				background-color:blue;
+				border-radius: 100%;
+				transition: border-radius 4s;
+				/* transform: rotateY(60deg); */
+				/* transition: transform 4s; */
+			}
+			
+			a{
+				font-size: 20pt;
+				font-weight: bold;
+			}
+			/**
+			 * 链接未被点击之前
+			 */
+			a:link{
+				color: red;
+			}
+			
+			/**
+			 * 链接被点击之后
+			 */
+			a:visited{
+				color: greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			div1
+		</div>
+		<a href="https://www.baidu.com">百度</a>
+	</body>
+</html>

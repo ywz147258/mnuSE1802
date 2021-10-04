@@ -78,6 +78,26 @@
 			background-repeat: no-repeat; 
 			background-position:center;
 	
+8.鼠标样式
+	<p style="cursor:default;">默认光标</p>
+	<p style="cursor:pointer;">超链接的指针</p>
+	<p style="cursor:wait;">指示程序正在忙</p>
+	<p style="cursor:help;">指示可用的帮助</p>
+	<p style="cursor:text;">指示文本</p>
+	<p style="cursor:crosshair;">鼠标呈现十字状</p>
+
+9.透明度
+	opacity:0.1
+
+10.伪元素选择器
+	hover
+		鼠标移动到元素的时候
+	active
+		鼠标点击的时候
+	link
+		超链接未点击前
+	visited
+		超链接点击后
 	
 			
 	
