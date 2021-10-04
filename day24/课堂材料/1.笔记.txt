@@ -1,0 +1,86 @@
+1.CSS选择器
+	交集、并集、类选择器、id选择器、便签选择器、子代选择器、后代选择器
+	
+2.引用css的三种方式
+	行内
+		写在标签里
+	内嵌
+		使用style在head里编写
+	外部导入
+		link
+3.CSS的优先级
+	行内>id选择器>类选择器>标签选择器
+	同级别里，谁写在最后谁优先
+
+4.颜色
+	颜色代码（美工给的参数）
+		#FFFFF #00000
+	颜色单词
+		RED green black
+	rgb
+		三原色：红 绿 蓝
+		 rgb(128,0,255)	
+	rgba
+		三原色加透明度
+		rgba(128,0,255,0.5)	
+		
+5.字体样式
+	1.字体样式：
+		font-size:15pt
+		font-weight:bold
+	2.居中
+		左右居中
+			text-align:center
+		垂直居中：
+			vertical-align：middle
+			在table中有效，在div中无效，所以大部分情况下垂直居中不用vertical-align
+			建议用line-height代替
+	3.text-decoration
+		下划线
+	4.text-transform
+		字母大小写
+	5.letter-spacing、word-spacing
+		单词或者字母间隔
+	
+
+6.尺寸样式
+	高宽：height 、width
+	标签的类型
+		行级标签
+			可以理解为没有高度，只有宽度
+				a lable span Strong 
+		行块标签
+			高度和宽度比较大
+				img、input
+		块级标签
+			高度和宽度比较大，还要求独占一行
+	display：
+		inline 			把标签变成行级
+		block 			把标签变成块级
+		inline-block 	把标签变成行块
+		
+7.图片背景（了解即可）
+	布局方式（裁剪方式）
+		平铺
+			图片大小重复放置
+			background-size: contain;
+				把图片上下或者左右撑到跟背景框一样大，剩下的部分在平铺
+		拉伸
+			强制图片比例跟背景框一样
+			background-size: 400px 400px;
+		居中
+			把图片居于中间
+			background-position:center;
+			background-repeat: no-repeat; 
+		适应
+			让宽度或者高度适应边框，多出的部分放空白
+			background-size: contain;
+			background-repeat: no-repeat; 
+			background-position:center;
+	
+	
+			
+	
+
+		
+	
