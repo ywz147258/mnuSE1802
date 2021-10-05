@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/**
+			 * 回调函数
+			 * @param {Object} num1
+			 * @param {Object} num2
+			 * @param {Object} cb
+			 */
+			function test(num1,num2,cb){
+				cb(num1,num2);
+			}
+			
+			function callBack(num1,num2){
+				console.log(num1+num2);
+			}
+			
+			//回调函数第一种写法
+			test(10,12,callBack);
+			
+			//匿名函数
+			//匿名函数通常和回调一起用
+			test(10,13,function(){
+				console.log("hello world");
+			});
+			
+			//回调在js中的一些重要用法
+			//定时器
+			var i=0;
+			var inteval=setInterval(function(){
+				console.log(i++);
+				if(i==10){
+					//清除定时器
+					clearInterval(inteval)
+				}
+			},1000);
+			
+			//延时器
+			setTimeout(function(){
+				console.log("hello worldAAA");
+			},3000);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

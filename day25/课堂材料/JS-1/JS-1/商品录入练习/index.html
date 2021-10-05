@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr = new Array();
+			function spLog(){
+				var name=document.getElementById("name");
+				var price=document.getElementById("price");
+				var obj = {
+					name:name.value,
+					price:price.value
+				}
+				arr.push(obj);
+				// console.log(arr);
+				name.value="";
+				price.value="";
+				arr.sort(function(num1,num2){
+				  return num1.price - num2.price;
+				})
+				showMenu(arr);
+			}
+			
+			function showMenu(arr){
+				document.getElementById("menu").innerHTML="";
+				for(var i in arr){
+					var dd =document.createElement("dd");
+					dd.innerText=arr[i].name+","+arr[i].price;
+					document.getElementById("menu").appendChild(dd);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1" cellspacing="1" cellpadding="1">
+			<tr>
+				<td>商品名称</td>
+				<td><input id="name" type="text" /></td>
+			</tr>
+			<tr>
+				<td>商品价格</td>
+				<td><input id="price" type="number" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button type="button" onclick="spLog()">录入</button></td>
+			</tr>
+		</table>
+		<dl id="menu">
+		</dl>
+	</body>
+</html>
