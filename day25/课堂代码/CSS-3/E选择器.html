@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				font-size: 30pt;
+			}
+			
+			/**
+			 * li的父亲下的第二个元素
+			 */
+			ul:nth-child(1) li:nth-child(2){
+				color: red;
+			}
+			
+			/**
+			 * li的父亲下的第二个li
+			 */
+			li:nth-of-type(2){
+				font-size: 45pt;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<dd>0</dd>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		
+	</body>
+</html>

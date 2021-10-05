@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+ 				transition: background-color 1s ease .1s,
+					border-radius 1s ease .1s,
+					width 1s ease .1s;
+			}
+
+			#div1:hover {
+				background-color:greenyellow;
+				border-radius: 50px;
+				width: 150px;
+			}
+			
+			@Keyframes changeDiv{
+				 0%{
+					  background-color:red;
+				 }
+				 33%{
+					  background-color:green;
+				 }
+				 66%{
+					  background-color:blue;
+				 }
+				 100%{
+					  background-color:yellow;
+				 }
+			}
+			
+			div:hover {
+				animation: changeDiv 3s ease .1s infinite forwards ;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+
+		</div>
+	</body>
+</html>

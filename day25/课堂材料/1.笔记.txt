@@ -1,0 +1,36 @@
+1.圆角
+	border-radius
+	
+2.阴影
+	box-shadow：x轴 y轴 阴影半径 阴影扩散度 颜色 inset
+
+3.渐变
+	linear-gradient
+		线性渐变
+	radial-gradient
+		扩散渐变
+4.溢出
+	对于div容器的溢出用 overflow
+	对于文本溢出用 text-overflow
+		只对input框有效
+5.伪类选择器
+	nth-child
+	nth-of-type
+	用于不设置id和class的情况下
+6.形变
+	transform
+		rotate 旋转
+		translate 位移
+		scale 缩放
+		skewX
+7.动画
+	transition
+	@Keyframes
+
+8.响应式布局（了解即可）
+	早期的开发为了节省人力成本，就希望能开发一套前端代码，即能在pc上显示，也能在手机浏览器上显示。
+	pc上一个样式，到了浏览器又是另外一种样式。
+	比如苹果的官网https://www.apple.com.cn/
+	但是随着技术的发展，正常情况下，pc是单独开发一套的，手机也是单独开发一套的。
+		因为界面比较复杂的情况下，用响应式布局反而开发更慢。
+	现在的响应式布局应用与手机横屏和竖屏的切换。

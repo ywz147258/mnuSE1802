@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				height: 200px;
+				width: 200px;
+				background: linear-gradient(30deg,white,black);
+				border-radius: 100px;
+			}
+			
+			@Keyframes changeDiv{
+				 0%{
+					 transform: rotateZ(90deg);
+				 }
+				 33%{
+					 transform: rotateZ(180deg);
+				 }
+				 66%{
+					  transform: rotateZ(270deg);
+				 }
+				 100%{
+					  transform: rotateZ(365deg);
+				 }
+			}
+			div:hover {
+				animation: changeDiv 3s ease .1s infinite forwards ;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="">
+			
+		</div>
+	</body>
+</html>
