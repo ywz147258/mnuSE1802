@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// dom节点操作
+			function getValue(){
+				// get 获取 element元素 by通过 id
+				var button=document.getElementById("button");
+				console.log(button.value);
+			}
+			
+			//按钮1的点击事件
+			function writeText1(){
+				//获取按钮1的dom节点
+				var button =document.getElementById("one");
+				//获取文本框的dom节点
+				var text = document.getElementById("text");
+				//把按钮1的值 拼接到 文本框的值
+				text.value+=button.value;
+			}
+			function writeText2(){
+				var button =document.getElementById("two");
+				
+				var text = document.getElementById("text");
+				text.value+=button.value;
+			}
+			function writeTextAdd(){
+				var button =document.getElementById("add");
+				
+				var text = document.getElementById("text");
+				text.value+=button.value;
+			}
+			
+			function writeTextEqual(){
+				var text = document.getElementById("text");
+				console.log(text.value);
+				//eval是 js提供的函数,用于计算
+				var result=eval(text.value);
+				console.log(result);
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 获取按钮的value -->
+		<input id="button" type="button" value="我是一个按钮" 
+		onclick="getValue()"/><br/><br/>
+		
+		<!-- 获取input的值，并赋值到输入框里 -->
+		<input type="text" id="text" /><br/>
+		<input id="one" type="button" value="1" onclick="writeText1()" />
+		<input id="two" type="button" value="2" onclick="writeText2()" />
+		<input type="button" id="add" value="+" onclick="writeTextAdd()" >
+		
+		<input type="button" id="equal" value="=" onclick="writeTextEqual()" >
+	</body>
+</html>

@@ -13,3 +13,27 @@
 4.为何js可以允许程序员用轻型写法来编程
 	var name = "游文智"
 	关键是js只在一台电脑上运行，等于说把电脑运行业务的压力分散到了用户的电脑上。
+	
+5.js基础
+	属性
+		var name;
+	函数
+		function 函数名称(参数)
+	对象
+		var ojb={
+			name:"郭富城",
+			age:16,
+			sex:"男",
+			run:function(){
+				console.log("跑")
+			}
+		}
+		
+6.dom节点操作
+	获取节点 
+		var dom=document.getElementById;
+	获取节点的值
+		dom.value
+	给节点赋值
+		dom.value=
+	
