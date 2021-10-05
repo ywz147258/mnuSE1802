@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#parent{
+				width: 500px;
+				border: 5px solid cadetblue;
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding-top: 30px;
+				padding-bottom: 30px;
+				background:linear-gradient(to bottom,#FFF,powderblue);
+			}
+			
+			#top{
+				width: 400px;
+				height: 200px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				padding-bottom: 20px;
+			}
+			#top textarea{
+				width: 100%;
+				height: 100%;
+				box-shadow: 3px 3px 2px 1px rgb(0,0,0,0.3);
+			}
+			#middle{
+				width: 400px;
+			}
+			
+			#middle input{
+				width: 100%;
+			}
+			#bottom{
+				padding-top: 20px;
+				width: 400px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-end;
+			}
+			
+			#button{
+				width: 100px;
+				height: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			function submit(){
+				//获取输入框的内容
+				var text= document.getElementById("text");
+				//dg
+				//赋值聊天框
+				var talkBox= document.getElementById("talkBox");
+				talkBox.value+=text.value;
+				//加一个换行
+				talkBox.value+="\n";
+				//把输入框清空
+				text.value="";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="parent">
+			<div id="top">
+				<textarea readonly="readonly" id="talkBox"></textarea>
+			</div>
+			<div id="middle">
+				<font size="" color="">
+					请输入您的聊天内容:
+				</font>
+				<input id="text" type="text" />
+			</div>
+			<div id="bottom">
+				<button id="button" type="button" onclick="submit()">提交</button>
+			</div>
+		</div>
+	</body>
+</html>
