@@ -36,4 +36,8 @@
 		dom.value
 	给节点赋值
 		dom.value=
+7.js文件的引用
+	<script src="js/test.js" type="text/javascript"></script>
+	
+8.边界符
 	

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr= new Array();
+			arr[0]="ywz";
+			arr[1]=16;
+				
+			console.log(arr[0]);
+			console.log(arr[1]);
+			//放到最后一位
+			arr.push("man");
+			//放到第一位
+			arr.unshift("women")
+			//移除最后一位
+			arr.pop();
+			//移出第一位
+			arr.shift();
+			arr.reverse();
+			var arr2= ["吴奇隆","周杰伦"];
+			//合并数组
+			arr=arr.concat(arr2);
+			
+			var arrStr= arr.join("-");
+			console.log(arr);
+			console.log(arrStr);
+			
+			var arr3=[6,7,83,35];
+			//默认机械排序
+			arr3.sort();
+			console.log(arr3);
+			
+			var arr4=[6,7,83,35];
+			//自然排序
+			arr4.sort(function(num1,num2){
+				  return num2 - num1 ;
+			})
+			console.log(arr4);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
