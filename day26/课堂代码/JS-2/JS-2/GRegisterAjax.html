@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function register(){
+				var userName = document.getElementById("userName").value;
+				var tel = document.getElementById("tel").value;
+				if(userName==""){
+					alert("用户名不能为空");
+					return;
+				}
+				if(tel==""){
+					alert("手机号不能为空");
+					return;
+				}
+				
+				//判断用户名是否存在
+				var sm=`userName=${userName}`;
+				var xhrU=new XMLHttpRequest();
+				xhrU.open("POST","http://localhost:8080/user/judgeUser",true);
+				//POST提交时需添加请求头“Content-Type”，指定MIME类型
+				xhrU.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+				xhrU.send(sm);
+				//接收返回的值
+				xhrU.onreadystatechange=function(){
+					// readyState == 4说明请求已完成
+					if(xhrU.readyState==4){
+						if(xhrU.status==200){
+							if(xhrU.responseText=="success"){
+								document.getElementById("userNameTip").innerText="用户名可以使用";
+							}else{
+								document.getElementById("userNameTip").innerText="用户名已经存在，请修改";
+							}
+						}
+					}
+				}
+			
+				//判断手机号是否存在
+				var sm=`tel=${tel}`;
+				var xhr=new XMLHttpRequest();
+				xhr.open("POST","http://localhost:8080/user/judgeUserTel",true);
+				//POST提交时需添加请求头“Content-Type”，指定MIME类型
+				xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+				xhr.send(sm);
+				//接收返回的值
+				xhr.onreadystatechange=function(){
+					// readyState == 4说明请求已完成
+					if(xhr.readyState==4){
+						if(xhr.status==200){
+							if(xhr.responseText=="success"){
+								document.getElementById("telTip").innerText="手机号可以使用";
+							}else{
+								document.getElementById("telTip").innerText="手机已经存在，请修改";
+							}
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>用户名:</td>
+				<td>
+					<input type="text" id="userName" />
+					<font color="red" id="userNameTip"></font>
+				</td>
+			</tr>
+			<tr>
+				<td>密码:</td>
+				<td><input type="text" id="passWord" /></td>
+			</tr>
+			<tr>
+				<td>手机:</td>
+				<td><input type="text" id="tel" />
+				<font color="red" id="telTip"></font>
+				</td>
+			</tr>
+			<tr>
+				<td>email:</td>
+				<td><input type="text" id="email" /></td>
+			</tr>
+			<tr>
+				<td><button type="button" onclick="register()">注册</button></td>
+			</tr>
+		</table>
+	</body>
+</html>
