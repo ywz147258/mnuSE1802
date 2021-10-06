@@ -12,5 +12,4 @@ public class User {
     private String detail;
     private String skill;
     private String tel;
-
 }

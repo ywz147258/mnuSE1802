@@ -60,11 +60,8 @@
 	跟form表单的区别：
 		1.form表单是同步，需要等待结果
 		2.form表单需要跳转（这个是重要的区别）
-	
 	案例：
-		用ajax提交数据到springboot
-			
-			
+		用ajax提交数据到springboot	
 	跨域
 		防止接口背恶意调用
 		比如：
@@ -72,9 +69,40 @@
 			http://127.0.0.1:8080/ajax/sendMessage, 只允许来自于 192.168.17.57:8080 的请求。
 			早期的项目前端和后端是放在同一个服务器，所以才有跨域的功能。
 			现在都是“前后端分离”，前端和后端放在各自的服务器里，所以跨域基本是没用了。
+	使用方法：
+		var sm=`tel=${tel}`;
+		var xhr=new XMLHttpRequest();
+		xhr.open("POST","http://localhost:8080/user/judgeUserTel",true);
+		//POST提交时需添加请求头“Content-Type”，指定MIME类型
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+		xhr.send(sm);
+		//接收返回的值
+		xhr.onreadystatechange=function(){
+			// readyState == 4说明请求已完成
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					if(xhr.responseText=="success"){
+						document.getElementById("telTip").innerText="手机号可以使用";
+					}else{
+						document.getElementById("telTip").innerText="手机已经存在，请修改";
+					}
+				}
+			}
+		}
+	思考：
+		哪些功能可以用ajax来做
+			1.购物车
+			2.qq空间的发表心情
+			3.点餐
+			4.搜索
+			5.发帖
 			
+		需要高频率提交表单的功能，一般使用socket
 			
-			
+
+3.BOM和DOM
+
+BOM：浏览器自带的窗口对象			
 			
 			
 			

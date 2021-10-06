@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function alertWin(){
+				alert("提示框");
+			}
+			
+			function confirmWin(){
+				var result=confirm("是否删除数据");
+				console.log(result);
+			}
+			
+			function promtWin(){
+				var result=prompt("请输入您的出生日期","");
+				console.log(result);
+			}
+			var baidu = null;
+			function openNewWin(){
+				baidu=window.open('http://www.baidu.com');
+			}
+			function closeNewWin(){
+				baidu.close();
+			}
+			function closeNowWin(){
+				window.close();
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="alertWin()">提示框</button>
+		<button type="button" onclick="confirmWin()">确认框</button>
+		<button type="button" onclick="promtWin()">输入框</button>
+		<button type="button" onclick="openNewWin()">打开新页面</button>
+		<button type="button" onclick="closeNewWin()">关闭页面</button>
+		<button type="button" onclick="closeNowWin()">关闭当前页面</button>
+	</body>
+</html>

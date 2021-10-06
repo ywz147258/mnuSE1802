@@ -90,7 +90,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="155" />
     <option name="y" value="35" />
     <option name="width" value="697" />
@@ -144,6 +144,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ywz" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="form" type="b2602c69:ProjectViewProjectNode" />
+              <item name="form" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ywz" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="form" type="b2602c69:ProjectViewProjectNode" />
@@ -275,12 +284,12 @@
       <updated>1632963924215</updated>
       <workItem from="1632963931333" duration="6704000" />
       <workItem from="1632996098581" duration="1765000" />
-      <workItem from="1633486163762" duration="5323000" />
+      <workItem from="1633486163762" duration="5324000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13792000" />
+    <option name="totallyTimeSpent" value="13793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
