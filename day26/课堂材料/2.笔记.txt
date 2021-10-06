@@ -1,1 +1,70 @@
 1.&nbsp; 空格
+
+2.JSON
+  json是一种格式
+	{name:"张三" , age:25 , sex: "男" }
+	
+	
+  早期的数据格式 是xml
+	<user>
+		<id>1</id>
+		<age>1</age>
+		<name>1</name>
+	</user>
+
+	后端和前端之间的交互不能直接传对象，所以需要把对象转成一种字符串格式。
+	早期的格式用的是xml，现在则用json
+	
+
+	json字符串定义建议跟定界符一起使用，定界符的好处是换行是不用拼接。
+  	var json= '{"userName":"ywz","passWord":"ps","sex":1,'+
+	'"email":null,"education":null,"detail":null,"skill":null}';
+	
+	var json= `{"userName":"ywz","passWord":"ps","sex":1,
+	"email":null,"education":null,"detail":null,"skill":null}`;
+	
+	对象转字符串：
+		对象转json通常不是程序员自己去拼接，而是调用json的转换方法（JSON.Stringify）
+		比如说：
+			我现在前端要传一个对象到后端，
+			var uesr2={
+				userName:name,
+				sex:sex
+			}
+			//计算机帮我们转的json
+			var user2Json=JSON.stringify(uesr2);
+		总结：
+			不要自己写json字符串
+			
+			
+	字符串转对象
+		eval
+		JSON.parse
+			var json= `{"userName":"ywz","passWord":"ps","sex":1,
+				"email":null,"education":null,"detail":null,"skill":null}`;
+				
+			//json字符串转对象
+			var obj=JSON.parse(json);
+			console.log(obj.userName+"-"+obj.passWord);
+
+	总结：
+		后端传前端，json字符串转对象
+		前端传后端，对象转json字符串
+		
+		json格式的数组转成 数组对象
+		数组对象转成 json格式的数组
+		
+	
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

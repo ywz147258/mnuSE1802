@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var json= '{"userName":"ywz","passWord":"ps","sex":1,'+
+			'"email":null,"education":null,"detail":null,"skill":null}';
+			
+			//json格式
+			var json= `{"userName":"ywz","passWord":"ps","sex":1,
+			"email":null,"education":null,"detail":null,"skill":null}`;
+			
+			//json字符串转对象
+			var obj=JSON.parse(json);
+			console.log(obj.userName+"-"+obj.passWord);
+			
+			
+			//对象转json
+			var name="ywz";
+			var sex="man";
+			//以下这种写法虽然不违法,但是不建议!
+			var user=`{
+				"userName":${name},
+				"sex":${sex},
+			}`;
+			//建议用这个
+			var uesr2={
+				userName:name,
+				sex:sex
+			}
+			//计算机帮我们转的json
+			var user2Json=JSON.stringify(uesr2);
+	
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
