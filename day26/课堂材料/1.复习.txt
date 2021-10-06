@@ -1,0 +1,96 @@
+1.JS 是一门脚本型语言
+	JAVA、C这类型是编译型语言
+
+	1.脚本的执行是按顺序
+		1.面相过程
+	2.缺点脚本型语言的运行效率较低
+		1.不用事先定义好变量类型
+	3.优点是编写效率高
+	4.为何运行效率低还要用js来写？
+		因为js是运行在每一台用户的电脑上，把运行所消耗的资源分担到了用户上。
+		比如说：
+			做输入判断（用户名要求有字母、数字、下划线，密码要求13位、大小写，email格式验证）。
+			md5加密
+			
+
+	编译型语言特点
+	1.面向对象
+	2.代码执行效率高	
+	3.代码的编写效率非常低
+
+2.JS 定义
+	属性的定义
+		var name="";
+	函数定义
+		var test=function(){}
+		function test(){}
+		var test=()=>{} //es6
+	对象的定义
+		var obj={
+			test:function(){},
+			name:"ywz",
+			child:{
+			}
+		}
+
+3.dom节点操作(稍微提了一下)
+	获取
+		document.getElementById()
+		ByTagName
+		ByClassName
+	创建
+		document.createElement("div")
+
+4.引入
+	<script type="text/javascript" src="">
+		//不要写任何代码
+	</script>
+
+5.边界符
+	js字符串的定义有三种
+	var name ='ywz';
+		跟java的区别在于java的单引号只能用char
+	var name ="ywz";
+	var name = `ywz`;
+	var result= `${name}`
+		
+6.运算符
+	基本用法跟java一模一样
+	== 和 === 区别
+	对javascript值相等用==，如果要求类型也相等就用===
+
+7.循环
+	js没有类似java的增强遍历
+	
+	java
+		for(String str:strs){}
+		str拿到的是具体的值
+	javascript
+		for(var i in arr){}
+		i拿到的是下标
+8.数组
+	js的数组不需要定义长度就能使用
+	var arr=new Array();
+	
+	方法：
+		push		放到最后一位
+		unshift		放到第一位
+		pop			把最后一位删除
+		shift		把第一位删除
+		sort
+9.回调函数
+	就是把方法当成参数
+	js的内置回调函数：
+		setInterver
+			clearInterver
+		setTimeOut
+	
+	
+10.时间对象
+		var date= new Date();
+		date.getFullYear
+		date.getMonth
+		date.getTime
+	
+
+
