@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#top{
+				width: 400px;
+				height: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			var interver=null;
+			function getTime(){
+				var dateTime= document.getElementById("dateTime");
+				var end =document.getElementById("end");
+				end.innerText=dateTime.value;
+				if(interver!=null){
+					clearInterval(interver);
+				}
+				interver=setInterval(function(){
+					var nowTime=new Date();
+					var entTime=new Date(dateTime.value);
+					//时间差
+					var sub=entTime.getTime()-nowTime.getTime();
+					
+					//先算出天数
+					var day= sub/1000/60/60/24;
+					day=Math.floor(day);
+					//扣去天数还剩几小时
+					var hours= parseInt(sub/1000/60/60)%24;
+					console.log(sub/1000/60/60);
+					//扣去天数小时数还剩几分钟
+					var minutes = parseInt(sub/1000/60)%60;
+					//扣去天数小时数分钟数还剩几秒钟
+					var seconds = parseInt(sub/1000)%60;
+					var result = `${day}天${hours}小时${minutes}分${seconds}秒`;
+					document.getElementById("surplus").innerText = result;
+					console.log(result);
+				},1000);
+			}
+		</script>
+	</head>
+	<body>	
+		<div id="parent">
+			<div id="top">
+				距离 <font id="end"></font> 还有 <font id="surplus"></font>	
+			</div>
+			<div id="middle">
+				输入截止时间
+				<input  id="dateTime" type="text"/>
+			</div>
+			<div id="bottom">
+				<button type="button" onclick="getTime()">确认</button>
+			</div>
+		</div>
+	</body>
+</html>
