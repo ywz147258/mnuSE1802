@@ -1,0 +1,7 @@
+1.用 dom管理的方式 创建一个表格
+表格的内容是：
+	user表的值
+	
+	id	user_name	pass_word	sex
+	1	贾乃亮		123			1
+	1	贾乃亮		123			1

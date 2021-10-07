@@ -1,6 +1,18 @@
 1.dom节点
+	所有的标签都叫 DOM
+		通常我会把标签叫做 dom节点
+		元素、标签、dom节点、dom
+	获取标签
+		getElementById()
+		getElementsByClassName,byTagName,byName
+	创建标签
+		document.CreateElement
+	添加标签
+		append
 
 2.ajax完成 数据的读取 
 	分页
   数据的删除
   数据的修改
+  
+ 

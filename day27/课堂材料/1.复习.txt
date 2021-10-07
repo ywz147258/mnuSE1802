@@ -25,4 +25,27 @@ var obj2= JSON.parse(json);
 	ajax不需要跳转界面
  
 
+3.bom
+	alert
+	confirm
+	prompt
+	location
+		assign
+		reload
+	window
+		open
+		close
+	history
+		back()
+		go()
+		previous()
+
+
+
+
+
+
+
+
+
  

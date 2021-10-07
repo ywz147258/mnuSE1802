@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//通过id获取元素
+			function getById(){
+				var text1= document.getElementById("text1");
+				console.log(text1.value);
+			}
+			//获取class的元素
+			function getByClass(){
+				var textC= document.getElementsByClassName("textC");
+				for(var i =0;i<textC.length;i++){
+					console.log(textC[i].value);
+				}
+			}
+			
+			function getByTag(){
+				var inputs =document.getElementsByTagName("input");
+				for(var i =0;i<inputs.length;i++){
+					console.log(inputs[i].value);
+				}
+			}
+			
+			function getByName(){
+				var inputs =document.getElementsByName("textName");
+				for(var i =0;i<inputs.length;i++){
+					console.log(inputs[i].value);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input name="textName" type="text" id="text1"/>
+		<button onclick="getById()">获取id为text1</button>
+		<br/>
+		<input type="text" class="textC" />
+		<input name="textName" type="text" class="textC" />
+		<button onclick="getByClass()">获取class为textC</button>
+		<br/>
+		<button onclick="getByTag()">获取input标签的值</button>
+		<br/>
+		<button onclick="getByName()">获取name为textName</button>
+	</body>
+</html>
