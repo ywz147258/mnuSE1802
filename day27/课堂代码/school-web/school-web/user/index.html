@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function() {
+				function selectUser() {
+					ajax("http://localhost:8080/user/userList", "", function(result) {
+						var obj = JSON.parse(result);
+						var table=document.getElementById("table");
+						for(var i in obj){
+							console.log(obj[i]);
+							var id= obj[i].id;
+							var userName= obj[i].userName;
+							var passWord= obj[i].passWord;
+							var sex= obj[i].sex;
+							var email= obj[i].email;
+							var detail= obj[i].detail;
+							var skill= obj[i].skill;
+							var tel= obj[i].tel;
+							var tr= document.createElement("tr");
+							var td=`
+								<tr>
+									<td>${id}</td>
+									<td>${userName}</td>
+									<td>${passWord}</td>
+									<td>${sex}</td>
+									<td>${email}</td>
+									<td>${detail}</td>
+									<td>${skill}</td>
+									<td>${tel}</td>
+								</tr>
+							`;
+							tr.innerHTML=td;
+							table.appendChild(tr);
+						}
+					});
+				}
+				//查询数据
+				selectUser();
+
+				function ajax(url, sendParam, callBack) {
+					var xhr = new XMLHttpRequest();
+					xhr.open("POST", url, true);
+					//POST提交时需添加请求头“Content-Type”，指定MIME类型
+					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+					xhr.onreadystatechange = function() {
+						// readyState == 4说明请求已完成
+						if (xhr.readyState == 4) {
+							if (xhr.status == 200) {
+								var result = xhr.responseText;
+								callBack(result);
+							}
+						}
+					}
+					xhr.send(sendParam);
+				}
+			}
+		</script>
+		<style type="text/css">
+			#table tr:nth-of-type(2n){
+				background-color: whitesmoke;
+			}
+			#table{
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1" id="table">
+			<tr>
+				<th>id</th>
+				<th>userName</th>
+				<th>passWord</th>
+				<th>sex</th>
+				<th>email</th>
+				<th>detail</th>
+				<th>skill</th>
+				<th>tel</th>
+			</tr>
+		</table>
+	</body>
+</html>

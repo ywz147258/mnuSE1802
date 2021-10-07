@@ -33,7 +33,16 @@
 	分页
   数据的删除
   数据的修改
+  mvc
+	前端后端：model（dao） view(html)  controller(controller+service)
+	后端：dao + service + controller
+  
   
 4.转义
+
+
+
+
+
   
  
