@@ -45,4 +45,9 @@ public class UserController {
         userService.userDelete(id);
         return "success";
     }
+
+    @RequestMapping("/getUserInfo")
+    public User getUserInfo(Integer id){
+        return userService.getUserInfo(id);
+    }
 }

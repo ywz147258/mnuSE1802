@@ -36,4 +36,11 @@ public interface UserService {
      * 删除用户
      */
     public void userDelete(Integer id);
+
+    /**
+     *  获取用户信息
+     * @param id
+     * @return
+     */
+    public User getUserInfo(Integer id);
 }

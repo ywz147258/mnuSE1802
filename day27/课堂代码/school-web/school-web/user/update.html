@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../js/ajax.js"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				var userId=localStorage.getItem("userId");
+				function getUserInfo(){
+					ajax("http://localhost:8080/user/getUserInfo","id="+userId,function(result){
+						var obj = JSON.parse(result);
+						document.getElementById("id").value=obj.id;
+						document.getElementById("userName").value=obj.userName;
+						document.getElementById("passWord").value=obj.passWord;
+						document.getElementById("sex").value=obj.sex;
+						document.getElementById("education").value=obj.education;
+						document.getElementById("skill").value=obj.skill;
+						document.getElementById("detail").value=obj.detail;
+					})
+				}
+				getUserInfo();
+			}
+			
+		</script>
+	</head>
+	<body>
+		<table border="1" cellspacing="" cellpadding="">
+			<tr>
+				<td>id</td>
+				<td><input type="text" id="id" /></td>
+			</tr>
+			<tr>
+				<td>userName</td>
+				<td><input type="text" id="userName" /></td>
+			</tr>
+			<tr>
+				<td>passWord</td>
+				<td><input type="text" id="passWord" /></td>
+			</tr>
+			<tr>
+				<td>detail</td>
+				<td><input type="text" id="detail" /></td>
+			</tr>
+			<tr>
+				<td>skill</td>
+				<td><input type="text" id="skill" /></td>
+			</tr>
+			<tr>
+				<td>education</td>
+				<td><input type="text" id="education" /></td>
+			</tr>
+			<tr>
+				<td>sex</td>
+				<td><input type="text" id="sex" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="button">确认</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

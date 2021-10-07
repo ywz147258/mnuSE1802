@@ -143,5 +143,34 @@ public class UserDao extends BaseDao<User>{
         return count;
     }
 
+    /**
+     * 查询用户信息
+     * @return
+     */
+    public User selectUserInfo(Integer userId){
+        User userR = new User();
+        String sql = "select * from users where id=?";
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ps.setInt(1,userId);
+            ResultSet rs =ps.executeQuery();
+            while(rs.next()){
+                userR.setSex(rs.getInt("sex"));
+                userR.setPassWord(rs.getString("pass_word"));
+                userR.setUserName(rs.getString("user_name"));
+                userR.setDetail(rs.getString("detail"));
+                userR.setEducation(rs.getInt("education"));
+                userR.setEmail(rs.getString("email"));
+                userR.setSkill(rs.getString("skill"));
+                userR.setTel(rs.getString("tel"));
+                userR.setId(rs.getInt("id"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userR;
+    }
+
 
 }

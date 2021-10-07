@@ -28,6 +28,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserInfo(Integer id) {
+        return userDao.selectUserInfo(id);
+    }
+
+    @Override
     public boolean getUserCounts(User user) {
         Integer counts= userDao.selectUserName(user);
         if(counts>0){

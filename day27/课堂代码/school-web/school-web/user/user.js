@@ -24,7 +24,6 @@ window.onload = function() {
 	}
 	//查询数据
 	selectUser();
-
 	function getUser(page) {
 		//1 *5 -5=0
 		var start = page * number - number;
@@ -74,25 +73,25 @@ window.onload = function() {
 				td.appendChild(deleteButton);
 				//把td放到tr
 				tr.appendChild(td);
+				
+				//创建一个修改按钮
+				var buttonUpdate = document.createElement("button");
+				// a.setAttribute("href","update.html");
+				buttonUpdate.innerText="修改";
+				//把修改按钮放到td
+				td.appendChild(buttonUpdate);
+				//给修改按钮赋值属性 updateId
+				buttonUpdate.setAttribute("updateId", id);
+				//按钮点击事件
+				buttonUpdate.onclick=function(){
+					//整个项目的全局变量
+					localStorage.setItem("userId",this.getAttribute("updateId"));
+					//跳到修该页面
+					location.assign("update.html")
+				}
 			}
 		});
 	}
 
-
-	function ajax(url, sendParam, callBack) {
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", url, true);
-		//POST提交时需添加请求头“Content-Type”，指定MIME类型
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
-		xhr.onreadystatechange = function() {
-			// readyState == 4说明请求已完成
-			if (xhr.readyState == 4) {
-				if (xhr.status == 200) {
-					var result = xhr.responseText;
-					callBack(result);
-				}
-			}
-		}
-		xhr.send(sendParam);
-	}
+	
 }
