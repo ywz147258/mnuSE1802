@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var dd = document.createElement("dd");
+				dd.innerText="2.5";
+				var dl =document.getElementById("dl");
+				//在某个节点前插入
+				dl.insertBefore(dd,document.getElementById("dd3"))
+			}
+		</script>
+	</head>
+	<body>
+		<dl id="dl">
+			<dd id="dd1">1</dd>
+			<dd id="dd2">2</dd>
+			<!-- <dd>2.5</dd> -->
+			<dd id="dd3">3</dd>
+		</dl>
+	</body>
+</html>

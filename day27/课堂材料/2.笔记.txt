@@ -1,7 +1,7 @@
 1.dom节点
 	所有的标签都叫 DOM
 		通常我会把标签叫做 dom节点
-		元素、标签、dom节点、dom
+		元素、标签、dom节点、dom、节点
 	获取标签
 		getElementById()
 		getElementsByClassName,byTagName,byName
@@ -9,10 +9,31 @@
 		document.CreateElement
 	添加标签
 		append
+		
+	删除标签
+		remove
+		removeChild
+	替换标签
+		replaceChild
+	插入标签
+		insertBefore
 
-2.ajax完成 数据的读取 
+2.节点属性
+	innerText
+		显示值，哪怕值是标签，一样显示
+	innerHTML
+		会把标签单独做处理
+	value
+		只用于有value属性的标签，比如说 input
+	style
+		
+	
+	
+3.ajax完成 数据的读取 
 	分页
   数据的删除
   数据的修改
+  
+4.转义
   
  

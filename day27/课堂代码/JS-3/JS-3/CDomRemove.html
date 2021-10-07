@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				// setTimeout(function(){
+				// 	document.getElementById("div2").remove();
+				// },3000);
+				setTimeout(function(){
+					document.getElementById("div1").removeChild(document.getElementById("div2"));
+				},3000);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+			div1
+			<div id="div2">div2</div>
+		</div>
+	</body>
+</html>
