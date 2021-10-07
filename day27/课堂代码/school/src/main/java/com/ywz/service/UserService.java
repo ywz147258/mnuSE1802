@@ -24,5 +24,11 @@ public interface UserService {
      * 获取用户列表
      * @return
      */
-    public List<User> getUsers();
+    public List<User> getUsers(User user);
+
+    /**
+     * 获取用户条数
+     * @return
+     */
+    public int getUserCount();
 }

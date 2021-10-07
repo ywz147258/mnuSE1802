@@ -21,9 +21,18 @@ public class UserController {
      * @return
      */
     @RequestMapping("/userList")
-    public List<User> userList(){
-        List<User> list = userService.getUsers();
+    public List<User> userList(User user){
+        List<User> list = userService.getUsers(user);
         //springBoot 会把对象转json
         return list;
+    }
+
+    /**
+     * 获取用户里列表的数量
+     * @return
+     */
+    @RequestMapping("/userCounts")
+    public int userCounts(){
+        return userService.getUserCount();
     }
 }

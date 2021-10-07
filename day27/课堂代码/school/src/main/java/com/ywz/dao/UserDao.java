@@ -46,10 +46,12 @@ public class UserDao extends BaseDao<User>{
      */
     @Override
     public List<User> select(User user) {
-        String sql = "select * from users";
+        String sql = "select * from users limit ?,?";
         List<User> list = new ArrayList<>();
         try {
             PreparedStatement ps = getCon().prepareStatement(sql);
+            ps.setInt(1,user.getStart());
+            ps.setInt(2,user.getLimit());
             ResultSet rs= ps.executeQuery();
             while(rs.next()){
                 User userR= new User();
@@ -68,6 +70,26 @@ public class UserDao extends BaseDao<User>{
             e.printStackTrace();
         }
         return list;
+    }
+
+    /**
+     * 根据用户名获取用户数量
+     * @return
+     */
+    public Integer selectUserName(){
+        String sql ="select count(1) as counts from users";
+        Integer count =0;
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                count=rs.getInt("counts");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
     }
 
     /**

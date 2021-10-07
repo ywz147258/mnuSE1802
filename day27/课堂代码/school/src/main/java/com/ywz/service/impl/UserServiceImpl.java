@@ -10,9 +10,14 @@ public class UserServiceImpl implements UserService {
 
     private UserDao userDao= new UserDao();
 
-    public List<User> getUsers(){
-        List<User> list = userDao.select(null);
+    public List<User> getUsers(User user){
+        List<User> list = userDao.select(user);
         return list;
+    }
+
+    @Override
+    public int getUserCount() {
+        return userDao.selectUserName();
     }
 
     @Override

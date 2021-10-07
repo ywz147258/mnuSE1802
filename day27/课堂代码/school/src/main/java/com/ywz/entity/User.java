@@ -3,7 +3,7 @@ package com.ywz.entity;
 import lombok.Data;
 
 @Data
-public class User {
+public class User extends PageQuery{
     private Integer id;
     private String userName;
     private String passWord;
