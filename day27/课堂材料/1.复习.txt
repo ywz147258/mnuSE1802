@@ -1,0 +1,28 @@
+1.JSON
+JSON是一个字符串，只是说这个字符串的格式比较特别。
+数组：`[{"name":"ywz","sex":"man","obj":{}},{},{}]`
+单对象：`{"name":"ywz","sex":"man"}`
+
+对象和json间相互转换
+var obj= {};
+var result =JSON.Stringify(obj);
+
+var json=`{"name":"ywz","sex":"man"}`;
+var obj2= JSON.parse(json);
+
+2.ajax
+ Asynchronous javascript and  xml
+ 假设有三个ajax请求，分别是 ajax1，ajax2,ajax3
+ 同步就是单线程
+	必须得等ajax1执行完，才能执行ajax2，ajax3
+ 异步就是多线程
+	ajax1执行后，等待请求结果期间就可以先执行ajax2
+	
+ 默认是异步（多线程），咱们不用去管
+ 多线程的编程思维会自始至终贯穿程序员的编程生涯。
+ 
+ ajax表单的提交和传统form表单的提交区别在哪：
+	ajax不需要跳转界面
+ 
+
+ 

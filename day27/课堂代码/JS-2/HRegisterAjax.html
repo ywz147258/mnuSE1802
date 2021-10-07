@@ -43,8 +43,6 @@
 				xhr.open("POST",url,true);
 				//POST提交时需添加请求头“Content-Type”，指定MIME类型
 				xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
-				xhr.send(sendParam);
-				//接收返回的值
 				xhr.onreadystatechange=function(){
 					// readyState == 4说明请求已完成
 					if(xhr.readyState==4){
@@ -54,6 +52,7 @@
 						}
 					}
 				}
+				xhr.send(sendParam);
 			}
 		</script>
 	</head>
