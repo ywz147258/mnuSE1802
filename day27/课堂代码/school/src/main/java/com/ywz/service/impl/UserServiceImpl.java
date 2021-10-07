@@ -21,6 +21,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void userDelete(Integer id) {
+        User user = new User();
+        user.setId(id);
+        userDao.delete(user);
+    }
+
+    @Override
     public boolean getUserCounts(User user) {
         Integer counts= userDao.selectUserName(user);
         if(counts>0){

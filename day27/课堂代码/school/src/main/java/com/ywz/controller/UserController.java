@@ -35,4 +35,14 @@ public class UserController {
     public int userCounts(){
         return userService.getUserCount();
     }
+
+    /**
+     * 用户删除
+     * @return
+     */
+    @RequestMapping("/userDelete")
+    public String userDelete(Integer id){
+        userService.userDelete(id);
+        return "success";
+    }
 }

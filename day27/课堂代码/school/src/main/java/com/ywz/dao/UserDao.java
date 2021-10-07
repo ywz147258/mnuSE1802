@@ -31,7 +31,14 @@ public class UserDao extends BaseDao<User>{
 
     @Override
     public void delete(User user) {
-
+        String sql ="delete from users where id=?";
+        try {
+            PreparedStatement ps = getCon().prepareStatement(sql);
+            ps.setInt(1,user.getId());
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

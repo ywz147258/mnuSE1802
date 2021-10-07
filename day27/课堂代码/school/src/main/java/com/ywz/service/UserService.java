@@ -31,4 +31,9 @@ public interface UserService {
      * @return
      */
     public int getUserCount();
+
+    /**
+     * 删除用户
+     */
+    public void userDelete(Integer id);
 }
