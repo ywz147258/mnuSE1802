@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				position: absolute;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#div1").mousemove(function(event){
+					
+				//获取x轴和y轴
+				/* 	console.log("X轴"+event.clientX);
+					console.log("Y轴"+event.clientY);
+					var x= event.clientX-100;
+					var y=event.clientY-100;
+					$(this).attr("style","left:"+x+"px;top:"+y+"px;"); */
+				});
+				
+				//监测所有dom节点
+				$(document).click(function(event){
+					console.log(event.target);	
+				});
+				
+				$("input").keydown(function(event){
+					console.log(event.keyCode);
+					console.log(event.which);
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+		</div>
+		<input style="position: absolute;top: 200px;" type="" name="" id="" value="" />
+	</body>
+</html>

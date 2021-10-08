@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				// $("#div1").hover(function(){
+				// 	console.log("hover1");
+				// },function(){
+				// 	console.log("hover2");
+				// })
+				
+				//监视键盘
+				$("#text").keydown(function(event){
+					//ascii码
+					console.log(event.keyCode);
+					if(event.keyCode==13){
+						console.log("开始登陆");
+					}
+				});
+				
+				//聚焦
+				$("#text").focus(function(){
+					console.log("聚焦");
+				})
+				
+				//失去焦点
+				$("#text").blur(function(){
+					console.log("失去焦点");
+					$("#tip").text("用户名已经存在")
+				})
+				
+				//当输入框的值被改变的时候，并且失去焦点时触发
+				$("#text2").change(function(){
+					// console.log(this.value);
+					console.log($(this).val());
+				});
+				
+				
+				
+				
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="div1">
+		</div>
+		<input type="text" id="text"/>
+		<font size="3pt" color="red" id="tip"></font><br>
+		<input type="text"  id="text2" />
+	</body>
+</html>
