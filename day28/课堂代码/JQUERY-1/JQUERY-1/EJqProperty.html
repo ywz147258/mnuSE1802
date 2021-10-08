@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				// $("#text").val();
+				//attribute
+				//通过jq改变标签属性
+				$("#text").attr("value", "hello");
+
+				//通过js修改标签属性
+				document.getElementById("text").setAttribute("value", "helloA");
+
+				
+				//鼠标经过显示密码
+				$("#showPsw").mouseover(function() {
+					$("#psw").attr("type", "text");
+				});
+
+				//鼠标移出隐藏密码
+				$("#showPsw").mouseout(function() {
+					$("#psw").attr("type", "password");
+				});
+				
+				//设置样式
+				$("#showPsw").css("color","red").css("width","40px");
+				$("#showPsw").attr("style","width:100px;color:blue")			
+
+			})
+		</script>
+		<style type="text/css">
+			div {
+				border: 1px solid black;
+				width: 220px;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			#psw {
+				border: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="text" /><br>
+		<div>
+			<input type="password" id="psw">
+			<button id="showPsw">显示</button>
+		</div>
+	</body>
+</html>

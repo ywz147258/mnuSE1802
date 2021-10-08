@@ -13,6 +13,10 @@
 				var domDiv=$("#div")[0];
 				domDiv.innerText="div1";
 				
+				//dom对象转jq对象
+				var dom= document.getElementById("div");
+				$(dom).attr("style",`color:blue`);
+				
 			})
 		</script>
 		<style type="text/css">
