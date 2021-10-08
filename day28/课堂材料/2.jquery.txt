@@ -1,0 +1,7 @@
+1.jquery
+	jquery也输入js
+	区别：
+		jquery写法更简单
+		用法更强大
+2.选择器
+	jquery的选择跟css几乎是一样的

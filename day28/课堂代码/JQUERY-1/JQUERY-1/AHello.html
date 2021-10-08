@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#input{
+				font-size: 20pt;
+			}
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: aqua;
+			}
+		</style>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//1.js获取元素
+				document.getElementById("input").value="hello world";
+				//2.jquery获取元素
+				var input=$("#input");
+				input.val("hello")
+				
+				//3.js 设置方法
+				document.getElementById("button").onclick=function(){}
+				
+				//4.jq 设置方法
+				$("#button").click(function(){
+					// alert((input.val()))
+					input.hide();
+				});
+				
+				$("#showHide").click(function(){
+					input.show();
+				});
+				
+				//特效
+				$("#slideUpButton").click(function(){
+					$("#div1").slideUp();
+				})
+				//特效
+				$("#slideDownButton").click(function(){
+					$("#div1").slideDown();
+				})
+				
+				//5.js批量获取元素并处理
+				var inputs = document.getElementsByClassName("inputClass");
+				for(var i=0;i<inputs.length;i++){
+					inputs[i].value="hello"+i;
+				}
+				
+				//6.jq批量处理元素
+				$(".inputClass").val("hello");
+				
+				//7.jq dom
+				var div2= $("<div>");
+				div2.text("div2");
+				$("#div1").append(div2);
+				
+				//8 子类选择器
+				$("table td").text("你好")
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text" id="input" class="inputClass" />
+		<input type="text" class="inputClass" />
+		<button id="button">隐藏</button>
+		<button type="button" id="showHide">显示</button>
+		<button type="button" id="slideUpButton">上拉</button>
+		<button type="button" id="slideDownButton">下拉</button>
+		<div id="div1">
+			<!-- <div id="div2">
+				div2
+			</div> -->
+		</div>
+		
+		<table border="" cellspacing="" cellpadding="">
+			<tr><th>Header</th></tr>
+			<tr><td>Data</td></tr>
+		</table>
+	</body>
+</html>
