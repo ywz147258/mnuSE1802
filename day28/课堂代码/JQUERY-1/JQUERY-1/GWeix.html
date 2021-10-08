@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#parent{
+				width: 300px;
+				height: 600px;
+				border: 1px solid red;
+				margin: auto;
+				position: relative;
+			}
+			#parent div{
+				width: 300px;
+				height: 600px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#page2").hide();
+				$("#page3").hide();
+				$("#page4").hide();
+				
+				$("#show1").click(function(){
+					$("#page1").show();
+					$("#page2").hide();
+					$("#page3").hide();
+					$("#page4").hide();
+				}) 
+				$("#show2").click(function(){
+					$("#page1").hide();
+					$("#page2").show();
+					$("#page3").hide();
+					$("#page4").hide();
+				}) 
+				$("#show3").click(function(){
+					$("#page1").hide();
+					$("#page2").hide();
+					$("#page3").show();
+					$("#page4").hide();
+				}) 
+				$("#show4").click(function(){
+					$("#page1").hide();
+					$("#page2").hide();
+					$("#page3").hide();
+					$("#page4").show();
+				}) 
+			});
+		</script>
+	</head>
+	<body>
+		<div id="parent">
+			<div id="page1">
+				页面1
+			</div>
+			<div id="page2">
+				页面2
+			</div>
+			<div id="page3">
+				页面3
+			</div>
+			<div id="page4">
+				页面4
+			</div>
+		</div>
+		<div id="">
+			<button type="button" id="show1">页面1</button>
+			<button type="button" id="show2">页面2</button>
+			<button type="button" id="show3">页面3</button>
+			<button type="button" id="show4">页面4</button>
+		</div>
+	</body>
+</html>
