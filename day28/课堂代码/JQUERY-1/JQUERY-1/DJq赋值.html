@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//jq给文本框赋值
+				$("#text").val();
+				//js给文本框赋值
+				document.getElementById("text").value="";
+				
+				//jq给标签赋值
+				$("#div").text("div1")
+				//js给标签赋值
+				document.getElementById("div").innerText="";
+				
+				//jq给标签加子标签
+				$("#div").html(`<font>我是一个font</font>`);
+				//js给标签加子标签
+				document.getElementById("div").innerHTML=`<font>我是一个font</font>`;
+			})
+		</script>
+	</head>
+	<body>
+		<input type="text"  id="text"/>
+		<div id="div">
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//1.查找table 的后代为 td 的标签
+				var td=$("#table td");
+				
+				//2. 用find方法查找table的后代为 td 的标签
+				var td2=$("#table").find("td");
+				td2.text("我是一个td");
+				
+				//3. 获取子标签
+				var tableChild=$("#table").children();
+				//获取tbody的子标签
+				var trs= tableChild.children();
+				//遍历 tr, children经常和 each一起使用
+				trs.each(function(){
+					//获取标签对象本身  用 this，但是这个对象是没办法直接操作
+					console.log(this);
+					//需要把标签对象转成jq对象 $(this)
+					$(this).html("111");
+				})
+				
+				//4.next 获取节点的第一个弟弟
+				var divs=$("#div1").next();
+				divs.css("color","red")
+				
+				//5.jq 用 eq来代替 nth-child,css的下标是从 1，jq的下标是从0
+				var div1= $("div:first");
+				var div3=$("div:eq(2)");
+				div1.css("color","blue")
+				div3.css("color","yellow")
+				
+				//6.parent 找有儿子的元素（儿子也是可以文本）
+				var dd=$("dd:parent");
+				console.log(dd);
+				
+				//7.通过儿子拿父亲
+				var dd1=$("#ddc1").parent();
+				console.log(dd1);
+				
+			});
+		</script>
+	</head>
+	<body>
+		<table id="table" border="" cellspacing="" cellpadding="">
+			<tbody>
+				<tr><th>Header</th></tr>
+				<tr><td>Data</td></tr>
+			</tbody>
+		</table>
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+		<div id="div3">div3</div>
+		
+		<dl>
+			<dd>
+				<dl>
+					dd1
+					<dd id="ddc1">ddc1</dd>
+					<dd>ddc2</dd>
+					<dd>ddc3</dd>
+				</dl>
+			</dd>
+			<dd></dd>
+			<dd></dd>
+			<dd>dd4</dd>
+		</dl>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				//jq对象是无法直接使用js的方法、属性
+				$("#div").innerText="div1"
+				
+				//把jq对象转成js的dom对象
+				var domDiv=$("#div")[0];
+				domDiv.innerText="div1";
+				
+			})
+		</script>
+		<style type="text/css">
+			*{
+				border: 1px solid red;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div">
+			
+		</div>
+	</body>
+</html>
