@@ -1,0 +1,52 @@
+1.jq和js的区别
+	1.共同点
+		jq是用js写的
+	2.区别
+		jq写法比js更简便
+		功能更强大
+	上班的时候用前端的情况下，一般不会用js
+	
+2.jq用法
+	js和jq的相互转换
+	js转jq
+		$(js对象)
+		$(document.getElementById())
+		
+	jq转js
+		$()[0]
+3.jq选择器
+	jq选择器写法跟css几乎是一样的
+	$("#id")
+	$(".class")
+	$("id")
+	
+4.jq操作属性
+	js操作属性
+	.setAttribute
+	jq
+5.jq操作dom节点
+	//jq获取点
+	$("#div");
+	//jq创建节点
+	$("<div>");
+	//添加节点
+	$("#div").append();
+	//删除节点
+	$("#div").remove();
+	//清空节点
+	$("#div4").empty();
+6.jq对方法的操作
+	js在方法前都会加一个on
+		onclick、ondblclick、onmousemove
+	jq都没有on	
+		click、dbclick
+		
+7.赋值
+	js
+		innerHTML
+		innerText
+	jq
+		html
+		text
+		
+	
