@@ -8,15 +8,20 @@
 			$(function(){
 				$("#text").keyup(function(){
 					var value =this.value;
+					if(value.trim()=="")return;
 					$.ajax({
 						type:"post",
 						data:{
-							bookName:value
+							name:value
 						},
 						url:"http://localhost:8081/book/getBookName",
-						dataType:"json",
 						success:function(data){
-							
+							$("#cars").empty();
+							$.each(data,function(index,value){
+								var option =$("<option>");
+								option.attr("value",value);
+								$("#cars").append(option);
+							});
 						}
 					})
 				})
@@ -26,9 +31,9 @@
 	<body>
 		<input id="text" list="cars" />
 			<datalist id="cars">
-				<option value="斗破苍穹">
+			<!-- 	<option value="斗破苍穹">
 				<option value="斗罗大陆">
-				<option value="梦幻空间">
+				<option value="梦幻空间"> -->
 			</datalist>
 	</body>
 </html>

@@ -18,6 +18,7 @@ public class BookController {
     private BookService bookService= new BookServiceImpl();
     @RequestMapping("/getBookName")
     public List<String> getBookName(String name){
+        if(name.trim()=="")return null;
         return bookService.getBookNames(name);
     }
 }
