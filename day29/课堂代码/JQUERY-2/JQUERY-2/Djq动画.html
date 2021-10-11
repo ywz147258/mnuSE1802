@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="jq.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//能用css的动画就尽量用css的动画，尽量不要用jq
+				
+				$("#big").click(function(){
+					$("#div1").animate({
+						"width":"200px",
+						"height":"200px"
+					},1000);
+				});
+				
+				$("#small").click(function(){
+					$("#div1").animate({
+						"width":"50px",
+						"height":"50px"
+					},1000);
+				});
+				
+				$("#circle").click(function(){
+					$("#div1").animate({
+						"border-radius":"50%"
+					},1000);
+				})
+			})
+		</script>
+		<style type="text/css">
+			#div1{
+				height: 100px;
+				width: 100px;
+				background: #FF0000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+		<button type="button" id="big">变大</button>
+		<button type="button" id="small">变小</button>
+		<button type="button" id="circle">变圆</button>
+	</body>
+</html>
