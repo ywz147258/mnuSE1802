@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../jq.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var ajaxTimeoutTest =$.ajax({
+					type: "post",
+					url: "http://localhost:8081/ajax/test",
+					data: {
+						name: "ywz",
+						psw: "123"
+					},
+					timeout: 60000,
+					success: function(result) {
+						console.log(result);
+					},
+					complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
+						if (status == 'timeout') { //超时,status还有success,error等值的情况
+							ajaxTimeoutTest.abort();
+							alert("超时");
+						}
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

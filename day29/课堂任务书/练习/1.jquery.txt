@@ -3,3 +3,18 @@
 返回头部两种做法：
 	1.a标签的锚
 	2.jq的scrollTop(0)
+	
+2.用jquery的ajax完成注册
+	1.用户名重复提示
+		1.当input失去焦点的时候提示
+		
+3.用jquery的ajax完成输入提示
+	1.输入一个字显示以这个字开头的前十本小说
+	2.类似百度那样
+	下拉提示用
+		<input list="cars" />
+		<datalist id="cars">
+			<option value="BMW">
+			<option value="Ford">
+			<option value="Volvo">
+		</datalist>
