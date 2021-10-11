@@ -21,7 +21,16 @@ public class BookDao extends BaseDao<Book> {
 
     @Override
     public void update(Book book) {
-
+        String sql ="update book set name =? ,href=? where id =?";
+        try {
+            PreparedStatement ps=getCon().prepareStatement(sql);
+            ps.setString(1,book.getName());
+            ps.setString(2,book.getHref());
+            ps.setInt(3,book.getId());
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     //获取书本列表

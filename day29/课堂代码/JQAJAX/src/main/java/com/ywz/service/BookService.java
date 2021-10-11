@@ -10,4 +10,6 @@ public interface BookService {
     public List<Book> getBooks(Book book);
 
     public Integer getBookCounts(String name);
+
+    public void modifyBook(Book book);
 }

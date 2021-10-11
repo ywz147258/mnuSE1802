@@ -32,4 +32,10 @@ public class BookController {
     public Integer getBookCounts(String name){
         return bookService.getBookCounts(name);
     }
+
+    @RequestMapping("/modify")
+    public String modify(Book book){
+        bookService.modifyBook(book);
+        return "success";
+    }
 }

@@ -55,12 +55,47 @@
 							console.log(data);
 							$("#tbody").empty();
 							$.each(data, function(index, value) {
-								var name = $("<td><input disabled='true' value="+value.name+"></td>");
+								var name = $("<td><input id=book"+value.id+" disabled='true' value="+value.name+"></td>");
 								var id = $("<td>" + value.id + "</td>");
 								var href = $("<td>" + value.href + "</td>");
+								var controll= $("<td>");
+								//修改按钮
+								var updateButton =$("<button>修改</button>");
+								updateButton.click(function(){
+									// $("#book1").removeAttr("disabled");
+									var tr=$(this).parent().parent();
+									var input =tr.children().eq(1).children().eq(0);
+									input.removeAttr("disabled");
+								});
+								controll.append(updateButton);
+								
+								var sureButton=$("<button>确定</button>");
+								sureButton.click(function(){
+									var tr=$(this).parent().parent();
+									var id= tr.children().eq(0).text();
+									var input =tr.children().eq(1).children().eq(0);
+									var name =input.val();
+									input.attr("disabled","disabled");
+									var href=tr.children().eq(2).text();
+									
+									$.ajax({
+										type:"post",
+										url:"http://localhost:8081/book/modify",
+										data:{
+											id:id,
+											name:name,
+											href:href
+										},
+										success:function(data){
+											console.log(data);
+										}
+									})
+								});
+								controll.append(sureButton);
+								
 								var tr = $("<tr>");
 								//链式调用
-								tr.append(id).append(name).append(href);
+								tr.append(id).append(name).append(href).append(controll);
 								$("#tbody").append(tr);
 							});
 						}
@@ -91,6 +126,7 @@
 					<td>ID</td>
 					<td>NAME</td>
 					<td>HREF</td>
+					<td>操作</td>
 				</tr>
 			</thead>
 			<tbody id="tbody">
@@ -98,7 +134,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="3" id="tfoot"></td>
+					<td colspan="4" id="tfoot"></td>
 				</tr>
 			</tfoot>
 		</table>

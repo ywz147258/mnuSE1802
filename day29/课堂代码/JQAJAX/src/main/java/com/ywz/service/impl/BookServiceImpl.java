@@ -24,4 +24,9 @@ public class BookServiceImpl implements BookService {
     public Integer getBookCounts(String name) {
         return bookDao.selectCounts(name);
     }
+
+    @Override
+    public void modifyBook(Book book) {
+        bookDao.update(book);
+    }
 }
