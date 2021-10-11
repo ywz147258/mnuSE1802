@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../jq.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.算出总条数
+			function getAllCounts(){
+				$.ajax({
+					type:"post",
+					url:"http://localhost:8081/book/getBookCounts",
+					data:{
+						name:""
+					},
+					success:function(data){
+						console.log(data);
+					}
+				});
+			}
+			getAllCounts();
+			
+			//2.根据总条数算出总页数 
+			
+			//3.根据页数和一页显示的条数获取数据
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<table>
+			<tbody id="tbody"></tbody>
+		</table>
+	</body>
+</html>

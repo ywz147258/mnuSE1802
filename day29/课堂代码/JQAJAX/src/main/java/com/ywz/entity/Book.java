@@ -6,4 +6,5 @@ import lombok.Data;
 public class Book extends PageQuery{
     private Integer id;
     private String name;
+    private String href;
 }
