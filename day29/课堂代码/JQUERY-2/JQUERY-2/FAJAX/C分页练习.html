@@ -5,32 +5,102 @@
 		<title></title>
 		<script src="../jq.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			//1.算出总条数
-			function getAllCounts(){
-				$.ajax({
-					type:"post",
-					url:"http://localhost:8081/book/getBookCounts",
-					data:{
-						name:""
-					},
-					success:function(data){
-						console.log(data);
-					}
+			$(function() {
+				//总页数
+				var allPages = 1;
+				//一页有几条
+				var limit = 5;
+				//搜索关键字
+				var name = "";
+				//1.算出总条数
+				function getAllCounts(name) {
+
+					$.ajax({
+						type: "post",
+						url: "http://localhost:8081/book/getBookCounts",
+						data: {
+							name: name
+						},
+						success: function(data) {
+							$("#tfoot").empty();
+							console.log(data);
+							//2.根据总条数算出总页数 
+							allPages = Math.ceil(data / limit);
+							for (var i = 1; i <= allPages; i++) {
+								var button = $("<button>");
+								button.html("第" + i + "页").attr("nowPage", i);
+								$("#tfoot").append(button);
+								button.click(function() {
+									getBookList(name,$(this).attr("nowPage"));
+								})
+
+							}
+
+						}
+					});
+				}
+				getAllCounts("");
+
+				//3.根据页数和一页显示的条数获取数据
+				function getBookList(name, nowPage) {
+					$.ajax({
+						type: "post",
+						url: "http://localhost:8081/book/getBooks",
+						data: {
+							name: name,
+							start: nowPage * limit - limit,
+							limit: limit
+						},
+						success: function(data) {
+							console.log(data);
+							$("#tbody").empty();
+							$.each(data, function(index, value) {
+								var name = $("<td><input disabled='true' value="+value.name+"></td>");
+								var id = $("<td>" + value.id + "</td>");
+								var href = $("<td>" + value.href + "</td>");
+								var tr = $("<tr>");
+								//链式调用
+								tr.append(id).append(name).append(href);
+								$("#tbody").append(tr);
+							});
+						}
+					});
+				}
+
+				getBookList("", 1);
+				$("#search").click(function() {
+					var value = $("#text").val();
+					name = value;
+					getBookList(name,1);
+					getAllCounts(name);
 				});
-			}
-			getAllCounts();
-			
-			//2.根据总条数算出总页数 
-			
-			//3.根据页数和一页显示的条数获取数据
-			
-			
-			
+			})
 		</script>
 	</head>
 	<body>
-		<table>
-			<tbody id="tbody"></tbody>
+		<input id="text" list="cars" />
+		<datalist id="cars">
+			<!-- 	<option value="斗破苍穹">
+				<option value="斗罗大陆">
+				<option value="梦幻空间"> -->
+		</datalist>
+		<button id="search">搜索</button>
+		<table border="1">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>NAME</td>
+					<td>HREF</td>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3" id="tfoot"></td>
+				</tr>
+			</tfoot>
 		</table>
 	</body>
 </html>

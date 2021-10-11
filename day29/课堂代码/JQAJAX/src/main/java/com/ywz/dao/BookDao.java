@@ -28,7 +28,7 @@ public class BookDao extends BaseDao<Book> {
     @Override
     public List<Book> select(Book book) {
         List<Book> books=new ArrayList<>();
-        String sql ="select name from book where name like ? limit ?,?";
+        String sql ="select * from book where name like ? limit ?,?";
         try {
             PreparedStatement ps=getCon().prepareStatement(sql);
             ps.setString(1,"%"+book.getName()+"%");
@@ -39,7 +39,7 @@ public class BookDao extends BaseDao<Book> {
                 Book result = new Book();
                 result.setId(rs.getInt("id"));
                 result.setName(rs.getString("name"));
-                result.setName(rs.getString("href"));
+                result.setHref(rs.getString("href"));
                 books.add(result);
             }
         } catch (SQLException e) {
