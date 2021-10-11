@@ -25,7 +25,9 @@
 				$("#circle").click(function(){
 					$("#div1").animate({
 						"border-radius":"50%"
-					},1000);
+					},1000,function(){
+						$("#small").trigger("click")
+					});
 				})
 			})
 		</script>
