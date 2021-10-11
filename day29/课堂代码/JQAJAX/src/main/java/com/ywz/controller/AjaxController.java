@@ -1,4 +1,4 @@
-package com.ywz.controll;
+package com.ywz.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;

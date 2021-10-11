@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../jq.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#text").keyup(function(){
+					var value =this.value;
+					$.ajax({
+						type:"post",
+						data:{
+							bookName:value
+						},
+						url:"http://localhost:8081/book/getBookName",
+						dataType:"json",
+						success:function(data){
+							
+						}
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input id="text" list="cars" />
+			<datalist id="cars">
+				<option value="斗破苍穹">
+				<option value="斗罗大陆">
+				<option value="梦幻空间">
+			</datalist>
+	</body>
+</html>
