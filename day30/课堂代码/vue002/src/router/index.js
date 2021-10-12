@@ -7,6 +7,7 @@ import FOR from '@/components/FOR'
 import EVENT from '@/components/EVENT'
 import COMPUTED from '@/components/computed'
 import WATCH from '@/components/watch'
+import zujian from '@/components/组件'
 
 Vue.use(Router)
 
@@ -45,6 +46,11 @@ export default new Router({
 			path: '/watch',
 			name: 'watch',
 			component: WATCH
+		},
+		{
+			path: '/zujian',
+			name: 'zujian',
+			component: zujian
 		}
 	]
 })
