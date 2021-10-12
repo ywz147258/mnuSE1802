@@ -8,6 +8,7 @@
 				<td>{{value}}</td>
 			</tr>
 		</table>
+		<br>
 		<table border="" cellspacing="" cellpadding="">
 			<tr>
 				<th>id</th>
@@ -15,9 +16,12 @@
 				<th>author</th>
 			</tr>
 			<tr v-for="(value,index) in books">
-				<td>{{index+1}}</td>
-				<td>{{value.name}}</td>
-				<td>{{value.author}}</td>
+					<td>{{index+1}}</td>
+					<td>{{value.name}}</td>
+					<td>{{value.author}}</td>
+					<td>
+						<button type="button" @click="deletes(value)">删除</button>
+					</td>
 			</tr>
 			<tfoot>
 				<tr>
@@ -150,6 +154,15 @@
 						}
 					]
 				}
+			},
+			deletes(row){
+				let that=this;
+				for(var i in that.books){
+					if(row.id==that.books[i].id){
+						 that.books.splice(i, 1);
+					}
+				}
+				console.log(row);
 			}
 		}
 	}

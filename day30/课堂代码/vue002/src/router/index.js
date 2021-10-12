@@ -5,6 +5,8 @@ import VB from '@/components/AvalueBind'
 import IF from '@/components/IF'
 import FOR from '@/components/FOR'
 import EVENT from '@/components/EVENT'
+import COMPUTED from '@/components/computed'
+import WATCH from '@/components/watch'
 
 Vue.use(Router)
 
@@ -33,6 +35,16 @@ export default new Router({
 			path: '/event',
 			name: 'event',
 			component: EVENT
+		},
+		{
+			path: '/computed',
+			name: 'computed',
+			component: COMPUTED
+		},
+		{
+			path: '/watch',
+			name: 'watch',
+			component: WATCH
 		}
 	]
 })

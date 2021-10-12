@@ -44,7 +44,7 @@
 			},
 			//获取输入框的值
 			print(event){
-				console.log(event.target.value);
+				alert(event.target.value);
 			}
 		}
 	}

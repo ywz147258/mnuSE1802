@@ -5,6 +5,8 @@
 		<a href="/#/if">IF</a>
 		<a href="/#/for">FOR</a>
 		<a href="/#/EVENT">事件</a>
+		<a href="/#/computed">计算属性</a>
+		<a href="/#/watch">监听属性</a>
 		<router-view />
 	</div>
 </template>
