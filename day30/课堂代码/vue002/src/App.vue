@@ -8,6 +8,7 @@
 		<a href="/#/computed">计算属性</a>
 		<a href="/#/watch">监听属性</a>
 		<a href="/#/zujian">组件</a>
+		<a href="/#/axios">AJAX</a>
 		<router-view />
 	</div>
 </template>

@@ -8,6 +8,7 @@ import EVENT from '@/components/EVENT'
 import COMPUTED from '@/components/computed'
 import WATCH from '@/components/watch'
 import zujian from '@/components/组件'
+import AXIOS from '@/components/AXIOS'
 
 Vue.use(Router)
 
@@ -51,6 +52,11 @@ export default new Router({
 			path: '/zujian',
 			name: 'zujian',
 			component: zujian
+		},
+		{
+			path: '/axios',
+			name: 'axios',
+			component: AXIOS
 		}
 	]
 })

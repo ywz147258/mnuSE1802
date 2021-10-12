@@ -33,7 +33,7 @@
 				}
 			},
 			hot:{
-				type:String,
+				type:Number,
 				default(){
 					return "加载中"
 				}
@@ -45,7 +45,7 @@
 				}
 			},
 			top:{
-				type:String,
+				type:Number,
 				default(){
 					return "加载中"
 				}
