@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import VB from '@/components/AvalueBind'
 import IF from '@/components/IF'
 import FOR from '@/components/FOR'
+import EVENT from '@/components/EVENT'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
 			path: '/for',
 			name: 'for',
 			component: FOR
+		},
+		{
+			path: '/event',
+			name: 'event',
+			component: EVENT
 		}
 	]
 })
