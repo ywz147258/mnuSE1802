@@ -10,6 +10,7 @@ import WATCH from '@/components/watch'
 import zujian from '@/components/组件'
 import AXIOS from '@/components/AXIOS'
 import ELEMENTUI from '@/components/elementUI'
+import AE from '@/components/AJAXELEMENT'
 Vue.use(Router)
 
 export default new Router({
@@ -62,6 +63,11 @@ export default new Router({
 			path: '/elm',
 			name: 'elm',
 			component: ELEMENTUI
+		},
+		{
+			path: '/ae',
+			name: 'ae',
+			component: AE
 		}
 	]
 })

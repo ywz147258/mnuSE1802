@@ -10,6 +10,7 @@
 		<a href="/#/zujian">组件</a>
 		<a href="/#/axios">AJAX</a>
 		<a href="/#/elm">ELEMENTUI</a>
+		<a href="/#/ae">EL表格</a>
 		<router-view />
 	</div>
 </template>

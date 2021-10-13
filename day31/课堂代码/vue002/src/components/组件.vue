@@ -1,6 +1,8 @@
 <template>
 	<div id="">
-		<mh v-for="(item,index) in books" :name="item.bookName" :hot="item.hot" :detail="item.detail" :top="item.top">
+		<mh v-for="(item,index) in books" 
+		:name="item.bookName" 
+		:hot="item.hot" :detail="item.detail" :top="item.top">
 		</mh>
 	</div>
 </template>
