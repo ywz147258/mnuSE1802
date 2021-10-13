@@ -165,12 +165,9 @@ public class UserDao extends BaseDao<User>{
                 userR.setTel(rs.getString("tel"));
                 userR.setId(rs.getInt("id"));
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return userR;
     }
-
-
 }

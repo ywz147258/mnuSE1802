@@ -37,18 +37,53 @@
 				</dl>
 			</view>
 		</view>
+		<!-- 展示店铺列表 -->
+		<view id="storeList">
+			<store v-for="(item,index) in storeList" 
+			:appraise="item.appraise"
+			:avg="item.avg"
+			:km="item.km"
+			:minute="item.minute"
+			:sale="item.sale"
+			:score="item.score"
+			:title="item.title"
+			class="storeItem"></store>
+		</view>
 	</view>
 </template>
 
 
 <script>
+	import store from "../../component/store.vue";
 	import uniSearchBar from "../../components/uni-search-bar/uni-search-bar.vue"
 	export default{
 		components: {
-			uniSearchBar
+			uniSearchBar,
+			store
 		},
 		data(){
-			
+			return {
+				storeList:[
+					{
+						title:"塔斯汀中国汉堡",
+						score:4.7,
+						sale:"2000+",
+						avg:23,
+						minute:40,
+						km:2.7,
+						appraise:"非常好吃"
+					},
+					{
+						title:"暮雪亭",
+						score:4.8,
+						sale:"1000+",
+						avg:23,
+						minute:40,
+						km:2.7,
+						appraise:"非常好吃"
+					}
+				]
+			}
 		},
 		methods:{
 			search(res) {
@@ -61,9 +96,12 @@
 	}
 </script>
 <style>
-	
 	.content{
-		background-color: gainsboro;
+		margin-top: 20upx;
+		padding-top: 20upx;
+		border-top-left-radius: 10%;
+		border-top-right-radius: 10%;
+		background:linear-gradient(#FEFEFE,#F6F6F6);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -71,7 +109,7 @@
 	}
 	#top{
 		width: 700upx;
-		height: 70upx;
+		height: 100upx;
 	}
 	#labelView{
 		width: 700upx;
@@ -85,7 +123,7 @@
 		padding: 20upx;
 		padding-top: 10upx;
 		padding-bottom: 10upx;
-		background: ghostwhite;
+		background: #F1F1F1;
 		border-radius: 40%;
 		margin-left: 10upx;
 		
@@ -129,5 +167,12 @@
 	#imgBottom image{
 		height: 50upx;
 		width: 50upx;
+	}
+	.storeItem{
+		border-radius: 10upx;
+		box-shadow: 2px 1px 3px 0px rgba(0,0,0,0.4);
+		background-color: white;
+		margin-top: 30upx;
+		padding: 20upx;
 	}
 </style>
