@@ -12,6 +12,20 @@ Vue.use(VueAxios, axios)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
+/**
+ * @param {Object} url 		请求地址
+ * @param {Object} param	请求参数
+ * @param {Object} callBack	回调函数
+ */
+Vue.prototype.postAjax = function (url,param,callBack){//changeData是函数名
+  	var qs = require('qs');
+  	param = qs.stringify(param);
+  	this.axios.post(url,param)
+	.then((response) => {
+		callBack(response)
+	})
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -8,20 +8,20 @@
 		      fixed
 		      prop="id"
 		      label="主键"
-		      width="150">
+			  width="100"
+		      >
 		    </el-table-column>
 		    <el-table-column
 		      prop="name"
 		      label="书名"
-		      width="120">
+		      >
 		    </el-table-column>
 		    <el-table-column
 		      prop="href"
 		      label="连接"
-		      width="120">
+		      >
 		    </el-table-column>
 		    <el-table-column
-		      fixed="right"
 		      label="操作"
 		      width="100">
 		      <template slot-scope="scope">
@@ -31,6 +31,14 @@
 		      </template>
 		    </el-table-column>
 		  </el-table>
+		  <div class="block">
+		    <el-pagination
+		      layout="prev, pager, next"
+		      :total="count"
+			  :page-size="pageSize"
+			  @current-change="pageChange">
+		    </el-pagination>
+		  </div>
 	</div>
   </template>
 
@@ -38,28 +46,52 @@
     export default {
       data() {
         return {
-          tableData: [{
-            id: 1,
-            name: '斗破苍穹',
-            href: 'http://www.baidu.com'
-          },
-		  {
-		    id: 2,
-		    name: '斗破苍穹',
-		    href: 'http://www.baidu.com'
-		  },
-		  {
-		    id: 3,
-		    name: '斗破苍穹',
-		    href: 'http://www.baidu.com'
-		  },
-		  {
-		    id: 4,
-		    name: '斗破苍穹',
-		    href: 'http://www.baidu.com'
-		  }]
+          tableData: [],
+		  count:0,
+		  pageSize:5
         }
-      }
+      },
+	  mounted(){
+		let that=this;
+		//获取书本列表
+		this.getBookList(
+			{ 
+				start:0,
+				limit:that.pageSize,
+				name:"",
+			}
+		 );
+		this.getBookCount();
+	  },
+	  methods:{
+		  pageChange(nowPage){
+			  let that=this;
+			 let param={
+				 start:nowPage*that.pageSize-that.pageSize,
+				 limit:that.pageSize,
+				 name:""
+			 }
+			 that.getBookList(param);
+		  },
+		  getBookList(param){
+			  let that=this;
+			  this.postAjax("http://localhost:8082/book/getBooks",
+			  param
+			  ,function(data){
+			  	that.tableData=data.data;
+			  })
+		  },
+		  getBookCount(){
+			  let that=this;
+			  this.postAjax("http://localhost:8082/book/getBookCounts",
+			  {
+			  	name:''
+			  }
+			  ,function(data){
+			  	that.count=data.data;
+			  })
+		  }
+	  }
     }
   </script>
 
