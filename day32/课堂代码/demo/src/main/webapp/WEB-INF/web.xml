@@ -11,4 +11,13 @@
         <servlet-name>Demo</servlet-name>
         <url-pattern>/demoTest</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>formTest</servlet-name>
+        <servlet-class>com.ywz.controller.FormController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>formTest</servlet-name>
+        <url-pattern>/formTest</url-pattern>
+    </servlet-mapping>
 </web-app>
