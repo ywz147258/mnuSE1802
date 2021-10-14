@@ -15,9 +15,38 @@
     <servlet>
         <servlet-name>formTest</servlet-name>
         <servlet-class>com.ywz.controller.FormController</servlet-class>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>formTest</servlet-name>
         <url-pattern>/formTest</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>pattern</servlet-name>
+        <servlet-class>com.ywz.controller.PatternController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>pattern</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+
+    <contextparam>
+        <paramname>propsFile</paramname>
+        <paramvalue>config.properties</paramvalue>
+    </contextparam>
+
+    <welcome-file-list>
+        <welcome-file>
+            test.html
+        </welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.NullPointerException</exception-type>
+        <location>/exception.html</location>
+    </error-page>
 </web-app>

@@ -32,6 +32,34 @@
 	HttpServletRequest req, HttpServletResponse resp
 	req是请求，是从浏览器发送过来的请求
 	resp是响应，服务器把数据传回给浏览器的对象
+	
+7.获取值
+	String userName = req.getParameter("userName");
+	String psw =req.getParameter("psw");
 
+8.加载启动选项
+	在tomcat启动时把servlet加载好
+	1.在需要提前加载大量配置的时候，就可以用启动加载
+		有100000个配置需要加载，如果是在请求时加载，那么就要让用户等待加载时间。
+	2.提前链接数据库配置也可以用启动加载。
+	
+9.默认页
+	在web.xml下配置
+	<welcome-file-list>
+        <welcome-file>
+            test.html
+        </welcome-file>
+    </welcome-file-list>	
 
+10.配置错误页面
+	<error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+	
+	<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/exception.html</location>
+	</error-page>
 
+11.

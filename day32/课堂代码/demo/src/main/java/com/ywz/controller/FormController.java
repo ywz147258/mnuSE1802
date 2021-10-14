@@ -1,5 +1,6 @@
 package com.ywz.controller;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +9,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class FormController extends HttpServlet {
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        System.out.println("FormController初始化");
+    }
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doPost(req, resp);
