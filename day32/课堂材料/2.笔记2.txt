@@ -4,7 +4,7 @@
 	如果直接用浏览器访问xxx.jsp，浏览器是无法识别的。
 2.用idea创建web项目
 	
-3.请求方式
+3.请求方式（类型）
 	post
 		通过表单来传参
 		优点：可以传大文本
@@ -14,3 +14,24 @@
 		优点：请求速度快
 		缺点：没法传大文本，容易被攻击
 		?name=ywz&psw=123&detail=111
+	delete 
+	put
+	head
+	option
+	trace
+		
+4.ide
+	ide代码开发工具
+	hbuild、idea、myeclipse、eclipse、vscode
+
+5.线程
+	servlet和tomcat结合本身就是多线程
+	虽然是多线程，但是从头到尾都只会用一个servlet
+	
+6.请求和响应
+	HttpServletRequest req, HttpServletResponse resp
+	req是请求，是从浏览器发送过来的请求
+	resp是响应，服务器把数据传回给浏览器的对象
+
+
+

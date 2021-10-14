@@ -11,6 +11,22 @@ import java.io.PrintWriter;
 
 public class DemoController extends HttpServlet {
     @Override
+    public void init() throws ServletException {
+        super.init();
+        System.out.println("DemoController初始化");
+    }
+
+    public DemoController(){
+        System.out.println("DemoController构造函数");
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        System.out.println("DemoController被销毁");
+    }
+
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         super.doPost(req, resp);
     }
@@ -26,5 +42,12 @@ public class DemoController extends HttpServlet {
         out.println("<body bgcolor='red'>");
         out.println("<center>HelloWorld 世界你好！！！ ！！！</center>");
         out.println("</body></html>");
+        System.out.println("执行get");
+
+        System.out.println(Thread.currentThread().getName());
+
+        //打印请求地址
+        System.out.println("您的ip地址为:"+req.getRemoteAddr());
+
     }
 }
