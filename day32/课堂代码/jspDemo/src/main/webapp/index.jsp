@@ -17,7 +17,20 @@
 <% String str = "ywz";%>
 您的名字是：<%=str%><br/>
 
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>HREF</th>
+        </tr>
     <%
+        //一页有几条
+        Integer limit=5;
+        //当前是第几页
+        Integer nowPage=1;
+        if(request.getParameter("nowPage")!=null){
+            nowPage=Integer.valueOf(request.getParameter("nowPage"));
+        }
         Class.forName("com.mysql.jdbc.Driver");
         String url = "jdbc:mysql://localhost:3306/bookStore?useUnicode=true&characterEncoding=UTF-8";
         //数据库账号
@@ -26,18 +39,39 @@
         String password = "";
         //链接数据库
         Connection con = DriverManager.getConnection(url, user, password);
-        PreparedStatement ps = con.prepareStatement("select * from book");
+        PreparedStatement ps = con.prepareStatement("select * from book limit ?,?");
+        ps.setInt(1,nowPage);
+        ps.setInt(2,limit);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
-            String name=rs.getString("name");
-
         %>
-            <%=name%><br/>
+           <tr>
+               <td><%=rs.getInt("id")%></td>
+               <td><%=rs.getString("name")%></td>
+               <td><%=rs.getString("href")%></td>
+           </tr>
          <%
         }
-    rs.close();
-    ps.close();
-    con.close();
+     rs.close();
+     ps.close();
+    %>
+    </table>
+
+    <%
+        String sql="select count(1) as counts from book";
+        PreparedStatement psCount= con.prepareStatement(sql);
+        ResultSet rsCount= psCount.executeQuery();
+        Integer count = 0;
+        while(rsCount.next()){
+            count=rsCount.getInt("counts");
+        }
+        Double d1= Double.valueOf(count/limit);
+        int pages = (int)Math.ceil(d1);
+        for(int i=1;i<=pages;i++){ %>
+            <a href="index.jsp?nowPage=<%=i%>">第<%=i%>页</a>
+        <% }
+
+        con.close();
     %>
 
 
