@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,9 +18,24 @@ import java.util.List;
 
 @WebServlet(urlPatterns = {"/BookServlet"})
 public class BookServlet extends HttpServlet {
-    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
         try {
+//            String userName=request.getParameter("userName");
+//            String psw=request.getParameter("psw");
+//
+//            if(userName==null||psw==null){
+//                resp.sendRedirect("login.jsp");
+//            }
+
+            //通过session来判断是否登陆
+            if(request.getSession().getAttribute("isLogin")==null){
+                resp.sendRedirect("login.jsp");
+            }
+
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/bookStore?useUnicode=true&characterEncoding=UTF-8";
             //数据库账号
@@ -31,6 +47,7 @@ public class BookServlet extends HttpServlet {
 
             request.setCharacterEncoding("utf-8");
             String name =request.getParameter("keyWord");
+            if(name==null)name="";
             //验证账号密码
             String sql="select * from book where name like ?";
             PreparedStatement ps =con.prepareStatement(sql);

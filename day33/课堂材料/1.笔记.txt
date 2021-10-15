@@ -30,4 +30,24 @@
 	request.getAttribute(key);
 
 		
+5.会话（缓存）
+	session
+		存在于服务器
+		当我们用到分布式的时候，sesssion就不管用，因为session只存于一台服务器。
+		现在是用redis来代替分布式下的seession
+		如果是前后端分离，也不能用session，session只适用于前后端一体的项目。
+	
 		
+	cookies（比较少用）
+		存在本地的浏览器
+		cookie是由大小限制
+	何时使用cookie，何时使用session
+	
+	存一些无关紧要的东西时，可以放在cookie里
+	案例：
+		阅读网站，存你的阅读记录，读了100本，容量10K
+		这10K如果存session，用户有100W人，容量1000Wk=1000MB=1G
+		这1g是存在服务器的内存，会占用服务器资源。
+		存cookie就只会占用用户的硬盘空间。
+		
+	

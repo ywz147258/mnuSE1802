@@ -13,6 +13,7 @@
     <title>Title</title>
 </head>
 <body>
+    <a href="userInfo.jsp">查看个人信息</a><br>
     <%
         List<Book> list = (List<Book>) request.getAttribute("list");
     %>
