@@ -14,8 +14,16 @@
 </head>
 
 <body>
-<% String str = "ywz";%>
-您的名字是：<%=str%><br/>
+<%
+    request.setCharacterEncoding("utf-8");
+    String userName =request.getParameter("userName");
+    String psw =request.getParameter("psw");
+    //验证账号密码
+    String sql="select count(1) as counts from users where user_name =? and psw = ?";
+
+
+%>
+您好，尊敬的：<%=str%><br/>
 
     <table border="1">
         <tr>

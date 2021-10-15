@@ -14,8 +14,11 @@
 </head>
 
 <body>
-<% String str = "ywz";%>
-您的名字是：<%=str%><br/>
+<%
+    request.setCharacterEncoding("utf-8");
+    String str =request.getParameter("userName");
+%>
+您好，尊敬的：<%=str%><br/>
 
     <table border="1">
         <tr>
