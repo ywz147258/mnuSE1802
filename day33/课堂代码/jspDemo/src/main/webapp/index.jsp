@@ -15,15 +15,37 @@
 
 <body>
 <%
+    Class.forName("com.mysql.jdbc.Driver");
+    String url = "jdbc:mysql://localhost:3306/bookStore?useUnicode=true&characterEncoding=UTF-8";
+    //数据库账号
+    String user = "root";
+    //数据库的密码
+    String password = "";
+    //链接数据库
+    Connection con = DriverManager.getConnection(url, user, password);
+
     request.setCharacterEncoding("utf-8");
     String userName =request.getParameter("userName");
     String psw =request.getParameter("psw");
     //验证账号密码
     String sql="select count(1) as counts from users where user_name =? and psw = ?";
+    PreparedStatement psUser =con.prepareStatement(sql);
+    psUser.setString(1,userName);
+    psUser.setString(2,psw);
+    Integer userCount=0;
+    ResultSet rsUser = psUser.executeQuery();
+    while(rsUser.next()){
+        userCount=rsUser.getInt("counts");
+    }
 
-
+    if(userCount==0){%>
+        <script type="text/javascript">
+            alert("您的账户不存在");
+            location.href="login.jsp";
+        </script>
+    <%}
 %>
-您好，尊敬的：<%=str%><br/>
+您好，尊敬的：<%=userName%><br/>
 
     <table border="1">
         <tr>
@@ -39,14 +61,7 @@
         if(request.getParameter("nowPage")!=null){
             nowPage=Integer.valueOf(request.getParameter("nowPage"));
         }
-        Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/bookStore?useUnicode=true&characterEncoding=UTF-8";
-        //数据库账号
-        String user = "root";
-        //数据库的密码
-        String password = "";
-        //链接数据库
-        Connection con = DriverManager.getConnection(url, user, password);
+
         PreparedStatement ps = con.prepareStatement("select * from book limit ?,?");
         ps.setInt(1,nowPage);
         ps.setInt(2,limit);
@@ -66,8 +81,8 @@
     </table>
 
     <%
-        String sql="select count(1) as counts from book";
-        PreparedStatement psCount= con.prepareStatement(sql);
+        String sqlCount="select count(1) as counts from book";
+        PreparedStatement psCount= con.prepareStatement(sqlCount);
         ResultSet rsCount= psCount.executeQuery();
         Integer count = 0;
         while(rsCount.next()){
