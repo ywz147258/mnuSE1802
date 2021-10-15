@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -37,11 +38,13 @@ public class LoginServlet extends HttpServlet {
             while(rsUser.next()){
                 userCount=rsUser.getInt("counts");
             }
-            resp.setContentType("text/html;charset=utf-8");
-            resp.setCharacterEncoding("utf-8");
+            resp.setCharacterEncoding("utf-8");    //设置 HttpServletResponse使用utf-8编码
+            resp.setHeader("Content-Type", "text/html;charset=utf-8");    //通知浏览器使用utf-8解码
             //如果用户不存在
             if(userCount==0){
-                resp.sendRedirect("login.jsp?message=userName is no being");
+                String message="用户名不存在";
+                message=URLEncoder.encode(message,"utf-8");
+                resp.sendRedirect("login.jsp?message="+message);
             }else{
                 resp.sendRedirect("index.jsp");
             }
