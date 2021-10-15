@@ -1,0 +1,33 @@
+1.内置对象
+	不需要new的对象
+2.作用域
+	1.页面内
+		pageContext
+		response
+		out
+		config
+		page
+		excetion
+	1.5 request	
+	2.页面间
+		session
+		
+	3.线程间（浏览器之间、电脑间）
+		application.setAttribute("name")
+		
+3.跳转
+	1.重定向
+		sendRedirect();
+	2.转发
+		forward
+	区别：
+		转发可以保留请求
+		转发url地址并没有改变
+		
+4.请求属性
+	配合转发使用
+	request.setAttribute(key,Object);
+	request.getAttribute(key);
+
+		
+		
