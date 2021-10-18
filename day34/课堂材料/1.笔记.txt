@@ -1,0 +1,28 @@
+1.serlvetContext 上下文（承上启下）
+	1.作用域
+		多个线程间，JSP页面的appliaction就是servletContext new出来的对象
+		
+	2.用法
+		1.配置全局变量
+			ServletContext ctxt=this.getServletContext();
+			ctxt.setAtAttribute("name","ywz");
+			ctxt.getAttribute("name");
+			ctxt.removeAttribute("name");
+		2.获取配置参数
+			先在web.xml里配置
+			  <context-param>
+				<param-name>passWord</param-name>
+				<param-value>123</param-value>
+			  </context-param>
+			获取配置参数	
+			ctxt.getInitParameter("passWord")
+2.监听器和过滤器
+	1.监听器,类似于mysql的触发器
+		监听上下文
+			初始和销毁，ServletContextListener
+			监听上下的赋值，ServletContextAttributeListener
+		监听session
+		
+		
+	
+		

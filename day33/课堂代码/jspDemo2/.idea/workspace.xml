@@ -25,25 +25,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69f7f6a4-e9b0-4a50-ad34-4fdb67df7eca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/sessionDemo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/src/main/java/com/ywz/controller/BookServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/src/main/java/com/ywz/controller/LoginServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/src/main/java/com/ywz/entity/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/src/main/webapp/bookList.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sessionDemo/src/main/webapp/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/sevletContextDemo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/src/main/java/com/ywz/controller/AServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../day34/课堂代码/sevletContextDemo/src/main/java/com/ywz/controller/BServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ywz/controller/BookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ywz/controller/BookServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/ywz/controller/BookServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ywz/controller/BookServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jspDemo2.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/jspDemo2.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jspDemo2/WEB-INF/classes/com/ywz/controller/BookServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/jspDemo2/WEB-INF/classes/com/ywz/controller/BookServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jspDemo2/bookList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/jspDemo2/bookList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sessionDemo/src/main/java/com/ywz/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sessionDemo/src/main/java/com/ywz/controller/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sessionDemo/target/classes/com/ywz/controller/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../sessionDemo/target/classes/com/ywz/controller/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sessionDemo/target/sessionDemo.war" beforeDir="false" afterPath="$PROJECT_DIR$/../sessionDemo/target/sessionDemo.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sessionDemo/target/sessionDemo/WEB-INF/classes/com/ywz/controller/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../sessionDemo/target/sessionDemo/WEB-INF/classes/com/ywz/controller/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../课堂任务书/练习/1.jsp练习.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../课堂任务书/练习/1.jsp练习.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,6 +190,8 @@
       <option name="presentableId" value="Default" />
       <updated>1634265341293</updated>
       <workItem from="1634265343739" duration="9941000" />
+      <workItem from="1634519488703" duration="6000" />
+      <workItem from="1634519641953" duration="4000" />
     </task>
     <servers />
   </component>
@@ -210,6 +208,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="21" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1634268135286">

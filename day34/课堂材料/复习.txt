@@ -1,0 +1,37 @@
+1.servlet
+	一个接口，用于实现浏览器和服务器代码之间的交互
+	通过xml来配置
+	通过注解来配置
+2.tomcat的用法
+	项目打成war再放到tomcat里
+	1.tomcat直接用
+		把项目放在webapp里
+		配置端口：在conf文件夹下的server.xml
+		配置项目访问路径也是在server.xml
+	2.通过idea配置tomcat来进行项目的访问
+3.jsp
+	1.九大内置对象
+		页面内
+			pageContext
+		页面间
+			request
+			session
+		多线程间	
+			application
+	2.两种跳转方式
+		1.重定向
+			sendRedirect
+		2.转发
+			forward
+	3.<%%>、<%=%>
+
+4.会话
+	会话很重要，重要的是思维，而不是具体本身。
+	cookies
+		localStorage
+	
+	session
+		两个瞎子在对话，服务器是瞎子、浏览器也是瞎子。
+		那么服务器是怎么知道这次跟他的请求是来自于小明的浏览器还是小红的浏览器。
+		服务器是通过JSESSIONID来识别请求来自于哪台服务器。
+		redis

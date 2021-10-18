@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -47,7 +48,7 @@ public class LoginServlet extends HttpServlet {
             }else{
                 request.getSession().setAttribute("isLogin",true);
                 request.getSession().setAttribute("userName",userName);
-                
+
                 //如果匹配就跳到bookList.jsp
                 request.getRequestDispatcher("BookServlet").forward(request,resp);
             }
