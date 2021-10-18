@@ -2,6 +2,7 @@ package com.ywz.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ywz.entity.Result;
+import com.ywz.rediManage.RedisDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,8 +18,14 @@ public class BookListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doPost(req, resp);
         //判断session是否存在
+        String sessionId= req.getParameter("sessionId").toString();
+        String userName =req.getParameter("userName").toString();
+        RedisDao redisDao = new RedisDao();
+        String redisId =redisDao.get(userName);
         PrintWriter out=resp.getWriter();
-        if(req.getSession().getAttribute("isLogin")==null){
+
+
+        if (!sessionId.equals(redisId)){
             Result result = new Result();
             result.setCode("003");
             result.setMessage("用户未登录");

@@ -34,6 +34,9 @@
 					console.log(data);
 					if (data.data.success == "success") {
 						that.$message('登陆成功');
+						//把返回的sessionId存到localstorage里
+						localStorage.setItem("sessionId",data.data.message);
+						localStorage.setItem("userName",that.userName);
 						that.$router.push('/bookList');
 					} else {
 						that.$message(data.data.message);

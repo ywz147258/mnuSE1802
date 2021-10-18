@@ -3,8 +3,10 @@ package com.ywz.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.ywz.entity.Result;
 import com.ywz.entity.User;
+import com.ywz.rediManage.RedisDao;
 import com.ywz.service.UserService;
 import com.ywz.service.impl.UserServiceImpl;
+import com.ywz.tool.UserTool;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,10 +43,15 @@ public class LoginServlet extends HttpServlet {
             out.print(jsonObject);
         }else{
             //存sesssion
-            req.getSession().setAttribute("isLogin",true);
+//            req.getSession().setAttribute("isLogin",true);
+            //生成一个用户id
+            String sessionId= UserTool.generateUserId();
+            //存到redis
+            RedisDao redisDao = new RedisDao();
+            redisDao.set(userName,sessionId);
             Result result = new Result();
             result.setCode("002");
-            result.setMessage("用户存在");
+            result.setMessage(sessionId);
             result.setSuccess("success");
             JSONObject jsonObject = (JSONObject) JSONObject.toJSON(result);
             out.print(jsonObject);
