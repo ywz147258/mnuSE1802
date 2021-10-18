@@ -22,6 +22,9 @@
 			初始和销毁，ServletContextListener
 			监听上下的赋值，ServletContextAttributeListener
 		监听session
+		监听request请求
+		
+	2.过滤器
 		
 		
 	
