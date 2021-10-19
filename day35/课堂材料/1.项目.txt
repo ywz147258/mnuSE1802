@@ -1,0 +1,10 @@
+1.后端用servlet
+
+2.前端分为两个部分
+	C端
+		手机:uniapp
+		PC:vue
+	B端
+		vue+element-ui
+	
+	以上的vue都可以用html+jquery

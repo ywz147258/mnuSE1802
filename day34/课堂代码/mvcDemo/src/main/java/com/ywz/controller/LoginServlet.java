@@ -3,6 +3,7 @@ package com.ywz.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.ywz.entity.Result;
 import com.ywz.entity.User;
+import com.ywz.enums.CodeResult;
 import com.ywz.rediManage.RedisDao;
 import com.ywz.service.UserService;
 import com.ywz.service.impl.UserServiceImpl;
@@ -35,8 +36,8 @@ public class LoginServlet extends HttpServlet {
 
         if(isBeing==false){
             Result result = new Result();
-            result.setCode("001");
-            result.setMessage("用户不存在");
+            result.setCode(CodeResult.NoUser.getCode());
+            result.setMessage(CodeResult.NoUser.getMessage());
             result.setSuccess("fail");
             //把对象转json
             JSONObject jsonObject = (JSONObject) JSONObject.toJSON(result);
@@ -50,7 +51,7 @@ public class LoginServlet extends HttpServlet {
             RedisDao redisDao = new RedisDao();
             redisDao.set(userName,sessionId);
             Result result = new Result();
-            result.setCode("002");
+            result.setCode(CodeResult.UserLogin.getCode());
             result.setMessage(sessionId);
             result.setSuccess("success");
             JSONObject jsonObject = (JSONObject) JSONObject.toJSON(result);
